@@ -65,7 +65,7 @@
 			<label for="">Please state the reason for leaving us before you deactivate the account.</label>
 			<div style="color:#483D8B;">
 			<div >
-    			<input type="radio"  id="leaving" name="reason" value="dislike">
+    			<input type="radio"  id="leaving" name="reason" value="dislike" required>
    				<label  for="leaving">I don't like the online hardware store.</label>
    			<div >
    				<input type="radio"  id="leaving" name="reason" value="usability">

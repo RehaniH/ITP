@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <%@page import="com.nlhs.model.CustomerAddress" %>
+<%@page import="com.nlhs.model.Deactivated" %>
 <%@page import="java.util.ArrayList" %>
 <!DOCTYPE html>
 <html>
@@ -26,6 +27,7 @@
 		
 		if(request.getAttribute("Number") != null){
 			number = (String)request.getAttribute("Number");
+			
 		}
 	%>
 	
@@ -83,6 +85,7 @@
 				</select>
 			</div>
 		</div><!-- End of first row -->
+		<input type="hidden" name="num" value="<%=number %>">
 		
 		<input type="submit" value="Show Results" class="form-control" style="backgroud-color:#FFF5EE">
 		
@@ -94,22 +97,23 @@
 	<% CustomerAddress address = new  CustomerAddress();
 		address = (CustomerAddress)request.getAttribute("Search");
 		
-		ArrayList<CustomerAddress> list = new ArrayList<>();
-		if(request.getAttribute("list") != null){
-			list = (ArrayList)request.getAttribute("list");
 		
-		
-		
-		if(!list.isEmpty()){
-			
 		
 	
 	%>
 	
 	
-	<div class="container">
+	<div class="container" style="margin-bottom:30px;">
 		<table class="table table-striped table-bordered">
 			<%
+			ArrayList<CustomerAddress> list = new ArrayList<>();
+			if(request.getAttribute("list") != null){
+				list = (ArrayList)request.getAttribute("list");
+			
+			
+			
+			if(!list.isEmpty()){
+				
 				out.print("<thead>");
 					out.print("<tr>");
 						out.print("<th>" + "Customer ID"+ "</th>");
@@ -133,12 +137,104 @@
 				
 				}
 		
+		}else if(request.getAttribute("deactive")!= null){
+			Deactivated cus = new Deactivated();
+			ArrayList<Deactivated> dlist= new ArrayList<>();
+			dlist =(ArrayList)request.getAttribute("deactive");
+			String reason;
+			out.print("<thead>");
+			out.print("<tr>");
+				
+				out.print("<th>" + "Email"+ "</th>");
+				out.print("<th>" + "Reason for Leaving"+ "</th>");
+			out.print("</tr>");
+		out.print("</thead>");
+		
+		for(Deactivated ad: dlist){
+			out.print("<tbody>");
+			out.print("<tr>");
+				out.print("<td>" + ad.getEmail()+ "</td>");
+				
+				reason = ad.getReason();
+				if(reason.equalsIgnoreCase("fProducts"))
+					reason = "Faulty Products";
+				else if(reason.equalsIgnoreCase("dislike"))
+					reason = "Dislike the online store";
+				else if(reason.equalsIgnoreCase("usability"))
+					reason = "No future use";
+				else if(reason.equalsIgnoreCase("site"))
+					reason = "Poor User Experience";
+				else if(reason.equalsIgnoreCase("shipments"))
+					reason = "Problems in shipments";
+				else 
+					reason = "Not mentioned";
+			out.print("<td>" + reason+ "</td>");	
+			out.print("</tr>");
+			out.print("</tbody>");
 		}
+		
+		
+		
+		
 			%>
 			
 		
 		
 		</table>
+	</div>
+	<div class="container" style="margin-bottom:30px;">
+	<% out.print("<h5>" + "Statistics" + "</h5>"); %>
+	<table class="table table-bordered">
+	<%
+	
+		ArrayList<Deactivated> reasons = new ArrayList<>();
+	
+		if(request.getAttribute("Reason") != null){
+			reasons = (ArrayList)request.getAttribute("Reason");
+			
+			out.print("<thead>");
+			out.print("<tr>");
+				
+				out.print("<th>" + "Reasons"+ "</th>");
+				out.print("<th>" + "No of customers"+ "</th>");
+			out.print("</tr>");
+		out.print("</thead>");
+		
+		for(Deactivated num: reasons){
+			out.print("<tbody>");
+			out.print("<tr>");
+				
+				
+				reason = num.getReason();
+				if(reason.equalsIgnoreCase("fProducts"))
+					reason = "Faulty Products";
+				else if(reason.equalsIgnoreCase("dislike"))
+					reason = "Dislike the online store";
+				else if(reason.equalsIgnoreCase("usability"))
+					reason = "No future use";
+				else if(reason.equalsIgnoreCase("site"))
+					reason = "Poor User Experience";
+				else if(reason.equalsIgnoreCase("shipments"))
+					reason = "Problems in shipments";
+				
+			out.print("<td>" + reason+ "</td>");	
+			out.print("<td>" + num.getEmail() + "</td>");
+			out.print("</tr>");
+			out.print("</tbody>");
+		}
+		
+		
+		
+		
+		}//end second if
+	
+		}else{
+			out.print("No results found.");
+		
+		}
+	%>
+	
+	</table>
 	</div>
 	
 

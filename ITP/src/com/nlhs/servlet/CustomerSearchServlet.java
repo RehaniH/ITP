@@ -10,8 +10,10 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.nlhs.model.Customer;
 import com.nlhs.model.CustomerAddress;
 import com.nlhs.service.CustomerAddressService;
+import com.nlhs.service.DeactivatedCusService;
 
 /**
  * Servlet implementation class CustomerSearchServlet
@@ -44,16 +46,30 @@ public class CustomerSearchServlet extends HttpServlet {
 		doGet(request, response);
 		String district = request.getParameter("district");
 		String cType = request.getParameter("cType");
+		String number = request.getParameter("num");
 		System.out.print(district + " " + cType);
 		ArrayList list = new ArrayList();
+		Customer cus = new Customer();
 		CustomerAddress address = new CustomerAddress();
 		CustomerAddressService service = new CustomerAddressService();
+		if( cType.equalsIgnoreCase("all")) {//&& district == all
+			
+			
+			address.setDistrict(district);
+			
+			list = service.searchCustomer(address);
+			request.setAttribute("list", list);
+		}else if(cType.equalsIgnoreCase("deactivated")) {
+			DeactivatedCusService serv = new DeactivatedCusService();
+			list = serv.getDeactivatedCustomers();
+			request.setAttribute("deactive", list);
+			ArrayList reasonList = new ArrayList();
+			reasonList = serv.getReasons();
+			request.setAttribute("Reason", reasonList);
+			
+		}
 		
-		address.setDistrict(district);
-		
-		list = service.searchCustomer(address);
-		request.setAttribute("list", list);
-		
+		request.setAttribute("Number", number);
 		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/customerManagement.jsp");
 		dispatcher.forward(request, response);
 		

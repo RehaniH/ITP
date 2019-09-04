@@ -114,7 +114,7 @@
 		
 		<div class="form-group col-md-4" >
 			<label for="">Telephone Number:</label>
-			<input name="telephone" class="form-control" pattern="[0-9]{10}" value="<%=address.getTelephone() %>">
+			<input name="telephone" class="form-control" pattern="[0-9]{10}" maxlength="10" value="<%=address.getTelephone() %>">
 		</div>
 		
 		</div>

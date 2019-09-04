@@ -13,7 +13,7 @@ import javax.servlet.http.HttpSession;
 
 import com.nlhs.model.CustomerAddress;
 import com.nlhs.service.CustomerAddressService;
-import com.nlhs.service.OrderDetailsService;
+//import com.nlhs.service.OrderDetailsService;
 
 /**
  * Servlet implementation class DirectServlet
@@ -51,7 +51,7 @@ public class DirectServlet extends HttpServlet {
 		 * Set session variable from login
 		 */
 		 HttpSession session = request.getSession(); 
-		 session.setAttribute("UserName",  "reha@gmail.com");
+		 session.setAttribute("UserName",  "sashaparanwithana@gmail.com");
 		 
 		
 		ArrayList<CustomerAddress> list = new ArrayList<>();
@@ -81,13 +81,14 @@ public class DirectServlet extends HttpServlet {
 		}else //Direct to the profile page of a certain customer
 			if(request.getParameter("orderHistory") != null){
 				ArrayList order = new ArrayList();
-				OrderDetailsService serv = new OrderDetailsService();
+				//OrderDetailsService serv = new OrderDetailsService();
 				String cus = service.getCustomerId(userName);
 				
-				if(serv.getOrderDetails(cus) != null) {
-					order = serv.getOrderDetails(cus);
-					
-				}
+			/*
+			 * if(serv.getOrderDetails(cus) != null) { order = serv.getOrderDetails(cus);
+			 * 
+			 * }
+			 */
 			RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/OrderHistory.jsp");
 			dispatcher.forward(request, response);
 			

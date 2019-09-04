@@ -32,23 +32,18 @@
       </tr>
     </thead>
     <!-- For change of colors use style="background-color:#FFF5EE; -->
-    <tbody>
-      <tr>
-        <td>RE001</td>
-        <td>date</td>
-        <td>john@example.com</td>
-      </tr>
-      <tr>
-        <td>Mary</td>
-        <td>Moe</td>
-        <td>mary@example.com</td>
-      </tr>
-      <tr>
-        <td>July</td>
-        <td>Dooley</td>
-        <td>july@example.com</td>
-      </tr>
-    </tbody>
+    <%
+    	out.print("<tbody>");
+    	out.print("<tr>");
+    	out.print("<td>" + "" + "</td>");
+    	out.print("<td>" + "" + "</td>");
+    	out.print("<td>" + "" + "</td>");
+    	out.print("<td>" + "" + "</td>");
+    	out.print("</tr>");
+    	out.print("</tbody>");
+    
+    %>
+    
   </table>
 	</div>
 

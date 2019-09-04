@@ -38,20 +38,20 @@
 		</div>
 	</div>
 	
-	<div class="container-fluid">
+	<div class="container d-flex justify-content-center" >
 		<form action="RegisterServlet" method="post" onsubmit="return regVal()">
 
 			<div class="form-group row">
-				<label class="col-sm-1 col-form-label">email:</label>
-				<div class="col-sm-4">
+				<label class="col-sm-2 col-form-label">email:</label>
+				<div class="col-sm-6">
 					<input type="email"  class="form-control" name="email" id="inputEmail" required>
 					<div id="emailD" style="color:red;"></div>
 				</div>
 			</div>
 			
 			<div class="form-group row">
-			<label class="col-sm-1 col-form-label">password:</label>
-			<div class="col-sm-4">
+			<label class="col-sm-2 col-form-label">password:</label>
+			<div class="col-sm-6">
 				<input type="password" class="form-control" name="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
 				id="pass1" required>
 				<div id="pass1" style="color:red;"></div>

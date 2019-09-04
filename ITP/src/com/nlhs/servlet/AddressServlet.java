@@ -127,7 +127,8 @@ public class AddressServlet extends HttpServlet {
 			e.printStackTrace();
 		}
 		
-		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/CustomerAddresses.jsp");
+		request.setAttribute("customer", "redirect");
+		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/DirectServlet");
 		dispatcher.forward(request, response);
 	}
 

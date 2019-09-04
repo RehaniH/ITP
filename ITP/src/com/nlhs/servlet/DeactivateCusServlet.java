@@ -10,7 +10,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.nlhs.model.Customer;
+import com.nlhs.model.Deactivated;
 import com.nlhs.service.CustomerService;
+import com.nlhs.service.DeactivatedCusService;
 
 /**
  * Servlet implementation class DeactivateCusServlet
@@ -43,21 +45,29 @@ public class DeactivateCusServlet extends HttpServlet {
 		doGet(request, response);
 		Customer customer = new Customer();
 		CustomerService service = new CustomerService();
-		
+		Deactivated dcus = new Deactivated();
+		DeactivatedCusService dserv = new DeactivatedCusService();
 		String email = request.getParameter("user");
 		String password1 = request.getParameter("pass1");
 		String password2 = request.getParameter("pass2");
-		
+		String reason = request.getParameter("reason");
 		boolean result = service.comparePassword(password1, password2);
 		
 		if(result) {
 			customer.setEmail(email);
 			customer.setPassword(password1);
+			dcus.setEmail(email);
+			dcus.setReason(reason);
+			
 			int status = service.deactivateAccount(customer);
 			
 			if(status == 0) {
 				request.setAttribute("Status", status);
 				RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/settings.jsp");
+				dispatcher.forward(request, response);
+			}else {
+				dserv.insertDeactivated(dcus);
+				RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/index.jsp");
 				dispatcher.forward(request, response);
 			}
 			
