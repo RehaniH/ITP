@@ -64,7 +64,7 @@ public class SupplierProfileServlet extends HttpServlet {
 			     }
 				        
 			     else 
-			          response.sendRedirect("Error.jsp"); //error page 
+			          response.sendRedirect("Login.jsp"); //error page 
 			} 
 					
 					
