@@ -25,7 +25,6 @@
     <link rel="stylesheet" href="css/flaticon.css">
     <link rel="stylesheet" href="css/icomoon.css">
     <link rel="stylesheet" href="css/Supplierprofilestyle.css">
-    
  <!-- Header Styles -->
 <style>
 
@@ -53,7 +52,6 @@ div.h{
 		border-color: red green blue yellow;
 		margin-bottom:50px;	
 }
-
 			
 </style>
 </head>
