@@ -10,7 +10,6 @@
        }
        
     </script>
-  
   <!--TableStyles------------------------------------------->
   <style>			  
 		  input[type=reset] {
@@ -133,7 +132,7 @@
 						</label>
 					</div>
 					<br>
-					<input type="submit" value="Register" class="register-button"  /> 
+					<input type="submit" value="Register" class="register-button" onclick="showAlert()" /> 
 					<br>
 					<br>
 					<input type="reset" value="Reset" class="reset-button"/>
