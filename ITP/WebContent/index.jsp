@@ -40,7 +40,7 @@ img{
 </style>
 </head>
 <body>
-	<p>Login here</p>
+	<p>Now</p>
 	
 </body>
 </html>
