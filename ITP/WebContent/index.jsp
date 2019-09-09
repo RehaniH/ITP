@@ -41,6 +41,6 @@ img{
 </head>
 <body>
 	<p>Login here</p>
-	I have f=done s tupid thing
+	
 </body>
 </html>
