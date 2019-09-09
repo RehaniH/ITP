@@ -90,6 +90,7 @@ public class UpdateCusInfoServlet extends HttpServlet {
 				int result = service.changeDetails(customer);
 				
 				if(result > 0) {
+					
 					System.out.println("Successful");
 				}else
 					System.out.println("Unsuccessful");
