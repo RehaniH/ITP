@@ -251,17 +251,18 @@ public class SupplierServiceImpl implements ISupplierServices{
 		// Get the updated employee
 		return getSupplierbyID(supplierID);
 	}
+	
 	@Override
 	public void removeSupplier(String supplierID) {
-		// Before deleting check whether supplier ID is available
+		//Before deleting check whether supplier ID is available
 		if (supplierID != null && !supplierID.isEmpty()) {
-				
+			
 			System.out.print(supplierID);
 			
 					try {
 						connection = new DBConnection().getConnection();
 						
-						String removeQuery = " delete from supplier where supplier.supplierID = ?";
+						String removeQuery = " delete from supplier where supplierID = ?";
 						
 						preparedStatement = connection.prepareStatement(removeQuery);
 						preparedStatement.setString(1, supplierID);
@@ -285,13 +286,45 @@ public class SupplierServiceImpl implements ISupplierServices{
 						}
 					}
 				}
-
-			
 		}
 	
-	
-	
-	 //Profile service class
+	public void removeSupplierProfile(String emailAddress) {
+		
+		
+		if (emailAddress != null && !emailAddress.isEmpty()) {
+
+			System.out.print("Supplier "+emailAddress);
+			
+					try {
+						connection = new DBConnection().getConnection();
+						
+						String removeQuery = " delete from supplier where emailAddress = ?";
+						
+						preparedStatement = connection.prepareStatement(removeQuery);
+						preparedStatement.setString(1, emailAddress);
+						preparedStatement.executeUpdate();
+					} catch (SQLException | ClassNotFoundException e) {
+						log.log(Level.SEVERE, e.getMessage());
+					} finally {
+						/*
+						 * Close prepared statement and database connectivity at the end
+						 * of transaction
+						 */
+						try {
+							if (preparedStatement != null) {
+								preparedStatement.close();
+							}
+							if (connection != null) {
+								connection.close();
+							}
+						} catch (SQLException e) {
+							log.log(Level.SEVERE, e.getMessage());
+						}
+					}
+				}
+		
+		
+	}
 	
 	public void login(String email, String password) {
 		           
@@ -408,10 +441,10 @@ public class SupplierServiceImpl implements ISupplierServices{
 		    }
 	      
 		} catch (ClassNotFoundException e) {
-			// TODO Auto-generated catch block
+			
 			e.printStackTrace();
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
+			
 			e.printStackTrace();
 		}
 	   
@@ -419,14 +452,10 @@ public class SupplierServiceImpl implements ISupplierServices{
 	}
 	
 	public Supplier updateSupplierProfile(String supplierID, Supplier supplier) {
-		/*
-		 * Before fetching employee it checks whether employee ID is available
-		 */
+		
 
 		if (supplierID != null && !supplierID.isEmpty()) {
-			/*
-			 * Update employee query will be retrieved from EmployeeQuery.xml
-			 */
+			
 			try {
 				connection = new DBConnection().getConnection();
 				
@@ -463,15 +492,7 @@ public class SupplierServiceImpl implements ISupplierServices{
 				}
 			}
 		}
-		/*try {
-			connection.close();
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}*/
-		// Get the updated employee
 		
-		 
         try {
 			connection.close();
 		} catch (SQLException e) {

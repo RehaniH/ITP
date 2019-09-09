@@ -23,4 +23,7 @@ public interface ISupplierServices {
 
 	public Supplier updateSupplierProfile(String supplierID, Supplier supplier);
 
+	public void removeSupplierProfile(String emailAddress) ;
+
+
 }
