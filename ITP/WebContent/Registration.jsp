@@ -10,6 +10,7 @@
        }
        
     </script>
+  
   <!--TableStyles------------------------------------------->
   <style>			  
 		  input[type=reset] {
@@ -71,7 +72,11 @@
 	
 }
   </style>
-  
+    <script type="text/javascript"> 
+   function showAlert(){
+	   alert("Form has been submitted successfully !!!Your account will be activated after your supplier request is confirmed in 1-2 hours.!!Please try logging in an hour. Do not hesitate to contact us.")
+   }
+   </script>
 		<!-- MATERIAL DESIGN ICONIC FONT -->
 		<link rel="stylesheet" href="fonts/material-design-iconic-font/css/material-design-iconic-font.min.css">
 		
@@ -85,7 +90,7 @@
 		<div class="wrapper" style="background-image: url('images/downloadp.jpg');">
 			<div class="inner">
 			<div></div>
-				<form method="POST" action="./InsertSupplierServlets" onsubmit="return validLogin();">
+				<form method="POST" action="./InsertSupplierServlets" onsubmit="return showAlert();">
 					<h3>Registration Form</h3>
 					<div class="form-group">
 						<div class="form-wrapper">
@@ -111,7 +116,7 @@
 					</div>
 					<div class="form-wrapper">
 						<label for="">Contact Number</label>
-						<input type="number" name="contactNumber" class="form-control" maxlength = "15" required/>
+						<input type="number" name="contactNumber" class="form-control" size="50" maxlength = "30" required/>
 					</div>
 					<div class="form-wrapper">
 						<label for="">Email Address</label>
@@ -125,14 +130,15 @@
 						<label for="">Password</label>
 						<input type="password" name="password" class="form-control" size="50" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" required/>
 					</div>
-					<div class="checkbox">
-						<label>
-							<input type="checkbox" > I accept the Terms of Use & Privacy Policy.
-							<span class="checkmark"></span>
-						</label>
-					</div>
+					<div class="form-checkbox">
+					<label class="container">
+					<p>By signing up, you agree to the <a href="#" class="text">Term of Service</a></p>
+					  	<input type="checkbox" name="agree" id="agree">
+					  	<span class="checkmark"></span>
+					</label>
+				</div>
 					<br>
-					<input type="submit" value="Register" class="register-button" onclick="showAlert()" /> 
+					<input type="submit" value="Register" class="register-button" /> 
 					<br>
 					<br>
 					<input type="reset" value="Reset" class="reset-button"/>
