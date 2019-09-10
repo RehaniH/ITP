@@ -51,7 +51,10 @@ public class DirectServlet extends HttpServlet {
 		 * Set session variable from login
 		 */
 		 HttpSession session = request.getSession(); 
-		 session.setAttribute("UserName",  "sashaparanwithana@gmail.com");
+		 /**
+		  * Used for checking purposes
+		  */
+		 //session.setAttribute("UserName",  "sashaparanwithana@gmail.com");
 		 
 		
 		ArrayList<CustomerAddress> list = new ArrayList<>();
