@@ -1,0 +1,240 @@
+
+
+h3{
+	font-family:Arial Rounded MT Bold;
+}
+h2.userprof{
+	margin-left:42%;
+	font-family:Apple Chancery, cursive;
+	margin-left:160px;
+}
+
+h4{
+	font-family:monospace;
+}
+h1.head {
+	font-family:Arial Rounded MT Bold;
+	background-color:#0D1B40;
+	padding:2px;
+}
+
+h1.top {
+	font-family:Arial Rounded MT Bold;
+	padding:2px;
+	color:white;
+}
+
+img.profile{
+	border-radius: 20%;
+	display:block;
+	margin-left:20%;
+	margin-right:80%;
+	margin-top:20%;
+
+}
+
+/* css for type=text*/
+input[type=text], select, textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    margin-top: 10px;
+    margin-bottom: 16px;
+    resize: vertical;
+	margin-left:0px;
+	
+
+}
+
+/* css for type=email*/
+input[type=email], select, textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    margin-top: 10px;
+    margin-bottom: 16px;
+    resize: vertical;
+	margin-left:0px;
+	
+
+}
+
+/* css for type=password*/
+input[type=password], select, textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid black;
+    border-radius: 4px;
+    box-sizing: border-box;
+    margin-top: 10px;
+    margin-bottom: 16px;
+    resize: vertical;
+	background-color:white;
+}
+
+/* css for type=date*/
+input[type=date], select, textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    margin-top: 10px;
+    margin-bottom: 16px;
+    resize: vertical;
+	margin-left:0px;
+	
+
+}
+
+/* css for type=tel*/
+input[type=tel], select, textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    margin-top: 10px;
+    margin-bottom: 16px;
+    resize: vertical;
+	margin-left:0px;
+}
+
+/* css for type=submit*/
+input[type=submit] {
+    background-color:#0D1B40;
+    color: white;
+    padding: 20px 120px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+input[type=submit]:hover {
+    background-color:#2E63E5;
+}
+
+/* css for type=confirm*/
+input[type=confirm] {
+    background-color:blue;
+    color:black;
+    padding: 20px 120px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+
+
+.container {
+    border-radius: 5px;
+    background-color:white;
+    padding: 80px;
+	width:50%
+	
+}
+a.list-group-item{
+	
+	background-color:#0D1B40;
+    border: none;
+    color: white;
+    padding: 10px 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 0.25px 0.25px;
+    cursor: pointer;
+	border-radius: 10px;
+}
+a.list-group-item:hover{
+	
+	background-color:#2E63E5;
+}
+
+div.list-group{
+	
+	margin-left:85px;
+}
+div.thumbnail{
+	
+	margin-left:220px;
+	 width:50%;
+	height:50%;
+}
+
+a.ViewDetails{
+	
+	background-color:#19377F;
+    border: 0;
+	font-size: 14px;
+	font-weight: bold;
+    color: white;
+    padding: 11px 14px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    margin: 0px 0px;
+    cursor: pointer;
+	border-radius: 12px;
+}
+a.ViewDetails:hover{
+	
+	background-color:#2E63E5;
+}
+
+a.sendMes{
+	background-color:#19377F;
+    border: 0;
+	font-size: 14px;
+	font-weight: bold;
+    color: white;
+    padding: 11px 14px;
+    text-align:center;
+    text-decoration: none;
+    display: inline-block;
+    margin-left: 0px;
+    cursor: pointer;
+	border-radius: 12px;
+}
+a.sendMes:hover{
+	
+	background-color:#2E63E5;
+}
+a.fb-msg-btn{
+	background-color:#19377F;
+	border: 0;
+	font-size: 14px;
+	font-weight: bold;
+	color: white;
+	padding: 11px 14px;
+	text-align: center;
+	text-decoration:none;
+	display: inline-block;
+	margin-left:11px;
+	cursor: pointer;
+	outline: none;
+	border-radius: 12px; 
+
+}
+a:hover.fb-msg-btn { 
+background-color: #1C86D4; 
+}
+i.material-icons{
+	font-size:15px;
+	color:darkBlue;
+	margin-left:2.5px;
+}
+div.thumbnail{
+	
+	margin-left:150px;
+}
+
+div.container{
+	margin-left:-50px;
+}
+
