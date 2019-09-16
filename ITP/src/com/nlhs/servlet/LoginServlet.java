@@ -64,9 +64,10 @@ public class LoginServlet extends HttpServlet {
 			HttpSession session = request.getSession();
 			session.setAttribute("UserName", cus.getEmail());
 			session.setAttribute("CusPassword", cus.getPassword());
-			request.getRequestDispatcher("profile.jsp").include(request, response);
-			RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/profile.jsp");
-			dispatcher.forward(request, response);
+//			request.getRequestDispatcher("homePage.jsp").include(request, response);
+//			RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/homePage.jsp");
+//			dispatcher.forward(request, response);
+			request.getRequestDispatcher("homePage.jsp").include(request, response);
 
 		} else if (sup != null) {
 			Supplier newSup = new Supplier();
