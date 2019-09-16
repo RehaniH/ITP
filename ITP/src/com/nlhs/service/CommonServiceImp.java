@@ -10,6 +10,8 @@ import com.nlhs.model.Customer;
 import com.nlhs.model.Supplier;
 import com.nlhs.util.DBConnection;
 
+import comPula.RegisterUser;
+
 public class CommonServiceImp {
 
 	private static Connection connection;
@@ -49,10 +51,10 @@ public class CommonServiceImp {
 
 			}
 
-		} catch (ClassNotFoundException e) {
+		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		} catch (SQLException e) {
+		} catch (ClassNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
@@ -70,7 +72,12 @@ public class CommonServiceImp {
 		String query = "select * from customer where email = ? and password = ?";
 
 		try {
-			connection = DBConnection.getConnection();
+			try {
+				connection = DBConnection.getConnection();
+			} catch (ClassNotFoundException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 			preparedStatement = connection.prepareStatement(query);
 			preparedStatement.setString(1, email);
 			preparedStatement.setString(2, password);
@@ -87,9 +94,6 @@ public class CommonServiceImp {
 
 			return cus;
 
-		} catch (ClassNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
 		} catch (SQLException e) {
 
 			e.printStackTrace();
@@ -107,7 +111,12 @@ public class CommonServiceImp {
 		String query = "select * from supplier where emailAddress = ? and password = ?";
 
 		try {
-			connection = DBConnection.getConnection();
+			try {
+				connection = DBConnection.getConnection();
+			} catch (ClassNotFoundException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 			preparedStatement = connection.prepareStatement(query);
 			preparedStatement.setString(1, email);
 			preparedStatement.setString(2, password);
@@ -124,9 +133,6 @@ public class CommonServiceImp {
 
 			return sup;
 
-		} catch (ClassNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
 		} catch (SQLException e) {
 
 			e.printStackTrace();
@@ -134,5 +140,11 @@ public class CommonServiceImp {
 		return sup;
 
 	}// end method
+
+	public String isValidDelivery(String userName, String password) {
+		RegisterUser user = new RegisterUser();
+		String mess = user.logUser(userName, password);
+		return mess;
+	}
 
 }

@@ -51,6 +51,8 @@ public class LoginServlet extends HttpServlet {
 		admin = csi.isValidAdmin(email, password);
 		cus = csi.isValidCustomer(email, password);
 		sup = csi.isValidSupplier(email, password);
+		String delivery = "qwerty";
+		delivery = csi.isValidDelivery(email, password);
 
 		if (admin != null) {
 			System.out.println("inside  login Servlet: " + admin.getAid() + " , " + " admin");
@@ -83,6 +85,18 @@ public class LoginServlet extends HttpServlet {
 			request.getRequestDispatcher("SupplierProfile.jsp").include(request, response);
 			RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/SupplierProfile.jsp");
 			dispatcher.forward(request, response);
+
+		} else if (!(delivery.equals("qwerty"))) {
+			System.out.println(delivery);
+			if (delivery.startsWith("login")) {
+				String[] details;
+				details = delivery.split("/");
+				HttpSession session = request.getSession();
+				session.setAttribute("IDD", details[1]);
+				response.sendRedirect("details.jsp");
+			} else {
+				response.sendRedirect("index.jsp?mess=" + delivery);
+			}
 
 		} else {
 			HttpSession session = request.getSession();
