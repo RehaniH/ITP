@@ -44,11 +44,7 @@ public class UpdateSupplierServlet extends HttpServlet {
 		System.out.println("UpdateEmp servlet.....");
 				
 				response.setContentType("text/html");
-                 
-				/*
-				 * Session
-				 * 
-				 */	
+                
 				Supplier supplier = new Supplier();
 				String supplierID = request.getParameter("supplierID");	
 				supplier.setSupplierID(supplierID);

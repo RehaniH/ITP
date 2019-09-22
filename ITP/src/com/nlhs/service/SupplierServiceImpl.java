@@ -26,40 +26,13 @@ public class SupplierServiceImpl implements ISupplierServices{
 	static ResultSet rs= null;
 	boolean results;
 	
-	/*
-	static {
-		createSupplierTable();
-		
-	}*/
-	
 	private PreparedStatement preparedStatement;
-	/*
-	public static void createSupplierTable() {
 
-		try {
-			connection = DBConnectionUtil.getDBConnection();
-			statement = connection.createStatement();
-			// Drop table if already exists and as per SQL query available in
-			// Query.xml
-			statement.executeUpdate();
-			// Create new employees table as per SQL query available in
-			// Query.xml
-			//*
-		     statement.executeUpdate();
-
-		} catch (SQLException | SAXException | IOException | ParserConfigurationException | ClassNotFoundException e) {
-			log.log(Level.SEVERE, e.getMessage());
-		}
-		
-	}
-	
-	*/
-	//adding suppliers to database
 	public void addSupplier(Supplier supplier) {
 
 		String SupplierID = GenerateSupplierID.generateSupplierIDs(getSupplierIDs());
 		supplier.setSupplierID(SupplierID);
-		//Continue from here
+		
 		String sqlInsertQuery =  "insert into supplier(supplierID,firstName,lastName,companyName,productCategory,contactNumber,emailAddress,address,password) values(?,?,?,?,?,?,?,?,?)";
 		
 		
@@ -67,10 +40,7 @@ public class SupplierServiceImpl implements ISupplierServices{
 			connection = new DBConnection().getConnection();
 			
 			preparedStatement = connection.prepareStatement(sqlInsertQuery);
-			
-			//Generate employee IDs
-			//supplier.setSupplierID(SupplierID);
-			
+	
 			preparedStatement.setString(1,supplier.getSupplierID());
 			preparedStatement.setString(2,supplier.getFirstName());
 			preparedStatement.setString(3,supplier.getLastName());
@@ -89,10 +59,7 @@ public class SupplierServiceImpl implements ISupplierServices{
 		} catch (SQLException | ClassNotFoundException e) {
 			log.log(Level.SEVERE, e.getMessage());
 		} finally {
-			/*
-			 * Close prepared statement and database connectivity at the end of
-			 * transaction
-			 */
+			
 			try {
 				if (preparedStatement != null) {
 					preparedStatement.close();
@@ -205,13 +172,9 @@ public class SupplierServiceImpl implements ISupplierServices{
 	}
 	@Override
 	public Supplier updateSupplier(String supplierID, Supplier supplier) {
-		/*
-		 * Before fetching employee it checks whether employee ID is available
-		 */
+		
 		if (supplierID != null && !supplierID.isEmpty()) {
-			/*
-			 * Update employee query will be retrieved from EmployeeQuery.xml
-			 */
+			
 			try {
 				connection = new DBConnection().getConnection();
 				
@@ -232,10 +195,7 @@ public class SupplierServiceImpl implements ISupplierServices{
 			} catch (SQLException | ClassNotFoundException e) {
 				log.log(Level.SEVERE, e.getMessage());
 			} finally {
-				/*
-				 * Close prepared statement and database connectivity at the end
-				 * of transaction
-				 */
+				
 				try {
 					if (preparedStatement != null) {
 						preparedStatement.close();
@@ -248,13 +208,13 @@ public class SupplierServiceImpl implements ISupplierServices{
 				}
 			}
 		}
-		// Get the updated employee
+		
 		return getSupplierbyID(supplierID);
 	}
 	
 	@Override
 	public void removeSupplier(String supplierID) {
-		//Before deleting check whether supplier ID is available
+	
 		if (supplierID != null && !supplierID.isEmpty()) {
 			
 			System.out.print(supplierID);
@@ -270,10 +230,7 @@ public class SupplierServiceImpl implements ISupplierServices{
 					} catch (SQLException | ClassNotFoundException e) {
 						log.log(Level.SEVERE, e.getMessage());
 					} finally {
-						/*
-						 * Close prepared statement and database connectivity at the end
-						 * of transaction
-						 */
+						
 						try {
 							if (preparedStatement != null) {
 								preparedStatement.close();
@@ -369,7 +326,7 @@ public class SupplierServiceImpl implements ISupplierServices{
 	            System.out.println("Sorry, you are not a registered user! Please sign up first");
 	            supplier.setValid(false);
 	         } 
-	    //if user exists set the isValid variable to true
+	   
 	         else if (more) 
 	         {
 	            String firstName = rs.getString("firstName");
@@ -395,8 +352,7 @@ public class SupplierServiceImpl implements ISupplierServices{
     {
        System.out.println("Log In failed: An Exception has occurred! " + ex);
     } 
-	//some exception handling
-   
+	
 	 return supplier;
 	}
 	
@@ -476,10 +432,7 @@ public class SupplierServiceImpl implements ISupplierServices{
 			} catch (SQLException | ClassNotFoundException e) {
 				log.log(Level.SEVERE, e.getMessage());
 			} finally {
-				/*
-				 * Close prepared statement and database connectivity at the end
-				 * of transaction
-				 */
+				
 				try {
 					if (preparedStatement != null) {
 						preparedStatement.close();
@@ -496,19 +449,12 @@ public class SupplierServiceImpl implements ISupplierServices{
         try {
 			connection.close();
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
+			
 			e.printStackTrace();
 		}
         
 		return getSupplierbyID(supplierID);
 	
 	}
-	
-	
-	
-	
+
 }
-
-
-
-

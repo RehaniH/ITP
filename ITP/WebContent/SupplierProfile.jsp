@@ -100,10 +100,10 @@
     			</div>
     			<div class="col-md-4">
     				<div class="blog-entry ftco-animate">
-							<a href="#" class="img img-2" style="background-image: url(images/stocklevel-imag.jpg);"></a>
+							<a href="StockLevelInformation.jsp" class="img img-2" style="background-image: url(images/stocklevel-imag.jpg);"></a>
 							<div class="text text-2 pt-2 mt-3">
-								<span class="category mb-3 d-block"><a href="#">Stock Details</a></span>
-	              <h3 class="mb-4"><a href="#">Stock Level Up To Date</a></h3>
+								<span class="category mb-3 d-block"><a href="StockLevelInformation.jsp">Stock Details</a></span>
+	              <h3 class="mb-4"><a href="StockLevelInformation.jsp">Stock Level Up To Date</a></h3>
 	              <p class="mb-4">If you need to view the stock level supplied by your company and the remaining stock. Information about the stock will be over here.  </p>
 	                  
 	             </div>
