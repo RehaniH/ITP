@@ -325,4 +325,41 @@ public class CustomerAddressService {
 		
 		
 	}
+	
+	public boolean getExistance(String userName) {
+		
+		int num = 0;
+		
+		query="select count(customer_id) from customer_address where is_billing = ? and is_delivery = ? and email = ?";
+		
+		try {
+			conn =DBConnection.getConnection();
+			statement = conn.prepareStatement(query);
+			statement.setBoolean(1, false);
+			statement.setBoolean(2, true);
+			statement.setString(3, userName);
+			ResultSet results = statement.executeQuery();
+			
+			
+			while(results.next()) {
+				num = Integer.parseInt(results.getString(1));
+			}
+			
+			if(num == 0) {
+				return false;
+			}else
+				return true;
+				
+			
+			
+		} catch (ClassNotFoundException e) {
+			
+			e.printStackTrace();
+		} catch (SQLException e) {
+			
+			e.printStackTrace();
+		}
+		return false;
+		
+	}
 }

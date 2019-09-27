@@ -32,24 +32,24 @@
         </header>
 	
 	<div class="form-wrap">	
-		<form method="GET">
+		<form method="post" action="PurchaseAddressServlet">
             
                 <h1>Enter New Address</h1>
-				<input type="text" placeholder="Social Status" required>
-                <input type="text" placeholder="First Name" required>
-                <input type="text" placeholder="Last Name" required>
-                <input type="text" placeholder="Address Line 1" required>
-                <input type="text" placeholder="Address Line 2" required>
-                <input type="text" placeholder="City" required>
-                <input type="text" placeholder="District" required>
-                <input type="number" placeholder="Postal Code" required>
-                <input type="number" placeholder="Telephone Number" required>
-                <input type="email"  placeholder="Enter your email">
+				<input type="text" name="social" placeholder="Social Status" required>
+                <input type="text" name="fname" placeholder="First Name" required>
+                <input type="text" name="lname" placeholder="Last Name" required>
+                <input type="text" name="no" placeholder="Address Line 1" required>
+                <input type="text" name="street" placeholder="Address Line 2" required>
+                <input type="text" name="city" placeholder="City" required>
+                <input type="text" name="district" placeholder="District" required>
+                <input type="number" name="postal" placeholder="Postal Code" required>
+                <input type="number" name="tele" placeholder="Telephone Number" required>
+                <input type="email" name="email"  placeholder="Enter your email">
                 
                
              
                 
-           		<button class="btn btn-primary btn-purchase" input type="submit">PROCEED TO PAYMENTS</button>
+           		<button class="btn btn-primary btn-purchase"  type="submit">PROCEED TO PAYMENTS</button>
           	   </form>
             
             

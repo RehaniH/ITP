@@ -118,5 +118,46 @@ public class CartServiceImp {
 		}
 
 	}
+	
+	public float getCartTotal(String userName) {
+		String query = "select SUM(pValue) from cart where cusEmail=?";
+		float amount = 0;
+		try {
+			connection = DBConnection.getConnection();
+			preparedStatement = connection.prepareStatement(query);
+			preparedStatement.setString(1, userName);
+			ResultSet result = preparedStatement.executeQuery();
+			
+			while(result.next()) {
+				amount = result.getFloat(1);
+			}
+			return amount;
+			
+		} catch (ClassNotFoundException e) {
+			
+			e.printStackTrace();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return amount;
+	}
 
+	public void removeCart(String userName) {
+		String query = "delete from cart where cusEmail = ?";
+		try {
+			connection = DBConnection.getConnection();
+			preparedStatement = connection.prepareStatement(query);
+			preparedStatement.setString(1, userName);
+			preparedStatement.executeUpdate();
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		
+	}
 }
