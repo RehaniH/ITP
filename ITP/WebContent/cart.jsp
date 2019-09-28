@@ -7,7 +7,7 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Insert title here</title>
+<title>NEW LANKA HARDWARE STORE|CART</title>
 </head>
 <body>
 
@@ -19,7 +19,7 @@
   %>
   
   
-  <table border="1" cellpadding="12">
+  <table border="0" cellpadding="12">
 		 <caption><h2>List of Items</h2></caption>
 		
 		  <tr>
