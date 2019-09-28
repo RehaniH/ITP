@@ -26,16 +26,13 @@
     </style>
     </head>
     <body>
-        <header class="main-header">
-          
-            <h1 class="band-name band-name-large">New Lanka Hardware</h1>
-        </header>
-	
+
 	<div class="form-wrap">	
 		<form method="GET">
             
-                <h1>Enter New Address</h1>
-				<input type="text" placeholder="Social Status" required>
+                <h1>YOUR INFORMATION</h1>
+		<h2>PURCHASE DELIVERY ADDRESS</h2>
+		<input type="text" placeholder="Social Status" required>
                 <input type="text" placeholder="First Name" required>
                 <input type="text" placeholder="Last Name" required>
                 <input type="text" placeholder="Address Line 1" required>
@@ -49,7 +46,7 @@
                
              
                 
-           		<button class="btn btn-primary btn-purchase" input type="submit">PROCEED TO PAYMENTS</button>
+           		<button class="btn btn-primary btn-purchase" input type="submit"><a href="paymentgateway.jsp">PROCEED TO PAYMENTS</a></button>
           	   </form>
             
             

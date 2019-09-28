@@ -8,6 +8,22 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>NEW LANKA HARDWARE STORE|CART</title>
+
+<style>
+.button {
+  background-color: #4CAF50; /* Green */
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+
+</style>
 </head>
 <body>
 
@@ -20,7 +36,7 @@
   
   
   <table border="0" cellpadding="12">
-		 <caption><h2>List of Items</h2></caption>
+		 <caption><h2>ITEMS ADDED TO YOUR CART</h2></caption>
 		
 		  <tr>
                 <th>Item ID</th>
@@ -75,10 +91,9 @@
         				
 				</table>
         			<p><b>Grand Total  </b><b>RS : <%=sum %>  </b>  </p>
-        			<br><button ><a href="PurchaseDeliveryAddress.jsp">Proceed Purchase</a></button>
+        			<br><button class="button"><a href="PurchaseDeliveryAddress.jsp">Proceed to Purchase</a></button>
 				
-				
-        			
+					
     		
     
 </body>
