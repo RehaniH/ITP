@@ -20,7 +20,7 @@ public class OrderService {
 	
 	public void addOrder(Orders or) {
 		 
-		query = "INSERT INTO order(order_id, email, item_id, p_name, unit_price, quantity, p_value) VALUES (?, ?, ?, ?, ?, ?, ?)";
+		query = "INSERT INTO orders(order_id, email, item_id, p_name, unit_price, quantity, p_value) VALUES(?, ?, ?, ?, ?, ?, ?)";
 		try {
 			
 			connection = DBConnection.getConnection();
