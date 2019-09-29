@@ -47,7 +47,7 @@
   background-image: url('/css/searchicon.png');
   background-position: 10px 10px;
   background-repeat: no-repeat;
-  width: 100%;
+  width: 50%;
   font-size: 16px;
   padding: 12px 20px 12px 40px;
   border: 1px solid #ddd;
@@ -133,8 +133,10 @@
  
 <table>
         	<h4>You can get a pdf of the current suppliers in the store.</h4>
-	        <a href="SupplierReport.jsp">Current Suppliers</a>
-	        <!-- SupReport.jsp -->
+        	<form  action="SupReport.jsp">	
+				 <input type="submit" value= "Current Suppliers" class="select-button" /> 
+		    </form>
+	        
 </table> 
     <script>
 		function myFunction() {

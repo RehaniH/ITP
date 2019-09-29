@@ -44,7 +44,7 @@ try
     document.open();
 
     /* new paragraph instance initialized and add function write in pdf file*/
-    document.add(new Paragraph("---------------------------------------------------------Current suppliers---------------------------------------------------\n\n"));
+    document.add(new Paragraph("-------------------------------------------------------Current suppliers---------------------------------------------------\n\n"));
    
     document.add(new Paragraph("---------------------------------------------------------------------------------------------------------------------------------"));
     document.addCreationDate();

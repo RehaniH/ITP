@@ -15,7 +15,7 @@
     width: 100%;
     border: 1px solid #ddd;
     }
-
+    
     th, td {
       text-align: left;
       padding: 8px;
@@ -99,21 +99,58 @@
                     </div>
                 </div>
             </div>
-        </div>
+        
 	<!-- Stock -->
 	
 	<!-- Tables to see the stock level of the supplier product category -->
+	<div class="container">
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+	<form method="POST" action="" >
+		<table>
+			
+			<tr>
+				<td>First Name</td>
+				<td><input type="text" name="firstName"
+					value="<%=currentUser.getFirstName()%>" maxlength = "15" disabled/></td>
+			</tr>
+			<tr>
+				<td>Last Name</td>
+				<td><input type="text" name="lastName"
+					value="<%=currentUser.getLastName() %>" maxlength = "15" disabled/></td>
+			</tr>
+			<tr>
+				<td>Company Name</td>
+				<td><input type="text" name="companyName"
+					value="<%=currentUser.getCompanyName() %>" maxlength = "30" disabled/></td>
+			</tr>
+			<tr>
+				<td>Product Category</td>
+				<td><select name="productCategory" class="form-control" disabled >
+				          <option value="Electricals" class="form-control" >Electrical</option>
+				  		  <option value="Plumbing"  class="form-control">Plumbing</option>
+				  	      <option value="Paint"  class="form-control">Paint</option>
+				         </select></td>
+			</tr>
+			<tr>
+				<td>Contact Number</td>
+				<td><input type="number" name="contactNumber"
+					value="<%=currentUser.getContactNumber() %>" maxlength = "15" disabled/></td>
+			</tr>
+			<tr>
+				<td>Email Address</td> 
+				<td><input type="email" name="emailAddress"
+					value="<%=currentUser.getEmailAddress() %>" maxlength = "35" disabled/></td>
+			</tr>
+			<tr>
+				<td>Address</td>
+				<td><input type="text" name="address"
+					value="<%=currentUser.getAddress() %>" maxlength = "45" disabled/></td>
+			</tr>
+			<tr></tr>
+		</table>
+	</form>
+	</div>
+	</div>
 	</div>
 
   <script src="js/jquery.min.js"></script>

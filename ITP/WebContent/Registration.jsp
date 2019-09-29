@@ -12,18 +12,16 @@
     </script>
   <!--TableStyles------------------------------------------->
   <style>	
-  
-  
-  
 <link href="css/Supplierstyle.css" rel="stylesheet" type="text/css" media="all">
 <link href="css/font-awesome.min.css" rel="stylesheet" type="text/css" media="all">		  
 		  input[type=reset] {
 		  background-color: #4CAF50;
 		  color: white;
-		  padding: 12px 82px;
+		  padding: 12px 50px;
 		  border: none;
 		  border-radius: 15px;
-		  cursor: pointer;		   
+		  cursor: pointer;
+		  width: 200px;
 		  }
 		  		
 		  input[type=reset]:hover {  
@@ -89,8 +87,6 @@
 		<link rel="stylesheet" href="bootstrap/css/RegSupstyle.css">
 	</head>
 	<body>
-		  
-	
 	
 		<div class="wrapper" style="background-image: url('images/downloadp.jpg');" >
 			<div class="inner">

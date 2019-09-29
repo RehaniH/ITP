@@ -9,6 +9,7 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>UpdateSupplier</title>
+<link rel="stylesheet" type = "text/css" href="./SupplierStyle.css"/>
 <!--TableStyles------------------------------------------->
 	  <style>
 	    table {
@@ -129,8 +130,10 @@
  </form> 
  
      <h5>The updates of the suppliers are shown here.</h5>
-     <a href="UpdateReport.jsp">Suppliers</a>
- 
+          <form  action="UpdatedDynamReport.jsp">	
+				 <input type="submit" value= "Updates of Suppliers" class="select-button" /> 
+		    </form>
+		    
      <!-- UpdatedDynamicReport.jsp -->
     <script>
 		function myFunction() {
