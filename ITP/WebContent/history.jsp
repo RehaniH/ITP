@@ -307,7 +307,7 @@ $(document).ready(function() {
                     <div class="form-destination">
                     <font color="White">
                         <label for="destination">Order ID</label></font>
-                        <input type="text" id="order_id" class="order_id" placeholder="" />
+                        <input type="text" id="order_id" class="order_id" placeholder="OR1" />
                     </div>
                     <div class="form-date-from form-icon">
                      <font color="White">
