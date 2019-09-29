@@ -28,6 +28,7 @@
 
   <body>
   <%Admin admin = new Admin(); %>
+  
   <%if(session.getAttribute("UserID") == null){
 	  request.getRequestDispatcher("index.jsp").include(request, response);  
   }else{
