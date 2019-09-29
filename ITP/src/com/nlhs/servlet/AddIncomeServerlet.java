@@ -27,10 +27,10 @@ public class AddIncomeServerlet extends HttpServlet {
 	}
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		doGet(request, response);
-		System.out.println("Add Servlet...........");
+		System.out.println("Add Income...........");
 		
 		Income income = new Income();
-		
+		income.setDate(request.getParameter("date"));
 		income.setType(request.getParameter("type"));
 		income.setValue(request.getParameter("value"));
 		
@@ -40,7 +40,7 @@ public class AddIncomeServerlet extends HttpServlet {
 		incomeService.addIncome(income);
 		
 		request.setAttribute("income", income);
-		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/profit/pView.jsp");
+		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/profit/viewIncome.jsp");
 		dispatcher.forward(request, response);
 	}
 

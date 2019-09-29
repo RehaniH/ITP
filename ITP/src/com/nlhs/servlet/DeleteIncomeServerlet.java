@@ -34,9 +34,8 @@ public class DeleteIncomeServerlet extends HttpServlet {
 		
 		IncomeService incomeService = new IncomeServiceImpl();
 		incomeService.removeIncome(incomeID);
-
-		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/profit/pView.jsp");
-		dispatcher.forward(request, response);
+	RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/profit/viewIncome.jsp");
+	dispatcher.forward(request, response);
 
 	}
 

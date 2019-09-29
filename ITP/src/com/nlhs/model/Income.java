@@ -2,6 +2,7 @@ package com.nlhs.model;
 
 public class Income {
 	
+	private String Date;
 	private String IncomeID;
 	private String Type;
 	private String Value;
@@ -10,13 +11,29 @@ public class Income {
 		
 	}
 	
-	public Income(String ID,String Itype,String Ivalue) {
-		
-		super();
-		this.IncomeID=ID;
-		this.Type=Itype;
-		this.Value=Ivalue;
+	
+
+	public String getDate() {
+		return Date;
 	}
+
+
+
+	public void setDate(String date) {
+		Date = date;
+	}
+
+
+
+	public Income(String date, String incomeID, String type, String value) {
+		super();
+		Date = date;
+		IncomeID = incomeID;
+		Type = type;
+		Value = value;
+	}
+
+
 
 	public String getIncomeID() {
 		return IncomeID;
@@ -42,10 +59,14 @@ public class Income {
 		Value = value;
 	}
 
+
+
 	@Override
 	public String toString() {
-		return "Income [IncomeID=" + IncomeID + ", Type=" + Type + ", Value=" + Value + "]";
+		return "Income [Date=" + Date + ", IncomeID=" + IncomeID + ", Type=" + Type + ", Value=" + Value + "]";
 	}
+
+	
 	
 	
 

@@ -35,7 +35,7 @@ public class DeleteExpenseServerlet extends HttpServlet {
 		ExpenseService expenseService = new ExpenseServiceImpl();
 		expenseService.removeExpense(expenseID);
 
-		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/profit/pView.jsp");
+		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/profit/viewExpense.jsp");
 		dispatcher.forward(request, response);
 
 		

@@ -1,13 +1,19 @@
+<%@page import ="com.nlhs.model.Income" %>
+<%@page import ="java.util.ArrayList" %>
+<%@page import ="com.nlhs.service.IncomeService" %>
+<%@page import ="com.nlhs.service.IncomeServiceImpl" %>
+
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <html>
-	<head>
-		<meta charset="ISO-8859-1">
-		<title>New Lanka</title>
-		<meta charset="utf-8">
-  		<meta name="viewport" content="width=device-width, initial-scale=1">
-  		<style>
+<head>
+<meta charset="ISO-8859-1">
+<title>New Lanka</title>
+
+<meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
   			* {
   			box-sizing: content-box;
   			
@@ -145,9 +151,28 @@ input[type=submit]:hover {
    				background-color: black;
    				color: white;
    				text-align: center;}
+   				input[type=search] {
+  width: 130px;
+  box-sizing: border-box;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+  background-color: white;
+  background-image: url('searchicon.png');
+  background-position: 10px 10px; 
+  background-repeat: no-repeat;
+  padding: 12px 20px 12px 40px;
+  -webkit-transition: width 0.4s ease-in-out;
+  transition: width 0.4s ease-in-out;
+}
+
+input[type=search]:focus {
+  width: 80%;
+}
 		</style>
   
-  </head>
+
+</head>
 <body>
 
 	<header>
@@ -160,55 +185,75 @@ input[type=submit]:hover {
   			</div>
 		</div>
 	</header>
-		<h1 align="center">Profit Management</h1>
-		<h1 align="center">Expense</h1>
-	<div class="container">
-	<form method="post" action="../AddExpenseServerlet" >
+	<div>
+	<h2 align="center">INCOME</h2>
+<input type="search" id="myInput" onkeyup="myFunction()" placeholder="Search Incomes.." title="Type in a name">
+       	<br><br>
+       	<form class="edit">
+       	<table id="myTable">
+          <tr class="header">
+  			<th> ID </th>
+			<th> Date </th>
+			<th> Type </th>
+			<th> Value </th>
+			
+		</tr>
 		
+		<%
+		IncomeService incomeService = new IncomeServiceImpl();
+		ArrayList<Income> arrayList=incomeService.getIncome();
 		
-	<div class="row">
-    	<div class="col-25">
-      		<label for="date">Date</label>
-      	</div>
-			<div class="col-75">
-      			<input type="date" id="date" name="date" required">
-    		</div>
-  		</div>
-
-		<div class="row">
-    	<div class="col-25">
-      		<label for="type">Type</label>
-      	</div>
-			<div class="col-75">
-      			<input type="text" id="type" name="type" placeholder="Electricity" required">
-    		</div>
-  		</div>
-		<div class="row">
-    	<div class="col-25">
-      		<label for="value">Value</label>
-      	</div>
-			<div class="col-75">
-      			<input type="number" id="value" name="value" placeholder="1000.00" required">
-    		</div>
-  		</div><br>
-  		
-  		<div class="row">
-    		<input type="submit" value="Insert Expense" class="insertE" />
-  		</div>
-	
-
-	</form><br><br>
-
-	<form method="post" action="../ListExpenseServerlet">
-		<div class="row">
-    		<input type="submit" value="List All" class="listE"/>
-  		</div>
+			for(Income income:arrayList){
+		%>
+		
+		<tr>
+			<td><%=income.getIncomeID() %></td>
+			<td><%=income.getDate() %></td>
+			<td><%=income.getType() %></td>
+			<td><%=income.getValue() %></td>
+			
+			<td> 
+				<form method="post" action="GetIncomeServerlet">
+					<input type="hidden" name="incomeID" value="<%=income.getIncomeID()%>"/>
+				</form>
+			</td>
+		</tr>
+			<%
+		}
+			%>
+		
+	</table>
 	</form>
+	</div>
+		
+<a href="profit/pIncome.jsp">Add New Income</a><br><br>
+<a href="profit/pExpense.jsp">Add New Expense</a><br><br>
+<a href="profit/RIncome.jsp">Delete</a><br><br>
 	
 	<footer>
   		<p>Posted by: Tharik Rizan</p>
   		<p>Contact information: <a href="NewLankaHardware.com">New Lanka Hardware</a>.</p>
 	</footer>
 
+<script>
+		function myFunction() {
+		  var input, filter, table, tr, td, i, txtValue;
+		  input = document.getElementById("myInput");
+		  filter = input.value.toUpperCase();
+		  table = document.getElementById("myTable");
+		  tr = table.getElementsByTagName("tr");
+		  for (i = 0; i < tr.length; i++) {
+		    td = tr[i].getElementsByTagName("td")[2];
+		    if (td) {
+		      txtValue = td.textContent || td.innerText;
+		      if (txtValue.toUpperCase().indexOf(filter) > -1) {
+		        tr[i].style.display = "";
+		      } else {
+		        tr[i].style.display = "none";
+		      }
+		    }       
+		  }
+		}
+</script>
 </body>
 </html>

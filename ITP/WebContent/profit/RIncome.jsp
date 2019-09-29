@@ -1,13 +1,19 @@
+<%@page import ="com.nlhs.model.Income" %>
+<%@page import ="java.util.ArrayList" %>
+<%@page import ="com.nlhs.service.IncomeService" %>
+<%@page import ="com.nlhs.service.IncomeServiceImpl" %>
+
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <html>
-	<head>
-		<meta charset="ISO-8859-1">
-		<title>New Lanka</title>
-		<meta charset="utf-8">
-  		<meta name="viewport" content="width=device-width, initial-scale=1">
-  		<style>
+<head>
+<meta charset="ISO-8859-1">
+<title>New Lanka</title>
+
+<meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
   			* {
   			box-sizing: content-box;
   			
@@ -147,10 +153,9 @@ input[type=submit]:hover {
    				text-align: center;}
 		</style>
   
-  </head>
+</head>
 <body>
-
-	<header>
+<header>
 		<div class="header">
   				<a href="#default" class="logo">NEW LANKA HARDWARE</a>
   			<div class="header-right">
@@ -160,55 +165,57 @@ input[type=submit]:hover {
   			</div>
 		</div>
 	</header>
-		<h1 align="center">Profit Management</h1>
-		<h1 align="center">Expense</h1>
-	<div class="container">
-	<form method="post" action="../AddExpenseServerlet" >
-		
-		
-	<div class="row">
-    	<div class="col-25">
-      		<label for="date">Date</label>
-      	</div>
-			<div class="col-75">
-      			<input type="date" id="date" name="date" required">
-    		</div>
-  		</div>
 
-		<div class="row">
-    	<div class="col-25">
-      		<label for="type">Type</label>
-      	</div>
-			<div class="col-75">
-      			<input type="text" id="type" name="type" placeholder="Electricity" required">
-    		</div>
-  		</div>
-		<div class="row">
-    	<div class="col-25">
-      		<label for="value">Value</label>
-      	</div>
-			<div class="col-75">
-      			<input type="number" id="value" name="value" placeholder="1000.00" required">
-    		</div>
-  		</div><br>
-  		
-  		<div class="row">
-    		<input type="submit" value="Insert Expense" class="insertE" />
-  		</div>
+
+<div>
+	<h2 align="center">INCOME</h2>
+<table>
+
+		<tr>
+			<th>ID</th>
+			<th>Date</th>
+			<th>Type</th>
+			<th>Value</th>
+			<th>Remove</th>
+		</tr>
+		
+		<%
+		IncomeService incomeService = new IncomeServiceImpl();
+		ArrayList<Income> arrayList=incomeService.getIncome();
+		
+			for(Income income:arrayList){
+		%>
+		
+		<tr>
+			<td><%=income.getIncomeID() %></td>
+			<td><%=income.getDate() %></td>
+			<td><%=income.getType() %></td>
+			<td><%=income.getValue() %></td>
+			
+			<td> 
+				<form method="post" action="../DeleteIncomeServerlet">
+					<input type="hidden" name="incomeID"
+						value="<%=income.getIncomeID()%>" /> <input type="submit"
+						value="Delete Income" class="delete-button"/>
+				</form>
+			</td>
+		</tr>
+		<%
+		}
+			%>
+		
+	</table>
+	</div>
 	
-
-	</form><br><br>
-
-	<form method="post" action="../ListExpenseServerlet">
-		<div class="row">
-    		<input type="submit" value="List All" class="listE"/>
-  		</div>
-	</form>
+	<a href="pIncome.jsp">Add New Income</a><br><br>
+	<a href="pExpense.jsp">Add New Expense</a><br><br>
 	
 	<footer>
   		<p>Posted by: Tharik Rizan</p>
   		<p>Contact information: <a href="NewLankaHardware.com">New Lanka Hardware</a>.</p>
 	</footer>
+		
+
 
 </body>
 </html>

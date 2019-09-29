@@ -24,7 +24,7 @@ public class ListExpenseServerlet extends HttpServlet {
 System.out.println("listExpense Servlet.....");
 		
 		response.setContentType("text/html");
-		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/profit/pView.jsp");
+		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/profit/viewExpense.jsp");
 		dispatcher.forward(request, response);
 
 	}

@@ -2,6 +2,7 @@ package com.nlhs.model;
 
 public class Expense {
 	
+	private String Date;
 	private String ExpenseID;
 	private String Type;
 	private String Value;
@@ -10,12 +11,33 @@ public class Expense {
 		
 	}
 	
-	public Expense(String ID,String Etype,String Evalue) {
+	
+
+
+	public Expense(String date, String expenseID, String type, String value) {
 		super();
-		this.ExpenseID=ID;
-		this.Type=Etype;
-		this.Value=Evalue;
+		Date = date;
+		ExpenseID = expenseID;
+		Type = type;
+		Value = value;
 	}
+
+
+
+
+	public String getDate() {
+		return Date;
+	}
+
+
+
+
+	public void setDate(String date) {
+		Date = date;
+	}
+
+
+
 
 	public String getExpenseID() {
 		return ExpenseID;
@@ -41,10 +63,15 @@ public class Expense {
 		Value = value;
 	}
 
+
+
+
 	@Override
 	public String toString() {
-		return "Expense [ExpenseID=" + ExpenseID + ", Type=" + Type + ", Value=" + Value + "]";
+		return "Expense [Date=" + Date + ", ExpenseID=" + ExpenseID + ", Type=" + Type + ", Value=" + Value + "]";
 	}
+
+	
 	
 	
 

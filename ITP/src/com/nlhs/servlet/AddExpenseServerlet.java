@@ -27,10 +27,11 @@ public class AddExpenseServerlet extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		doGet(request, response);
-		System.out.println("Add Servlet...........");
+		System.out.println("Add Expense...........");
 		
 		Expense expense = new Expense();
 		
+		expense.setDate(request.getParameter("date"));
 		expense.setType(request.getParameter("type"));
 		expense.setValue(request.getParameter("value"));
 		
@@ -40,7 +41,7 @@ public class AddExpenseServerlet extends HttpServlet {
 		expenseService.addExpense(expense);
 		
 		request.setAttribute("expense", expense);
-		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/profit/pView.jsp");
+		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/profit/viewExpense.jsp");
 		dispatcher.forward(request, response);
 
 	}

@@ -27,7 +27,7 @@ public class ListIncomeServerlet extends HttpServlet {
 		System.out.println("listIncome Servlet.....");
 		
 		response.setContentType("text/html");
-		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/profit/pView.jsp");
+		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/profit/viewIncome.jsp");
 		dispatcher.forward(request, response);
 	}
 
