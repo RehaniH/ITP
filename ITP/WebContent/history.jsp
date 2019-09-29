@@ -301,6 +301,7 @@ $(document).ready(function() {
                         <label for="date_from">Reason</label></font>
                         <input type="text" id="reason" class="reason" placeholder="" />
                         
+                        
                     </div>
                     
                     <div class="form-submit">
