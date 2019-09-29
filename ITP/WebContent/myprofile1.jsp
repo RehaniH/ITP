@@ -50,12 +50,54 @@ heght:50px;
 	.inputc{
 	
 	}
-		body{
+		
+	 
+  h1{
+  font-family:Formal Scripts;
+  font-size:60px;
+  font-weight:bold;}
+  
+    th{
+  font-family:Formal Scripts;
+  font-size:20px;
+  font-weight:bold;
+  text-align:center;
+  }
+  thead{
+  background-color: white;
+  border-radius:10px;}
+  
+      td{
+  font-family:Times New Roman;
+  font-size:15px;
+  font-weight:bold;
+  text-align:center;}
+  
+  button{
+  background-color:#6699ff;
+  color: black;
+  font-size: 16px;
+  height:40px;
+  width:145px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  text-align: center;
+  }
+  
+  button:hover{
+  background-color:#33cc33;
+  color: white;
+  }
+  body{
 		
 		background-repeat: no-repeat;
 		background-position: center;
 		background-size: cover;
 	
+	}
+
+
 	}
 </style>
 </head>
@@ -64,9 +106,9 @@ heght:50px;
 <nav class="navbar navbar-light bg-light">
   <form class="form-inline" >
    
-   <a href="details.jsp"><button class="btn btn-sm btn-outline-secondary" type="button" >Details</button></a>
-     <a href="myprofile1.jsp"><button class="btn btn-outline-success" type="button" >My Profile</button></a>
-    <a href="history.jsp"><button class="btn btn-sm btn-outline-secondary" type="button">History</button></a>
+   <a href="details.jsp"><button class="btn btn-sm btn-outline-secondary" type="button" >Details</button></a>&nbsp
+     <a href="myprofile1.jsp"><button class="btn btn-outline-success" type="button" >My Profile</button></a>&nbsp
+    <a href="history.jsp"><button class="btn btn-sm btn-outline-secondary" type="button">History</button></a>&nbsp
   </form>
   <form class="form-inline" method="post" action="">
   <a href="index.jsp"><button class="btn btn-outline-dark" type="button">Log Out</button></a>
