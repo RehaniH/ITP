@@ -21,59 +21,83 @@ import com.nlhs.service.DeactivatedCusService;
 @WebServlet("/CustomerSearchServlet")
 public class CustomerSearchServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public CustomerSearchServlet() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
 
 	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 * @see HttpServlet#HttpServlet()
 	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	public CustomerSearchServlet() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	/**
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
+	 *      response)
+	 */
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		response.getWriter().append("Served at: ").append(request.getContextPath());
 	}
 
 	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
+	 *      response)
 	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+
 		doGet(request, response);
 		String district = request.getParameter("district");
 		String cType = request.getParameter("cType");
 		String number = request.getParameter("num");
-		System.out.print(district + " " + cType);
+		//String word = request.getParameter("search") ;
+
 		ArrayList list = new ArrayList();
 		Customer cus = new Customer();
 		CustomerAddress address = new CustomerAddress();
 		CustomerAddressService service = new CustomerAddressService();
-		if( cType.equalsIgnoreCase("all")) {//&& district == all
-			
-			
-			address.setDistrict(district);
-			
-			list = service.searchCustomer(address);
-			request.setAttribute("list", list);
-		}else if(cType.equalsIgnoreCase("deactivated")) {
-			DeactivatedCusService serv = new DeactivatedCusService();
-			list = serv.getDeactivatedCustomers();
-			request.setAttribute("deactive", list);
-			ArrayList reasonList = new ArrayList();
-			reasonList = serv.getReasons();
-			request.setAttribute("Reason", reasonList);
-			
-		}
+		
+		/*if(word != null) { 
+			String words = request.getParameter("search");
+			list = service.SearchByLastName(words);
+			request.setAttribute("foundResult", list);
+			System.out.print("Here");
+		}else {
+			*/
+			if (cType.equalsIgnoreCase("all")) {// && district == all
+
+				address.setDistrict(district);
+				
+				if(request.getParameter("search") != null) { 
+					String words = request.getParameter("search");
+					list = service.SearchByLastName(words);
+					
+					if(!list.isEmpty())
+						request.setAttribute("foundResult", list);
+					System.out.print("Here");
+				}else {
+
+					list = service.searchCustomer(address);
+					request.setAttribute("list", list);
+				}
+			} else if (cType.equalsIgnoreCase("deactivated")) {
+				DeactivatedCusService serv = new DeactivatedCusService();
+				list = serv.getDeactivatedCustomers();
+				request.setAttribute("deactive", list);
+				ArrayList reasonList = new ArrayList();
+				reasonList = serv.getReasons();
+				request.setAttribute("Reason", reasonList);
+
+			}
+
+		
+		
 		
 		request.setAttribute("Number", number);
 		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/customerManagement.jsp");
 		dispatcher.forward(request, response);
-		
-		
+
 	}
 
 }

@@ -10,12 +10,51 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Customer Management</title>
 <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css" >
+<link rel="stylesheet" href="bootstrap/sidenav.css" >
+ <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <script src="bootstrap/js/bootstrap.min.js" ></script>
 <script src="bootstrap/js/jquery-3.3.1.slim.min.js" ></script>
 <script src="bootstrap/js/popper.min.js" ></script>
+<style type="text/css">
+
+.search-container button:hover {
+  background: #ccc;
+}
+
+
+
+
+.search-container button {
+ 
+  padding: 6px 10px;
+  margin-top: 8px;
+  margin-right: 16px;
+  background: #ddd;
+  font-size: 17px;
+  border: none;
+  cursor: pointer;
+}
+
+
+   input[type=text] {
+    border: 1px solid #ccc;  
+  }
+  
+  
+</style>
+
 </head>
 <body>
 
+	<div class="sidenav">
+		  <a href="#about">About</a>
+		  <a href="#services">Services</a>
+		  <a href="#clients">Clients</a>
+		  <a href="#contact">Contact</a>
+	</div>
+
+	<div class="main">
 	<div class="jumbotron" >
 		<div class="container">
 			<h2 class="display-4" >
@@ -75,7 +114,7 @@
 				</datalist>
 		
 			</div>
-		
+			
 			<div class="form-group col-md-4">
 				<label for="">Customer :</label>
 				<select name="cType" class="form-control">
@@ -84,18 +123,41 @@
 					<option value="deactivated">Deactivated</option>
 				</select>
 			</div>
-		</div><!-- End of first row -->
-		<input type="hidden" name="num" value="<%=number %>">
+			
+			<input type="hidden" name="num" value="<%=number %>">
+			
+			
+				<div class="form-group col-md-4">
+					<label for="">Name :</label>
+					<input name="search" type="text" class="form-control" placeholder="Search..." />
+					<button type="submit"><i class="fa fa-search"></i></button>
+				</div>
+				
+				
+				
+			
 		
-		<input type="submit" value="Show Results" class="form-control" style="backgroud-color:#FFF5EE">
+		</div><!-- End of first row -->
+		
+		<div class="row">
+			<div class="form-group col-md-4">
+				<label for=""></label>
+				<button type="submit" class="btn btn-info">
+	      		<span class="glyphicon glyphicon-search"></span> Search
+	   			</button>
+			</div>
+		</div>
 		
 		</form>
+		
+
+      
+      
 	</div>
 	
 	
 	
-	<% CustomerAddress address = new  CustomerAddress();
-		address = (CustomerAddress)request.getAttribute("Search");
+	<% 
 		
 		
 		
@@ -182,7 +244,7 @@
 		
 		</table>
 	</div>
-	<div class="container" style="margin-bottom:30px;">
+	<div class="container" style="margin-bottom:30px; ">
 	<% out.print("<h5>" + "Statistics" + "</h5>"); %>
 	<table class="table table-bordered">
 	<%
@@ -228,6 +290,46 @@
 		
 		}//end second if
 	
+		}else if(request.getAttribute("foundResult") != null){
+			list = (ArrayList)request.getAttribute("foundResult");
+			
+			
+			
+			if(!list.isEmpty()){
+				
+				out.print("<thead>");
+					out.print("<tr>");
+						out.print("<th>" + "Customer ID"+ "</th>");
+						out.print("<th>" + "Email"+ "</th>");
+						out.print("<th>" + "First Name"+ "</th>");
+						out.print("<th>" + "Last Name"+ "</th>");
+						out.print("<th>" + "Address "+ "</th>");
+						out.print("<th>" + "Postal Code"+ "</th>");
+						out.print("<th>" + "Telephone"+ "</th>");
+						
+					out.print("</tr>");
+				out.print("</thead>");
+				
+				for(CustomerAddress ad: list){
+					out.print("<tbody>");
+					out.print("<tr>");
+						out.print("<td>" + ad.getCustomerId()+ "</td>");
+						out.print("<td>" + ad.getEmail()+ "</td>");
+						out.print("<td>" + ad.getFname()+ "</td>");
+						out.print("<td>" + ad.getLname() + "</td>");
+						out.print("<td>" + ad.getNo() + ", " + ad.getStreet()+ ", " + ad.getCity() + ", "
+						+ "</td>");
+						out.print("<td>" + ad.getPostalCode()+ "</td>");
+						out.print("<td>" + ad.getTelephone() + "</td>");
+					out.print("</tr>");
+					out.print("</tbody>");
+				}
+				
+				
+				}
+		
+			
+			
 		}else{
 			out.print("No results found.");
 		
@@ -236,7 +338,7 @@
 	
 	</table>
 	</div>
-	
+	</div>
 
 </body>
 </html>
