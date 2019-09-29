@@ -120,15 +120,15 @@ public class CommonServiceImp {
 			preparedStatement = connection.prepareStatement(query);
 			preparedStatement.setString(1, email);
 			preparedStatement.setString(2, password);
+		
 			rs = preparedStatement.executeQuery();
 
 			while (rs.next()) {
 				sup = new Supplier();
-				System.out.println("i got a result in validSupplier" + rs.getString(1));
-
+				System.out.println("i got a result in valid Supplier" + rs.getString(1));
 				sup.setEmailAddress(rs.getString(1));
 				sup.setPassword(rs.getString(2));
-
+				sup.setSupplierID(rs.getString(3));
 			}
 
 			return sup;

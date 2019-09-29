@@ -12,8 +12,6 @@
 <script src="bootstrap/bootstrap.min.js"></script>
 <script src="bootstrap/jquery.min.js"></script>
 	<title>Login Page</title>
-   
-   
 	<!--Bootsrap 4 CDN-->
 	<link rel="stylesheet" href="bootstrap/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     
