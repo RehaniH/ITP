@@ -132,8 +132,9 @@
  </form>  
  
 <table>
-        	
-	<a href="SupplierReport.jsp">Suppliers</a>
+        	<h4>You can get a pdf of the current suppliers in the store.</h4>
+	        <a href="SupplierReport.jsp">Current Suppliers</a>
+	        <!-- SupReport.jsp -->
 </table> 
     <script>
 		function myFunction() {

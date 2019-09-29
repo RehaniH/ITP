@@ -126,10 +126,12 @@
    
   </tr>
     </table>
- </form>   
-<a href="UpdateReport.jsp">Suppliers</a>
+ </form> 
  
+     <h5>The updates of the suppliers are shown here.</h5>
+     <a href="UpdateReport.jsp">Suppliers</a>
  
+     <!-- UpdatedDynamicReport.jsp -->
     <script>
 		function myFunction() {
 		  var input, filter, table, tr, td, i, txtValue;

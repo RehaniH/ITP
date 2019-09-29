@@ -23,7 +23,7 @@
 <%@ page import="java.sql.SQLException"%>
 <head>
 <meta charset="ISO-8859-1">
-<title>Insert title here</title>
+<title>Supplier Report</title>
 </head>
 <body>
 <%

@@ -44,11 +44,13 @@ try
     document.open();
 
     /* new paragraph instance initialized and add function write in pdf file*/
-    document.add(new Paragraph("---------------------------------------------------------Current suppliers---------------------------------------------------\n\n"));
+    document.add(new Paragraph("---------------------------------------------------------Updated Suppliers---------------------------------------------------\n\n"));
    
     document.add(new Paragraph("---------------------------------------------------------------------------------------------------------------------------------"));
     document.addCreationDate();
    
+    
+    
     while(rs.next())
     {
           // fetch & writing records in pdf files
