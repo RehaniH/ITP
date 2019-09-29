@@ -433,4 +433,400 @@ public class ItemsServiceImp implements IItemsService {
 		return ItemList;
 	}
 
+	@Override
+	public ArrayList<Item> getPaintsPageItems() {
+		String sql = "Select * from PaintsPageItem ";
+		ArrayList<Item> ItemList = new ArrayList<Item>();
+
+		try {
+			try {
+				connection = DBConnection.getConnection();
+			} catch (ClassNotFoundException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			;
+			statement = connection.createStatement();
+
+			ResultSet rs = statement.executeQuery(sql);
+			System.out.println("running get Paints page items()");
+
+			while (rs.next()) {
+				Item item = new Item();
+
+				item.setPid(rs.getString("p_id"));
+				item.setpName(rs.getString("p_name"));
+				item.setCategory(rs.getString("p_category"));
+				item.setSellingPrice(rs.getInt("p_sellingPrice"));
+				item.setCostPrice(rs.getInt("p_costPrice"));
+				item.setUnitSize(Integer.parseInt(rs.getString("p_unitSize")));
+				item.setSupplierName(rs.getString("p_supplierName"));
+				item.setSupplierContact(rs.getString("p_supplierContact"));
+				item.setBufferStock(rs.getInt("p_bufferStock"));
+				item.setpImage(rs.getString("p_image"));
+				item.setpDesc(rs.getString("p_description"));
+
+				ItemList.add(item);
+
+			}
+
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		try {
+			statement.close();
+			connection.close();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+		return ItemList;
+		// return null;
+	}
+
+	@Override
+	public String PaintsPageItems(String p1, String p2, String p3, String p4, String p5, String p6) {
+		String sql = "Select * from Item Where p_id IN (?,?,? ,? ,? , ?) ";
+		ArrayList<Item> ItemList = new ArrayList<Item>();
+		int res = 0;
+
+		try {
+			connection = DBConnection.getConnection();
+			;
+			preparedStatement = connection.prepareStatement(sql);
+
+			preparedStatement.setString(1, p1);
+			preparedStatement.setString(2, p2);
+			preparedStatement.setString(3, p3);
+			preparedStatement.setString(4, p4);
+			preparedStatement.setString(5, p5);
+			preparedStatement.setString(6, p6);
+			ResultSet rs = preparedStatement.executeQuery();
+
+			String sqld = "Delete From PaintsPageItem";
+			statement = connection.createStatement();
+			statement.executeUpdate(sqld);
+
+			String sql2 = "Insert into PaintsPageItem values(?,?,?,?,?,?,?,?,?,?,?) ";
+			while (rs.next()) {
+				Item item = new Item();
+
+				item.setPid(rs.getString("p_id"));
+				item.setpName(rs.getString("p_name"));
+				item.setCategory(rs.getString("p_category"));
+				item.setSellingPrice(rs.getInt("p_sellingPrice"));
+				item.setCostPrice(rs.getInt("p_costPrice"));
+				item.setUnitSize(Integer.parseInt(rs.getString("p_unitSize")));
+				item.setSupplierName(rs.getString("p_supplierName"));
+				item.setSupplierContact(rs.getString("p_supplierContact"));
+				item.setBufferStock(rs.getInt("p_bufferStock"));
+				item.setpImage(rs.getString("p_image"));
+				item.setpDesc(rs.getString("p_description"));
+
+				preparedStatement = connection.prepareStatement(sql2);
+
+				preparedStatement.setString(1, item.getPid());
+				preparedStatement.setString(2, item.getpName());
+				preparedStatement.setString(3, item.getpImage());
+				preparedStatement.setString(4, item.getCategory());
+				preparedStatement.setString(5, item.getSupplierName());
+				preparedStatement.setString(6, item.getSupplierContact());
+				preparedStatement.setInt(7, item.getUnitSize());
+				preparedStatement.setInt(8, item.getCostPrice());
+				preparedStatement.setInt(9, item.getSellingPrice());
+				preparedStatement.setInt(10, item.getBufferStock());
+				preparedStatement.setString(11, item.getpDesc());
+
+				res = preparedStatement.executeUpdate();
+				System.out.println("running Insert PaintsPageItems");
+				// ItemList.add(item);
+
+			}
+
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			String excep = e.toString();
+			return excep;
+		} finally {
+			try {
+				preparedStatement.close();
+				connection.close();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			if (res == 0) {
+				return "not Successful";
+			} else {
+				return "Successfully changed Paints page";
+			}
+		}
+
+	}
+
+	@Override
+	public String ElectricalPageItems(String p1, String p2, String p3, String p4, String p5, String p6) {
+		String sql = "Select * from Item Where p_id IN (?,?,? ,? ,? , ?) ";
+		ArrayList<Item> ItemList = new ArrayList<Item>();
+		int res = 0;
+
+		try {
+			connection = DBConnection.getConnection();
+			;
+			preparedStatement = connection.prepareStatement(sql);
+
+			preparedStatement.setString(1, p1);
+			preparedStatement.setString(2, p2);
+			preparedStatement.setString(3, p3);
+			preparedStatement.setString(4, p4);
+			preparedStatement.setString(5, p5);
+			preparedStatement.setString(6, p6);
+			ResultSet rs = preparedStatement.executeQuery();
+
+			String sqld = "Delete From ElectricalPageItem";
+			statement = connection.createStatement();
+			statement.executeUpdate(sqld);
+
+			String sql2 = "Insert into ElectricalPageItem values(?,?,?,?,?,?,?,?,?,?,?) ";
+			while (rs.next()) {
+				Item item = new Item();
+
+				item.setPid(rs.getString("p_id"));
+				item.setpName(rs.getString("p_name"));
+				item.setCategory(rs.getString("p_category"));
+				item.setSellingPrice(rs.getInt("p_sellingPrice"));
+				item.setCostPrice(rs.getInt("p_costPrice"));
+				item.setUnitSize(Integer.parseInt(rs.getString("p_unitSize")));
+				item.setSupplierName(rs.getString("p_supplierName"));
+				item.setSupplierContact(rs.getString("p_supplierContact"));
+				item.setBufferStock(rs.getInt("p_bufferStock"));
+				item.setpImage(rs.getString("p_image"));
+				item.setpDesc(rs.getString("p_description"));
+
+				preparedStatement = connection.prepareStatement(sql2);
+
+				preparedStatement.setString(1, item.getPid());
+				preparedStatement.setString(2, item.getpName());
+				preparedStatement.setString(3, item.getpImage());
+				preparedStatement.setString(4, item.getCategory());
+				preparedStatement.setString(5, item.getSupplierName());
+				preparedStatement.setString(6, item.getSupplierContact());
+				preparedStatement.setInt(7, item.getUnitSize());
+				preparedStatement.setInt(8, item.getCostPrice());
+				preparedStatement.setInt(9, item.getSellingPrice());
+				preparedStatement.setInt(10, item.getBufferStock());
+				preparedStatement.setString(11, item.getpDesc());
+
+				res = preparedStatement.executeUpdate();
+				System.out.println("running Insert ElectricalPageItems");
+				// ItemList.add(item);
+
+			}
+
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			String excep = e.toString();
+			return excep;
+		} finally {
+			try {
+				preparedStatement.close();
+				connection.close();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			if (res == 0) {
+				return "not Successful";
+			} else {
+				return "Successfully changed Electrical page";
+			}
+		}
+
+	}
+
+	@Override
+	public ArrayList<Item> getElectricalPageItems() {
+		String sql = "Select * from ElectricalPageItem ";
+		ArrayList<Item> ItemList = new ArrayList<Item>();
+
+		try {
+			try {
+				connection = DBConnection.getConnection();
+			} catch (ClassNotFoundException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			;
+			statement = connection.createStatement();
+
+			ResultSet rs = statement.executeQuery(sql);
+			System.out.println("running get Home page items()");
+
+			while (rs.next()) {
+				Item item = new Item();
+
+				item.setPid(rs.getString("p_id"));
+				item.setpName(rs.getString("p_name"));
+				item.setCategory(rs.getString("p_category"));
+				item.setSellingPrice(rs.getInt("p_sellingPrice"));
+				item.setCostPrice(rs.getInt("p_costPrice"));
+				item.setUnitSize(Integer.parseInt(rs.getString("p_unitSize")));
+				item.setSupplierName(rs.getString("p_supplierName"));
+				item.setSupplierContact(rs.getString("p_supplierContact"));
+				item.setBufferStock(rs.getInt("p_bufferStock"));
+				item.setpImage(rs.getString("p_image"));
+				item.setpDesc(rs.getString("p_description"));
+
+				ItemList.add(item);
+
+			}
+
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		try {
+			statement.close();
+			connection.close();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+		return ItemList;
+	}
+
+	@Override
+	public String PlumbingPageItems(String p1, String p2, String p3, String p4, String p5, String p6) {
+		String sql = "Select * from Item Where p_id IN (?,?,? ,? ,? , ?) ";
+		ArrayList<Item> ItemList = new ArrayList<Item>();
+		int res = 0;
+
+		try {
+			connection = DBConnection.getConnection();
+			;
+			preparedStatement = connection.prepareStatement(sql);
+
+			preparedStatement.setString(1, p1);
+			preparedStatement.setString(2, p2);
+			preparedStatement.setString(3, p3);
+			preparedStatement.setString(4, p4);
+			preparedStatement.setString(5, p5);
+			preparedStatement.setString(6, p6);
+			ResultSet rs = preparedStatement.executeQuery();
+
+			String sqld = "Delete From PlumbingPageItem";
+			statement = connection.createStatement();
+			statement.executeUpdate(sqld);
+
+			String sql2 = "Insert into PlumbingPageItem values(?,?,?,?,?,?,?,?,?,?,?) ";
+			while (rs.next()) {
+				Item item = new Item();
+
+				item.setPid(rs.getString("p_id"));
+				item.setpName(rs.getString("p_name"));
+				item.setCategory(rs.getString("p_category"));
+				item.setSellingPrice(rs.getInt("p_sellingPrice"));
+				item.setCostPrice(rs.getInt("p_costPrice"));
+				item.setUnitSize(Integer.parseInt(rs.getString("p_unitSize")));
+				item.setSupplierName(rs.getString("p_supplierName"));
+				item.setSupplierContact(rs.getString("p_supplierContact"));
+				item.setBufferStock(rs.getInt("p_bufferStock"));
+				item.setpImage(rs.getString("p_image"));
+				item.setpDesc(rs.getString("p_description"));
+
+				preparedStatement = connection.prepareStatement(sql2);
+
+				preparedStatement.setString(1, item.getPid());
+				preparedStatement.setString(2, item.getpName());
+				preparedStatement.setString(3, item.getpImage());
+				preparedStatement.setString(4, item.getCategory());
+				preparedStatement.setString(5, item.getSupplierName());
+				preparedStatement.setString(6, item.getSupplierContact());
+				preparedStatement.setInt(7, item.getUnitSize());
+				preparedStatement.setInt(8, item.getCostPrice());
+				preparedStatement.setInt(9, item.getSellingPrice());
+				preparedStatement.setInt(10, item.getBufferStock());
+				preparedStatement.setString(11, item.getpDesc());
+
+				res = preparedStatement.executeUpdate();
+				System.out.println("running Insert PLUMBINGPageItems");
+				// ItemList.add(item);
+
+			}
+
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			String excep = e.toString();
+			return excep;
+		} finally {
+			try {
+				preparedStatement.close();
+				connection.close();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			if (res == 0) {
+				return "not Successful";
+			} else {
+				return "Successfully changed PLUMBING page";
+			}
+		}
+	}
+
+	@Override
+	public ArrayList<Item> getPlumbingItems() {
+		String sql = "Select * from PlumbingPageItem ";
+		ArrayList<Item> ItemList = new ArrayList<Item>();
+
+		try {
+			try {
+				connection = DBConnection.getConnection();
+			} catch (ClassNotFoundException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			;
+			statement = connection.createStatement();
+
+			ResultSet rs = statement.executeQuery(sql);
+			System.out.println("running get Plumbing page items()");
+
+			while (rs.next()) {
+				Item item = new Item();
+
+				item.setPid(rs.getString("p_id"));
+				item.setpName(rs.getString("p_name"));
+				item.setCategory(rs.getString("p_category"));
+				item.setSellingPrice(rs.getInt("p_sellingPrice"));
+				item.setCostPrice(rs.getInt("p_costPrice"));
+				item.setUnitSize(Integer.parseInt(rs.getString("p_unitSize")));
+				item.setSupplierName(rs.getString("p_supplierName"));
+				item.setSupplierContact(rs.getString("p_supplierContact"));
+				item.setBufferStock(rs.getInt("p_bufferStock"));
+				item.setpImage(rs.getString("p_image"));
+				item.setpDesc(rs.getString("p_description"));
+
+				ItemList.add(item);
+
+			}
+
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		try {
+			statement.close();
+			connection.close();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+		return ItemList;
+	}
+
 }

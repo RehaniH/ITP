@@ -94,7 +94,114 @@
 					
 						
 				<div class="action">
+				
+				<div class="col-sm-9">
+				<div class="well">
+				<form action="./PaintsPageManagementServlet" method="POST" autocomplete="on">
+				
+				<b>Enter 6 Product IDs to be displayed in the Paints Page</b>
+				<br>
+				<b>Enter product 1 </b>
+				<input type="text"  name="product_id1" required="required">
+				<br>
+				<b>Enter product 2 </b>
+				<input type="text"  name="product_id2" required="required">
+				<br>
+				<b>Enter product 3 </b>
+				<input type="text"  name="product_id3" required="required">
+				<br>
+				<b>Enter product 4 </b>
+				<input type="text"  name="product_id4" required="required">
+				<br>
+				<b>Enter product 5 </b>
+				<input type="text"  name="product_id5" required="required">
+				<br>
+				<b>Enter product 6 </b>
+				<input type="text"  name="product_id6" required="required">
+				<br>
+				
+				
+			
+				<input class="add-to-cart btn btn-default" type="submit" value="Create Paints And Brushes Page"  >
+				</form>
+						
+						</div>
+					
+						
+				<div class="action">
+				
+				
+				<div class="col-sm-9">
+				<div class="well">
+				<form action="./ElectricalPageManagementServlet" method="POST" autocomplete="on">
+				
+				<b>Enter 6 Product IDs to be displayed in the Electrical Page</b>
+				<br>
+				<b>Enter product 1 </b>
+				<input type="text"  name="product_id1" required="required">
+				<br>
+				<b>Enter product 2 </b>
+				<input type="text"  name="product_id2" required="required">
+				<br>
+				<b>Enter product 3 </b>
+				<input type="text"  name="product_id3" required="required">
+				<br>
+				<b>Enter product 4 </b>
+				<input type="text"  name="product_id4" required="required">
+				<br>
+				<b>Enter product 5 </b>
+				<input type="text"  name="product_id5" required="required">
+				<br>
+				<b>Enter product 6 </b>
+				<input type="text"  name="product_id6" required="required">
+				<br>
+				
+				
+			
+				<input class="add-to-cart btn btn-default" type="submit" value="Create Electrical Page"  >
+				</form>
+						
+						</div>
+					
+						
+				<div class="action">
 							
+							
+				<div class="col-sm-9">
+				<div class="well">
+				<form action="./PlumbingPageManagementServlet" method="POST" autocomplete="on">
+				
+				<b>Enter 6 Product IDs to be displayed in the Plumbing Page</b>
+				<br>
+				<b>Enter product 1 </b>
+				<input type="text"  name="product_id1" required="required">
+				<br>
+				<b>Enter product 2 </b>
+				<input type="text"  name="product_id2" required="required">
+				<br>
+				<b>Enter product 3 </b>
+				<input type="text"  name="product_id3" required="required">
+				<br>
+				<b>Enter product 4 </b>
+				<input type="text"  name="product_id4" required="required">
+				<br>
+				<b>Enter product 5 </b>
+				<input type="text"  name="product_id5" required="required">
+				<br>
+				<b>Enter product 6 </b>
+				<input type="text"  name="product_id6" required="required">
+				<br>
+				
+				
+			
+				<input class="add-to-cart btn btn-default" type="submit" value="Create Plumbing Page"  >
+				</form>
+						
+						</div>
+					
+						
+				<div class="action">
+										
 			
 				
 				

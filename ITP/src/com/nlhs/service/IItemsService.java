@@ -20,4 +20,17 @@ public interface IItemsService {
 	public String HomePageItems(String p1, String p2, String p3, String p4, String p5, String p6);
 
 	public ArrayList<Item> getHomePageItems();
+
+	public String PaintsPageItems(String p1, String p2, String p3, String p4, String p5, String p6);
+
+	public String ElectricalPageItems(String p1, String p2, String p3, String p4, String p5, String p6);
+
+	public String PlumbingPageItems(String p1, String p2, String p3, String p4, String p5, String p6);
+
+	public ArrayList<Item> getPaintsPageItems();
+
+	public ArrayList<Item> getElectricalPageItems();
+
+	public ArrayList<Item> getPlumbingItems();
+
 }

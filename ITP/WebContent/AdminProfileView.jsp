@@ -16,6 +16,7 @@
 <html lang="en">
   <head>
     <link href="bootstrap/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    
     <script src="bootstrap/js/bootstrap.min.js"></script>
 	<link href="css/ProductDetailsPage.css" rel="stylesheet" id="bootstrap-css">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -28,11 +29,13 @@
 
   <body>
   <%Admin admin = new Admin(); %>
+  
   <%if(session.getAttribute("UserID") == null){
 	  request.getRequestDispatcher("index.jsp").include(request, response);  
   }else{
 	  String id = (String)session.getAttribute("UserID");
 	  AdminServiceImp asi = new AdminServiceImp();
+	  
 	  
 	  
 	  admin = asi.getAdmin(id);
