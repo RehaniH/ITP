@@ -121,6 +121,11 @@ ResultSet resultSet = null;
 
 <div class="container">
 
+<form class="form-inline" >
+<a href="Deliverd_report.jsp"><button class="btn btn-warning" type="button" >Deliverd Report</button></a>&nbsp 
+</form>
+
+
    <table class="table">
     <thead>
       <tr>
@@ -128,7 +133,7 @@ ResultSet resultSet = null;
         <th>Address</th>
         <th>Telephone Number</th>
         <th>Order ID</th>
-        <th>Upgrade Status or View Report</th>
+        <th>Upgrade Status</th>
       </tr>
     </thead>
 
@@ -153,7 +158,7 @@ while(resultSet.next()){
        <td><%=resultSet.getString("order_id") %></td>
         <td>
        <button type="button" id="<%=resultSet.getString("id") %>"  class="delete1">Update as Returned</button>&nbsp;&nbsp;
-       <button type="button" id="<%=resultSet.getString("id") %>" class="">Display Report</button>&nbsp;
+      
        </td>
       </tr>
 
@@ -189,6 +194,13 @@ e.printStackTrace();
 
 <div class="container">
 
+<form class="form-inline" >
+
+<a href="Returned_report.jsp"><button class="btn btn-warning" type="button" >Returned Report</button></a>&nbsp 
+<a href="Returned_report_with_reason.jsp"><button class="btn btn-warning" type="button" >ReturnedReason</button></a>&nbsp 
+</form>
+
+
    <table class="table">
     <thead>
       <tr>
@@ -196,7 +208,7 @@ e.printStackTrace();
         <th>Address</th>
         <th>Telephone Number</th>
         <th>Order ID</th>
-        <th>Upgrade Status or View Report</th>
+        <th>Upgrade Status</th>
       </tr>
     </thead>
 
@@ -222,7 +234,7 @@ while(resultSet.next()){
        
         <td>
        <button type="button" id="<%=resultSet.getString("id") %>"  class="delete">Update as Deliverd</button>&nbsp;&nbsp;
-       <button type="button" id="<%=resultSet.getString("id") %>" class="">Display Report</button>&nbsp;
+      
        </td>
       </tr>
 
@@ -281,6 +293,7 @@ $(document).ready(function() {
 	});
 	});
 
+
 </script>
 
  <div class="main">
@@ -288,7 +301,7 @@ $(document).ready(function() {
         <div class="header">
         
         </div>
-        <div class="container">
+        <div class="container" style="background-color:rgba(0,0,0,1.0);">
             <form id="booking-form" class="booking-form" method="POST" action="history.jsp">
                 <div class="form-group">
                     <div class="form-destination">
@@ -333,6 +346,10 @@ location.reload();
 });
 });
 </script>
+
+
+
+
 
 
 </body>
