@@ -1,0 +1,57 @@
+.sidenav {
+  height: 100%;
+  width: 200px;
+  position: fixed;
+  
+  top: 0;
+ 
+  background-color: SlateBlue;
+  
+  padding-top: 20px;
+}
+.sidenav active{
+  
+  left: 0px;
+  
+}
+.sidenav ul li a {
+  padding: 6px 8px 6px 16px;
+  text-decoration: none;
+  color: rgb(0, 0, 0);
+  
+  display: block;
+}
+.sidenav ul li{
+	
+	color:rgba(230, 230, 230, 0.9);
+	list-style: none;
+	padding: 15px 10px;
+	border-bottom: 1px solid white;
+}
+
+.sidenav mybutton{
+	position:absolute;
+	left: 250px;
+	top: 20px;
+}
+
+.sidenav mybutton span{
+	
+	display:block;
+	width:30px;
+	height: 5px;
+	background: #151719;
+	margin: 5px 0px;
+	
+	
+	
+}
+.sidenav a:hover {
+  color: #f1f1f1;
+}
+
+.main {
+  margin-left: 190px; /* Same as the width of the sidenav */
+  
+ 
+}
