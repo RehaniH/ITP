@@ -16,6 +16,7 @@
     border: 1px solid #ddd;
     }
 
+
     th, td {
       text-align: left;
       padding: 8px;
