@@ -1,9 +1,6 @@
 package com.nlhs.service;
 
-
 import java.sql.Connection;
-
-
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -17,9 +14,7 @@ import com.nlhs.util.DBConnection;
 
 public class SupplierServiceImpl implements ISupplierServices{
 	
-	/**Initialize logger*/
 	public static final Logger log = Logger.getLogger(SupplierServiceImpl.class.getName());
-	
 	private static Connection connection;
 	private static Statement statement;
 	private PreparedStatement st;
@@ -28,65 +23,73 @@ public class SupplierServiceImpl implements ISupplierServices{
 	
 	private PreparedStatement preparedStatement;
 
-	public void addSupplier(Supplier supplier) {
-
-		String SupplierID = GenerateSupplierID.generateSupplierIDs(getSupplierIDs());
-		supplier.setSupplierID(SupplierID);
-		
-		String sqlInsertQuery =  "insert into supplier(supplierID,firstName,lastName,companyName,productCategory,contactNumber,emailAddress,address,password) values(?,?,?,?,?,?,?,?,?)";
-		
-		
-		try {
-			connection = new DBConnection().getConnection();
-			
-			preparedStatement = connection.prepareStatement(sqlInsertQuery);
 	
-			preparedStatement.setString(1,supplier.getSupplierID());
-			preparedStatement.setString(2,supplier.getFirstName());
-			preparedStatement.setString(3,supplier.getLastName());
-			preparedStatement.setString(4,supplier.getCompanyName());
-			preparedStatement.setString(5,supplier.getProductCategory());
-			preparedStatement.setString(6,supplier.getContactNumber());
-			preparedStatement.setString(7,supplier.getEmailAddress());
-			preparedStatement.setString(8,supplier.getAddress());
-			preparedStatement.setString(9,supplier.getPassword());
-			results= preparedStatement.execute();
+		public void addSupplier(Supplier supplier) {
 
+			String SupplierID = GenerateSupplierID.generateSupplierIDs(getSupplierIDs());
+			supplier.setSupplierID(SupplierID);
 			
-			//preparedStatement.execute();
-			//connection.commit();
+			String sqlInsertQuery = "insert into supplier(supplierID,firstName,lastName,companyName,productCategory,contactNumber,emailAddress,address,password) values(?,?,?,?,?,?,?,?,?)";
 
-		} catch (SQLException | ClassNotFoundException e) {
-			log.log(Level.SEVERE, e.getMessage());
-		} finally {
-			
 			try {
-				if (preparedStatement != null) {
-					preparedStatement.close();
-					}
-				if (connection != null) {
-					connection.close();
+				try {
+					connection = DBConnection.getConnection();
+				} catch (ClassNotFoundException e) {
+					
+					e.printStackTrace();
 				}
+
+				preparedStatement = connection.prepareStatement(sqlInsertQuery);
+
+				preparedStatement.setString(1, supplier.getSupplierID());
+				preparedStatement.setString(2, supplier.getFirstName());
+				preparedStatement.setString(3, supplier.getLastName());
+				preparedStatement.setString(4, supplier.getCompanyName());
+				preparedStatement.setString(5, supplier.getProductCategory());
+				preparedStatement.setString(6, supplier.getContactNumber());
+				preparedStatement.setString(7, supplier.getEmailAddress());
+				preparedStatement.setString(8, supplier.getAddress());
+				preparedStatement.setString(9, supplier.getPassword());
+				results = preparedStatement.execute();
+
+				
+
 			} catch (SQLException e) {
 				log.log(Level.SEVERE, e.getMessage());
+			} finally {
+				
+				try {
+					if (preparedStatement != null) {
+						preparedStatement.close();
+					}
+					if (connection != null) {
+						connection.close();
+					}
+				} catch (SQLException e) {
+					log.log(Level.SEVERE, e.getMessage());
+				}
 			}
 		}
-	}
-	
-	private ArrayList<String> getSupplierIDs(){
-		
-		ArrayList<String> arrayList = new ArrayList<String>();		
-		
-	   String GetSupplierSqlQuery = "select s.supplierID from supplier as s";
-		
-	   try {
-			connection = new DBConnection().getConnection();
+
+	private ArrayList<String> getSupplierIDs() {
+
+		ArrayList<String> arrayList = new ArrayList<String>();
+
+		String GetSupplierSqlQuery = "select s.supplierID from supplier as s";
+
+		try {
+			try {
+				connection = DBConnection.getConnection();
+			} catch (ClassNotFoundException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 			preparedStatement = connection.prepareStatement(GetSupplierSqlQuery);
 			ResultSet resultSet = preparedStatement.executeQuery();
 			while (resultSet.next()) {
 				arrayList.add(resultSet.getString(1));
 			}
-		} catch (SQLException | ClassNotFoundException e) {
+		} catch (SQLException e) {
 			log.log(Level.SEVERE, e.getMessage());
 		} finally {
 			try {
@@ -102,6 +105,8 @@ public class SupplierServiceImpl implements ISupplierServices{
 		}
 		return arrayList;
 	}
+
+
 		
 	private ArrayList<Supplier> actionOnSupplier(String supplierID) {
 
@@ -115,10 +120,7 @@ public class SupplierServiceImpl implements ISupplierServices{
 				preparedStatement = connection.prepareStatement(query1);
 				preparedStatement.setString(1, supplierID);
 			}
-			/*
-			 * If employee ID is not provided for get employee option it display
-			 * all employees
-			 */
+			
 			else {
 				String allSuppQuery = "select * from supplier";
 				preparedStatement = connection.prepareStatement(allSuppQuery);
@@ -142,10 +144,7 @@ public class SupplierServiceImpl implements ISupplierServices{
 		} catch (SQLException | ClassNotFoundException e) {
 			log.log(Level.SEVERE, e.getMessage());
 		} finally {
-			/*
-			 * Close prepared statement and database connectivity at the end of
-			 * transaction
-			 */
+			
 			try {
 				if (preparedStatement != null) {
 					preparedStatement.close();
@@ -251,7 +250,7 @@ public class SupplierServiceImpl implements ISupplierServices{
 		if (emailAddress != null && !emailAddress.isEmpty()) {
 
 			System.out.print("Supplier "+emailAddress);
-			
+		
 					try {
 						connection = new DBConnection().getConnection();
 						
@@ -263,10 +262,7 @@ public class SupplierServiceImpl implements ISupplierServices{
 					} catch (SQLException | ClassNotFoundException e) {
 						log.log(Level.SEVERE, e.getMessage());
 					} finally {
-						/*
-						 * Close prepared statement and database connectivity at the end
-						 * of transaction
-						 */
+						
 						try {
 							if (preparedStatement != null) {
 								preparedStatement.close();

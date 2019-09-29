@@ -15,10 +15,14 @@
 	    table {
 	    border-collapse: collapse;
 	    border-spacing: 0;
-	    width: 100%;
+	    width: 50%;
 	    border: 1px solid #ddd;
 	    }
 	
+		th {
+		  background-color: #4CAF50;
+		  color: white;
+		}
 	    th, td {
 	      text-align: left;
 	      padding: 8px;
@@ -52,7 +56,7 @@
 
 #myTable {
   border-collapse: collapse;
-  width: 50%;
+  width: 30%;
   align-items: centre;
   border: 1px solid #ddd;
   font-size: 18px;
@@ -60,7 +64,7 @@
 
 #myTable th, #myTable td {
   text-align: left;
-  padding: 12px;
+  padding: 10px;
 }
 
 #myTable tr {
@@ -78,7 +82,8 @@
    <h1>List of Suppliers</h1>
       
   <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for names.." title="Type in a name">
-       	<form class="edit">
+       	
+  <form class="edit">
        	<table id="myTable">
           <tr class="header">
             <th  style="width:40%;">SUPPLIER ID</th>
@@ -92,12 +97,12 @@
             <th  style="width:40%;">PASSWORD</th>
             <th  style="width:40%;">SELECT</th>
             </tr>
-     <%
+   
+       <%
             ISupplierServices supplierServices = new SupplierServiceImpl();
             ArrayList<Supplier> arrayList = supplierServices.getSuppliers();
             for(Supplier supplier : arrayList){
-     
-    %>
+       %>
     
 		    <tr>
 		    <td><%=supplier.getSupplierID()%> </td>
@@ -124,7 +129,12 @@
    
   </tr>
     </table>
- </form>   
+ </form>  
+ 
+<table>
+        	
+	<a href="SupplierReport.jsp">Suppliers</a>
+</table> 
     <script>
 		function myFunction() {
 		  var input, filter, table, tr, td, i, txtValue;

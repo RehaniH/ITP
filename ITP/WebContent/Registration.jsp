@@ -11,7 +11,12 @@
        
     </script>
   <!--TableStyles------------------------------------------->
-  <style>			  
+  <style>	
+  
+  
+  
+<link href="css/Supplierstyle.css" rel="stylesheet" type="text/css" media="all">
+<link href="css/font-awesome.min.css" rel="stylesheet" type="text/css" media="all">		  
 		  input[type=reset] {
 		  background-color: #4CAF50;
 		  color: white;
@@ -70,6 +75,7 @@
 	}
 	
 }
+
   </style>
     <script type="text/javascript"> 
    function showAlert(){
@@ -86,7 +92,7 @@
 		  
 	
 	
-		<div class="wrapper" style="background-image: url('images/downloadp.jpg');">
+		<div class="wrapper" style="background-image: url('images/downloadp.jpg');" >
 			<div class="inner">
 			<div></div>
 				<form method="POST" action="./InsertSupplierServlets" onsubmit="return showAlert();">

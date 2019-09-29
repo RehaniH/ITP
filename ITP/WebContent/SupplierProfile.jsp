@@ -34,9 +34,10 @@
 		<a href="#" class="js-colorlib-nav-toggle colorlib-nav-toggle"><i></i></a>
 		<aside id="colorlib-aside" role="complementary" class="js-fullheight text-center">
 			<h1 id="colorlib-logo"><a href="SupplierProfile.jsp"><%=currentUser.getFirstName()%> <span>.</span></a></h1>
-			<h6>Contact Number : <%=currentUser.getContactNumber()%></h6>
-			<h6>Email Address: <%=currentUser.getEmailAddress()%></h6>
-			<h6>Address: <%=currentUser.getAddress() %></h6>
+			<h5>Contact Number : <%=currentUser.getContactNumber()%></h5>
+			<h5>Email Address: <%=currentUser.getEmailAddress()%></h5>
+			<h5>Address: <%=currentUser.getAddress() %></h5>
+		
 			<nav id="colorlib-main-menu" role="navigation">
 				<ul>
 					<li class="colorlib-active"><a href="SupplierProfile.jsp">Home</a></li>

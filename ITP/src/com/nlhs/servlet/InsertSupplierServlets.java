@@ -57,7 +57,7 @@ public class InsertSupplierServlets extends HttpServlet {
 		iSupplierService.addSupplier(supplier);
 		
 		request.setAttribute("supplier", supplier);
-		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/Message.jsp");
+		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/index.jsp");
 		dispatcher.forward(request, response);
 	
 	}
