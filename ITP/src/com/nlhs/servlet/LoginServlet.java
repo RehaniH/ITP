@@ -40,6 +40,7 @@ public class LoginServlet extends HttpServlet {
 		// TODO Auto-generated method stub
 		String email = request.getParameter("inputEmail");
 		String password = request.getParameter("inputPassword");
+		String supID = request.getParameter("inputID");
 		System.out.println("inputemail + password :" + email + "+" + password);
 
 		Admin admin = new Admin();
@@ -75,10 +76,10 @@ public class LoginServlet extends HttpServlet {
 			Supplier newSup = new Supplier();
 			newSup.setEmailAddress(email);
 			newSup.setPassword(password);
+			newSup.setSupplierID(supID);
 			newSup = SupplierServiceImpl.login(newSup);
 
-			System.out.println(
-					"inside  login Servlet: " + newSup.getEmailAddress() + " " + newSup.getPassword() + " sup");
+			System.out.println("inside  login Servlet: " + newSup.getEmailAddress() + " " + newSup.getPassword() + " sup");
 			HttpSession session = request.getSession();
 			session.setAttribute("currentSessionUser", newSup);
 			session.setAttribute("suppID", newSup.getSupplierID());
