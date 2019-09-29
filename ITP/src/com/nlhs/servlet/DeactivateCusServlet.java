@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.nlhs.model.Customer;
 import com.nlhs.model.Deactivated;
+import com.nlhs.service.CustomerAddressService;
 import com.nlhs.service.CustomerService;
 import com.nlhs.service.DeactivatedCusService;
 
@@ -45,6 +46,7 @@ public class DeactivateCusServlet extends HttpServlet {
 		doGet(request, response);
 		Customer customer = new Customer();
 		CustomerService service = new CustomerService();
+		CustomerAddressService adServ = new CustomerAddressService();
 		Deactivated dcus = new Deactivated();
 		DeactivatedCusService dserv = new DeactivatedCusService();
 		String email = request.getParameter("user");
@@ -67,6 +69,7 @@ public class DeactivateCusServlet extends HttpServlet {
 				dispatcher.forward(request, response);
 			}else {
 				dserv.insertDeactivated(dcus);
+				adServ.deleteAddressDetails(email);
 				RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/index.jsp");
 				dispatcher.forward(request, response);
 			}

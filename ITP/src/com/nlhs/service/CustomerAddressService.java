@@ -17,7 +17,11 @@ public class CustomerAddressService {
 	private Connection conn;
 
 	
-	
+	/**
+	 * Used to add the customer addresses to the database
+	 * @param address
+	 * @param userName
+	 */
 	public void addAddress(CustomerAddress address, String userName) {
 		
 		try {
@@ -68,7 +72,10 @@ public class CustomerAddressService {
 		}
 	}//end of method 
 	
-	
+	/**
+	 * Used to support generateCustomerIds() method
+	 * @return
+	 */
 	public ArrayList<String> getCustomerIds() {
 		
 		ArrayList<String> list = new ArrayList<String>();
@@ -94,6 +101,10 @@ public class CustomerAddressService {
 		return list;
 	}//end of method
 	
+	/**
+	 * Generate a unique customer Id 
+	 * @return
+	 */
 	public String generateCustomerId() {
 		
 		ArrayList<String> list = getCustomerIds();
@@ -138,6 +149,11 @@ public class CustomerAddressService {
 		
 	}
 	
+	/**
+	 * Get all address details of a customer 
+	 * @param userName
+	 * @return
+	 */
 	public ArrayList getDetails(String userName) {
 		
 		ArrayList<CustomerAddress> list = new ArrayList<>();
@@ -187,6 +203,12 @@ public class CustomerAddressService {
 		
 	}
 	
+	/**
+	 * Used to update a selected customer address
+	 * @param address
+	 * @param userName
+	 * @return
+	 */
 	public int UpdateAddress(CustomerAddress address, String userName) {
 		
 		int updated = 0;
@@ -222,6 +244,11 @@ public class CustomerAddressService {
 		return updated;
 	}
 	
+	/**
+	 * Return customer id of the session owner 
+	 * @param userName
+	 * @return
+	 */
 	public String getCustomerId(String userName) {
 		
 		String id = null;
@@ -252,6 +279,11 @@ public class CustomerAddressService {
 		return id;
 	}
 	
+	/**
+	 * Search customers  from specific district
+	 * @param address
+	 * @return
+	 */
 	public ArrayList searchCustomer(CustomerAddress address) {
 		
 			ArrayList list = new ArrayList();
@@ -297,6 +329,10 @@ public class CustomerAddressService {
 		
 	}//end method
 	
+	/**
+	 * Returns no  of customers registered
+	 * @return
+	 */
 	public String getNoOfCustomers() {
 		
 		String number = null;
@@ -326,6 +362,11 @@ public class CustomerAddressService {
 		
 	}
 	
+	/**
+	 * Returns true if a certain customer exist in the database
+	 * @param userName
+	 * @return
+	 */
 	public boolean getExistance(String userName) {
 		
 		int num = 0;
@@ -360,6 +401,82 @@ public class CustomerAddressService {
 			e.printStackTrace();
 		}
 		return false;
+		
+	}
+	
+	/**
+	 * Delete a certain customer records from the database
+	 */
+	public void deleteAddressDetails(String userName) {
+		query = "DELETE FROM customer_address WHERE email = ?";
+		
+		try {
+			conn = DBConnection.getConnection();
+			statement = conn.prepareStatement(query);
+			statement.setString(1, userName);
+			statement.executeUpdate();
+		} catch (ClassNotFoundException e) {
+			
+			e.printStackTrace();
+		} catch (SQLException e) {
+			
+			e.printStackTrace();
+		}
+		
+		
+	}
+	
+	/**
+	 * Search a customer by customer last name
+	 */
+	public ArrayList SearchByLastName(String words) {
+		
+		CustomerAddress cus;
+		ArrayList searchList = new ArrayList();
+		query = "select * from customer_address where is_billing = true and (last_name like ? or first_name like ?"
+				+ " or address_line1 like ? or address_line2 like ? or city like ? or district like ? or email like ?)";
+		
+		try {
+			conn = DBConnection.getConnection();
+			statement = conn.prepareStatement(query);
+			statement.setString(1, "%" + words + "%");
+			statement.setString(2, "%" + words + "%");
+			statement.setString(3, "%" + words + "%");
+			statement.setString(4, "%" + words + "%");
+			statement.setString(5, "%" + words + "%");
+			statement.setString(6, "%" + words + "%");
+			statement.setString(7, "%" + words + "%");
+			ResultSet results = statement.executeQuery();
+			
+			while(results.next()) {
+				cus = new CustomerAddress();
+				cus.setCustomerId(results.getString(1));
+				cus.setBilling(results.getBoolean(2));
+				cus.setDelivery(results.getBoolean(3));
+				cus.setSocialStatus(results.getString(4));
+				cus.setFname(results.getString(5));
+				cus.setLname(results.getString(6));
+				cus.setNo(results.getString(7));
+				cus.setStreet(results.getString(8));
+				cus.setCity(results.getString(9));
+				cus.setDistrict(results.getString(10));
+				cus.setPostalCode(results.getInt(11));
+				cus.setTelephone(results.getString(12));
+				cus.setEmail(results.getString(13));
+				
+				searchList.add(cus);
+				
+			}
+			
+			return searchList;
+		} catch (ClassNotFoundException e) {
+			
+			e.printStackTrace();
+		} catch (SQLException e) {
+			
+			e.printStackTrace();
+		}
+		return searchList;
 		
 	}
 }
