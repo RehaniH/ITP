@@ -74,7 +74,7 @@
   <form class="form-inline" method="post" action="search-deliverd-returned.jsp">
 <input type="text" name="roll_no" class="form-control" placeholder="Search" required>&nbsp
 <button type="submit" name="save" class="btn btn-primary">Search</button>&nbsp
-<button type="button" class="btn btn-outline-dark">Log out</button>&nbsp
+ <a href="index.jsp"><button class="btn btn-outline-dark" type="button">Log Out</button></a>&nbsp
 </form>
 
 </nav>

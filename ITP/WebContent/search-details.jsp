@@ -86,7 +86,7 @@ ResultSet resultSet = null;
   </form>
   
   <form class="form-inline" method="post" action="">
-  <button type="button" class="btn btn-outline-dark">Log out</button>
+ <a href="index.jsp"><button class="btn btn-outline-dark" type="button">Log Out</button></a>
   </form>
   
    

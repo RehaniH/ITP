@@ -70,7 +70,14 @@
   
   
 </head>
+
+
+  
 <body background="Pics/abc.png" background-repeat="no-repeat">
+
+
+
+  
 <nav class="navbar navbar-light bg-light">
   <form class="form-inline" >
       <a href="details.jsp"><button class="btn btn-outline-success" type="button" >Details</button></a>&nbsp;
@@ -81,8 +88,9 @@
    <form class="form-inline" method="post" action="search-details.jsp">
    <input type="search" name="roll_no" class="form-control" placeholder="Search" required>&nbsp;
    <button type="submit" name="save" class="btn btn-primary">Search</button>&nbsp;
-   <button type="button" class="btn btn-outline-dark">Log out</button>
+     <a href="index.jsp"><button class="btn btn-outline-dark" type="button">Log Out</button></a>
    </form>
+  
     
 </nav>
 
