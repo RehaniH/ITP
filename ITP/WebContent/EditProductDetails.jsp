@@ -42,7 +42,7 @@
     
     <br>
     <label for="email"><b>Supplier Contact</b></label>
-    <input type="text" placeholder="Enter Supplier Contact" name="supplier_contact" value="<%=request.getParameter("supplier_contact" ) %>" required="required" >
+    <input type="text" placeholder="Enter Supplier Contact" name="supplier_contact" value="<%=request.getParameter("supplier_contact")%>" required="required" >
     <br>
     <label for="email"><b>Unit size</b></label>
     <input type="text" placeholder="Unit Size" name="product_unitSize" value="<%=request.getParameter("product_unitSize") %>" required="required" >

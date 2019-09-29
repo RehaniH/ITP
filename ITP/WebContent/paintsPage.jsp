@@ -13,7 +13,7 @@
         <script src="js/store.js" async></script>
 <script src="bootstrap/jquery.min.js"></script>
 <script src="bootstrap/bootstrap.min.js"></script>
-<title>Home Page</title>
+<title>Paints Page</title>
 
  <style>
     /* Remove the navbar's default rounded borders and increase the bottom margin */ 
@@ -68,9 +68,7 @@
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
         <li class="active"><a href="homePage.jsp">Home</a></li>
-        <li><a href="paintsPage.jsp">PAINTS AND BRUSHES</a></li>
-         <li><a href="ElectricalPage.jsp">ELECTRICALS</a></li>
-          <li><a href="plumbingPage.jsp">PLUMBING PRODUCTS</a></li>
+        <li><a href="#">Products</a></li>
         <li><a href="#">Deals</a></li>
         <li><a href="#">Stores</a></li>
         <li><a href="#">Contact</a></li>
@@ -91,7 +89,7 @@
     		
     			
     			ItemsServiceImp isi = new ItemsServiceImp();
-    			ilist = isi.getHomePageItems();
+    			ilist = isi.getPaintsPageItems();
         		
     		
     		
@@ -103,7 +101,7 @@
     %>
     
       <section class="container content-section">
-            <h2 class="section-header">Best Selling Products</h2>
+            <h2 class="section-header">Best Selling Paints And Brushes Products</h2>
             
             <div class="shop-items">
                 <div class="shop-item">
