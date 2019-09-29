@@ -1,7 +1,28 @@
+<%@page import="java.sql.DriverManager"%>
+<%@page import="java.sql.ResultSet"%>
+<%@page import="java.sql.Statement"%>
+<%@page import="java.sql.Connection"%>
+<%
+String driver = "com.mysql.jdbc.Driver";
+String connectionUrl = "jdbc:mysql://localhost:3306/store";
+//String database = "";
+String userid = "root";
+String password =  "root";
+String roll_no=request.getParameter("roll_no");
+try {
+Class.forName(driver);
+} catch (ClassNotFoundException e) {
+e.printStackTrace();
+}
+Connection connection = null;
+Statement statement = null;
+ResultSet resultSet = null;
+%>
+
+<!-- ---------------------------------------------------------------------------------------------------------------------- -->
 <!DOCTYPE html>
-<html lang="en">
-<head>
-  <title>Delivery Details</title>
+<html>
+<title>Delivery Details Search</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="bootstrapPulasthi/bootstrap.min.css">
@@ -9,7 +30,7 @@
   <script src="hbootstrapPulasthi/popper.min.js"></script>
   <script src="bootstrapPulasthi/bootstrap.min.js"></script>
   <script src="bootstrapPulasthi/jquery.min.js"></script>
-  <style >
+   <style >
   h1{
   font-family:Formal Scripts;
   font-size:60px;
@@ -47,16 +68,6 @@
   background-color:#33cc33;
   color: white;
   }
-  .btnmap{
-  margin-left: 55px;
-  width:90px;
-  height:90px;
-  background: url("Pics/buttonicon.png");
-  background-size: cover;
-  }
-    .btnmap:hover{
-
-  }
   body{
 		
 		background-repeat: no-repeat;
@@ -67,57 +78,26 @@
   
 
 </style>
-  
-  
-</head>
-<body background="Pics/abc.png" background-repeat="no-repeat">
+
+<body>
 <nav class="navbar navbar-light bg-light">
   <form class="form-inline" >
-      <a href="details.jsp"><button class="btn btn-outline-success" type="button" >Details</button></a>&nbsp;
-     <a href="myprofile1.jsp"><button class="btn btn-sm btn-outline-secondary" type="button" >My Profile</button></a>&nbsp;
-    <a href="history.jsp"><button class="btn btn-sm btn-outline-secondary" type="button">History</button></a>
+      <a href="details.jsp"><button class="btn btn-outline-success" type="button" >Back</button></a>
   </form>
   
-   <form class="form-inline" method="post" action="search-details.jsp">
-   <input type="search" name="roll_no" class="form-control" placeholder="Search" required>&nbsp;
-   <button type="submit" name="save" class="btn btn-primary">Search</button>&nbsp;
-   <button type="button" class="btn btn-outline-dark">Log out</button>
-   </form>
+  <form class="form-inline" method="post" action="">
+  <button type="button" class="btn btn-outline-dark">Log out</button>
+  </form>
+  
+   
     
 </nav>
+<body background="Pics/abc.png">
 
 
-<%@page import="java.sql.DriverManager"%>
-<%@page import="java.sql.ResultSet"%>
-<%@page import="java.sql.Statement"%>
-<%@page import="java.sql.Connection"%>
-
-
-<%
-String id = request.getParameter("id");
-String driverName = "com.mysql.jdbc.Driver";
-String connectionUrl = "jdbc:mysql://localhost:3306/store";
-String userId = "root";
-String password = "root";
-
-try {
-Class.forName(driverName);
-} catch (ClassNotFoundException e) {
-e.printStackTrace();
-}
-
-Connection connection = null;
-Statement statement = null;
-ResultSet resultSet = null;
-%>
-
-
-<br>
 <h1><center><font color="White">Delivery Details</font></center></h1>
-<br>
-
-<a href="https://www.google.lk/maps" ><button class="btnmap"></button><h3 style="color:white; margin-left: 15px;" >Search Location</h3></a>
-<br><br><br>
+<br></br>
+<br></br>
 
 <div class="container">
 
@@ -136,10 +116,13 @@ ResultSet resultSet = null;
 
 <%
 try{ 
-connection = DriverManager.getConnection(connectionUrl, userId, password);
+connection = DriverManager.getConnection(connectionUrl, userid, password);
+
 statement=connection.createStatement();
-String sql ="SELECT * FROM details";
+String sql ="SELECT * FROM details WHERE name Like '"+""+roll_no+"%"+"' ";
 resultSet = statement.executeQuery(sql);
+
+
 while(resultSet.next()){
 %>
 
@@ -152,11 +135,10 @@ while(resultSet.next()){
        <td><%=resultSet.getString("tele") %></td>
        <td><%=resultSet.getString("order_id") %></td>
         <td>
-       <button type="button" id="<%=resultSet.getString("id") %>"  class="delete">Deliverd</button>&nbsp;&nbsp;
-       <button type="button" id="<%=resultSet.getString("id") %>" class="delete1">Returned</button>
+       <button type="button" id="<%=resultSet.getString("id") %>"  class="delete">Deliverd</button>&nbsp;
+       <button type="button" id="<%=resultSet.getString("id") %>" class="delete1">Returned</button>&nbsp;
        </td>
       </tr>
-
 
 
 
@@ -171,8 +153,6 @@ e.printStackTrace();
 %>
 
 </table>
-
-
 </div>
 
 
@@ -187,8 +167,8 @@ data: {
 id : id,
 },
 success : function(data){
-	alert(data); 
-	location.reload(); 
+alert(data); 
+location.reload(); 
 }
 });
 });
@@ -211,13 +191,6 @@ $(document).ready(function() {
 	});
 	});
 </script>
-
-
-
-
-
-
-
 
 
 </body>

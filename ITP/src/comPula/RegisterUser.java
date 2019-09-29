@@ -16,10 +16,10 @@ private ResultSet rs;
    
    public  RegisterUser(){
             try {
-                url="jdbc:mysql://localhost/store";
+                url="jdbc:mysql://localhost:3306/store";
     duser="root";
     dpass="root";
-         Class.forName("com.mysql.cj.jdbc.Driver");
+         Class.forName("com.mysql.jdbc.Driver");
          con=DriverManager.getConnection(url,duser,dpass);
          st=con.createStatement();
          System.out.println("DB Connected");
@@ -58,9 +58,9 @@ private ResultSet rs;
         try {
             rs= st.executeQuery(query1);
             if(rs.next()) {
-                 r= rs.getString(1)+"/"+rs.getString(2)+"/"+rs.getString(3)+"/"+rs.getString(4)
-                   +"/"+rs.getString(5)+"/"+rs.getString(6)+"/"+rs.getString(7)+"/"
-                   +rs.getString(8)+"/"+rs.getString(9)+"/"+rs.getString(10) ;
+                 r= rs.getString(1)+"~"+rs.getString(2)+"~"+rs.getString(3)+"~"+rs.getString(4)
+                   +"~"+rs.getString(5)+"~"+rs.getString(6)+"~"+rs.getString(7)+"~"
+                   +rs.getString(8)+"~"+rs.getString(9)+"~"+rs.getString(10) ;
             }
             
             

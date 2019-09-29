@@ -44,8 +44,18 @@ heght:50px;
 		border-radius: 30px;
 		width: 100%;
 		height: 100%;
-		border: 1px solid black;
+		border: 1px solid white;
 		padding: 25px;
+	}
+	.inputc{
+	
+	}
+		body{
+		
+		background-repeat: no-repeat;
+		background-position: center;
+		background-size: cover;
+	
 	}
 </style>
 </head>
@@ -58,7 +68,12 @@ heght:50px;
      <a href="myprofile1.jsp"><button class="btn btn-outline-success" type="button" >My Profile</button></a>
     <a href="history.jsp"><button class="btn btn-sm btn-outline-secondary" type="button">History</button></a>
   </form>
+  <form class="form-inline" method="post" action="">
+  <button type="button" class="btn btn-outline-dark">Log out</button>
+  </form>
 </nav>
+
+<body background="Pics/abc.png"   >
 
 
 <%
@@ -71,7 +86,7 @@ detail= ruser.getuserdetails();
 
 
 try{
-	col=detail.split("/");
+	col=detail.split("~");
 	
 }catch(Exception exception){
 	out.print("error"+exception);
@@ -166,7 +181,7 @@ function validateForm(){
 
 
 <center>
-    <h1 class="top" style="color: black;">My Profile</h1>
+    <h1 class="top" style="color: White;">My Profile</h1>
 </center>
 
 
@@ -178,40 +193,40 @@ function validateForm(){
 		<div class="col-md-4"></div>
 		
 			<div class="col-md-4">
-			  <div class="form" >
+			  <div class="form" style="background-color:rgba(0,0,0,0.8);" >
 				<div class="thumbnail">
 					<img src="Pics/profpic.jpg" alt="Profile Picture" height="50%" width="50%">
 				</div> 
 				
 
-				<h2 class="userprof">User Profile</h2>
-				<h4><%
+				<h2 class="userprof"><font color="White">User Profile</font></h2>
+				<h4><font color="White"><%
                                     out.print(col[1]);
                                     
-                                    %></h4>
+                                    %></font></h4>
 				<hr>
 	
 				<ul class="icons-list">
 				
-     <form id="myforms" name="myforms"   method="post" action="ChangeUser" >
-        Name:<br /> <input type="text" name="name" classs="inputc" placeholder="ex@John" value="<%out.print(col[1]);   %>" maxlength="50" />
+     <form id="myforms" name="myforms"   method="post" action="ChangeUser" style="color: White; width: 100%; ">
+        Name:<br /> <input type="text"  name="name" classs="inputc" placeholder="ex@John" value="<%out.print(col[1]);   %>" maxlength="50" />
 		<br /><br />
-		Username:<br /> <input type="text" name="uname" classs="inputc" value="<%out.print(col[2]);   %>" placeholder="username" maxlength="50"/>
+		Username:<br /> <input type="text"  name="uname" classs="inputc" value="<%out.print(col[2]);   %>" placeholder="username" maxlength="50"/>
 		<br /><br />
 		NIC:<br /> <input type="text" name="NIC" classs="inputc" value="<%out.print(col[3]);   %>" placeholder="97*******V" maxlength="50"/>
 		<br /><br />
-		Address: <br /><input type="text" name="address" classs="inputc" value="<%out.print(col[4]);   %>" placeholder="ex@BOC Merchant Tower,St Michaels Rd, Colombo" maxlength="100"/>
+		Address: <br /><textarea type="text" style="height: 100px; width: 60%;" rows="3" name="address" classs="inputc"  value="" placeholder="ex@BOC Merchant Tower,St Michaels Rd, Colombo" maxlength="100"/><%out.print(col[4].toString());   %></textarea>
 		<br /><br />
-			Contact Number:<br /> <input type="tel" classs="inputc" name="tele" placeholder="07* *** ****" pattern="[0-9]{10}" value="<%out.print(col[5]);   %>" required  maxlength="15"/>
+			Contact Number:<br /> <input type="tel"  classs="inputc" name="tele" placeholder="07* *** ****" pattern="[0-9]{10}" value="<%out.print(col[5]);   %>" required  maxlength="15"/>
 		
 		<br /><br />
-		Licens  Number:<br /> <input type="text" name="lnum" classs="inputc" value="<%out.print(col[6]);   %>" placeholder="ex@S123456789" maxlength="50"/>
+		Licens  Number:<br /> <input type="text"  name="lnum" classs="inputc" value="<%out.print(col[6]);   %>" placeholder="ex@S123456789" maxlength="50"/>
 		<br /><br />
-		Vehical Number:<br /> <input type="text" name="vnum" classs="inputc"  value="<%out.print(col[7]);   %>" placeholder="ex@ABC-1234" maxlength="50"/>
+		Vehical Number:<br /> <input type="text"  name="vnum" classs="inputc"  value="<%out.print(col[7]);   %>" placeholder="ex@ABC-1234" maxlength="50"/>
 		<br /><br />
-		Vehical Modle:<br /> <input type="text" name="vmodel" classs="inputc"  value="<%out.print(col[8]);   %>" placeholder="ex@TATA" maxlength="50"/>
+		Vehical Modle:<br /> <input type="text"  name="vmodel" classs="inputc"  value="<%out.print(col[8]);   %>" placeholder="ex@TATA" maxlength="50"/>
 		<br /><br />
-		Password:<br /> <input type="password" name="pass" classs="inputc" value="<% out.print(col[9]);   %>" placeholder="***********" maxlength="50"/>
+		Password:<br /> <input type="password" name="pass"  classs="inputc" value="<% out.print(col[9]);   %>" placeholder="***********" maxlength="50"/>
 		<br /><br />
 		<input type="checkbox" name="privacy"/> I have read and agree to the privacy policy 
 		<br /><br />
