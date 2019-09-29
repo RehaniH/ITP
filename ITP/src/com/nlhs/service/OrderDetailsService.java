@@ -7,6 +7,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 import com.nlhs.model.OrderDetails;
+import com.nlhs.model.Orders;
 import com.nlhs.util.DBConnection;
 
 public class OrderDetailsService {
@@ -97,6 +98,53 @@ public class OrderDetailsService {
 			id = "OR"   + next;
 		}
 		return id;
+	}
+	
+	
+	/**
+	 * @author IT18176070
+	 * @param userName
+	 * @return
+	 */
+	
+	public ArrayList getOrderHistory(String userName) {
+		ArrayList historyList = new ArrayList();
+		OrderDetails details;
+		query = "SELECT * FROM order_details WHERE email= ?";
+		
+		try {
+			connection = DBConnection.getConnection();
+			pre = connection.prepareStatement(query);
+			pre.setString(1, userName);
+			ResultSet results = pre.executeQuery();
+			
+			while(results.next()) {
+				details = new OrderDetails();
+				details.setOrderId(results.getString(1));
+				details.setEmail(results.getString(2));
+				details.setAmount(results.getFloat(3));
+				details.setDeliveryCharges(results.getFloat(4));
+				details.setGrandTotal(results.getFloat(5));
+				details.setOrderDate(results.getDate(6));
+				details.setPaymentStatus(results.getString(7));
+				details.setOrderStatus(results.getString(8));
+				
+				historyList.add(details);
+			}
+			
+			return historyList;
+		} catch (ClassNotFoundException e) {
+			
+			e.printStackTrace();
+		} catch (SQLException e) {
+			
+			e.printStackTrace();
+		}
+		return historyList;
+	}//end method getOrderHistory
+	
+	public void getBestCustomers() {
+		
 	}
 	
 }

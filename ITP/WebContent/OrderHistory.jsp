@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+<%@ page import="com.nlhs.model.OrderDetails" %>
+<%@ page import="java.util.ArrayList" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -12,6 +14,15 @@
 <script src="bootstrap/js/popper.min.js" ></script>
 
 </head>
+<%
+	ArrayList<OrderDetails> list = new ArrayList<>();
+	
+	
+	if(request.getAttribute("History") != null){
+		list = (ArrayList)request.getAttribute("History");
+		
+		
+%>
 <body>
 	<div class="jumbotron" >
 		<div class="container">
@@ -29,20 +40,44 @@
         <th>Order Date</th>
         <th>Total</th>
         <th>Order Status</th>
+       <!--  <th>View Reciept</th> -->
       </tr>
     </thead>
     <!-- For change of colors use style="background-color:#FFF5EE; -->
     <%
-    	out.print("<tbody>");
-    	out.print("<tr>");
-    	out.print("<td>" + "" + "</td>");
-    	out.print("<td>" + "" + "</td>");
-    	out.print("<td>" + "" + "</td>");
-    	out.print("<td>" + "" + "</td>");
-    	out.print("</tr>");
-    	out.print("</tbody>");
     
-    %>
+    if(!list.isEmpty()){
+		
+		for(OrderDetails details: list){
+			
+			
+			
+	    	out.print("<tbody>");
+	    	out.print("<tr>");
+	    	out.print("<td>" + details.getOrderId() + "</td>");
+	    	out.print("<td>" + details.getOrderDate() + "</td>");
+	    	
+	    	out.print("<td>" + details.getGrandTotal() + "</td>");
+	    	out.print("<td >" + details.getOrderStatus() + "</td>");
+	    	/* out.print("<td align='right'>" +  "<input type='submit' value='Details' name='View' class='btn btn-secondary'/>"
+	    			+ "&nbsp"	+ "<input type='submit' value='Delete' name='delete' class='btn btn-dark'/>"+ "</td>");
+	    	 */
+    
+   
+    
+    		
+			
+			
+			out.print("</tr>");
+			out.print("</tbody>");	
+			}
+
+
+		}
+	}
+				
+			
+	%>
     
   </table>
 	</div>
