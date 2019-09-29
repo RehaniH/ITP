@@ -19,11 +19,39 @@ public class StocksServiceImp implements IStocksServiceImp {
 	@Override
 	public String updateStocks(Stocks stock) {
 
-		String sql = " Insert into stocks values(?,?,?,?,?,?)";
-		int res = 0;
-		String ex = " ";
+		int ret = 0;
+		ResultSet rs;
+
 		try {
 			connection = DBConnection.getConnection();
+
+			String sql = "Insert into stocks values(?,?,?,?,?,?)";
+
+			String sql2 = "Select * from stocks where p_id = ?";
+
+			preparedStatement = connection.prepareStatement(sql2);
+
+			preparedStatement.setString(1, stock.getPid());
+
+			rs = preparedStatement.executeQuery();
+
+			if (rs.next()) {
+
+				String sql3 = "Update stocks set stocks = ? , Admin_ID = ? where p_id = ?";
+				preparedStatement = connection.prepareStatement(sql3);
+				preparedStatement.setInt(1, rs.getInt(4) + stock.getStocks());
+				preparedStatement.setString(2, rs.getInt(5) + stock.getAid());
+				preparedStatement.setString(3, stock.getPid());
+
+				ret = preparedStatement.executeUpdate();
+
+				if (ret != 0) {
+					return "Increased Stocks";
+				} else {
+					return "Failed increasing stocks";
+				}
+			}
+
 			preparedStatement = connection.prepareStatement(sql);
 
 			preparedStatement.setString(1, stock.getPid());
@@ -33,29 +61,20 @@ public class StocksServiceImp implements IStocksServiceImp {
 			preparedStatement.setString(5, stock.getAid());
 			preparedStatement.setString(6, stock.getuDate());
 
-			res = preparedStatement.executeUpdate();
-			System.out.println("running Stock update");
-		} catch (SQLException e) {
+			ret = preparedStatement.executeUpdate();
 
-			// ex = e.toString();
+		} catch (ClassNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		} finally {
-			try {
-				preparedStatement.close();
-				connection.close();
-			} catch (SQLException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 
-			if (res == 0) {
-				return "Stock \"Not\" Updated Because No such supplier or Product id";
-
-			} else {
-				return "Successfully Updated Stock";
-			}
-
+		if (ret > 0) {
+			return "Success";
+		} else {
+			return "Not Updated";
 		}
 
 	}

@@ -116,8 +116,8 @@
 				<div class="row">
 					<div class="col-sm-4">
 						<div class="well">
-							<p>LOW STOCKS PRODUCTS</p>
-							<a href="#"><img src="images/low_stocks.png"
+							<p>Reports</p>
+							<a href="reportsInventory.jsp"><img src="images/low_stocks.png"
 								class="img-responsive" style="width: 100%" alt="Image"></a>
 						</div>
 					</div>

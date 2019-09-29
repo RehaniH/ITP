@@ -41,8 +41,9 @@ public class UpdateStocksServlet extends HttpServlet {
 		st.setStocks(Integer.parseInt(request.getParameter("st_stock")));
 		st.setAid(request.getParameter("st_aid"));
 		Date d = new Date();
-		String date = d.toString();
-		st.setuDate(date);
+		System.out.println(d.toString());
+		String[] date = d.toString().split(" ");
+		st.setuDate(date[0] + " " + date[1] + " " + date[2] + " " + date[5]);
 
 		StocksServiceImp ssi = new StocksServiceImp();
 
