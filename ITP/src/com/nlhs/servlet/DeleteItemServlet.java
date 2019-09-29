@@ -31,6 +31,7 @@ public class DeleteItemServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		System.out.println("Inside");
 		String id = request.getParameter("product_id");
 		System.out.println("delete Servlet:" + id);
 		ItemsServiceImp isi = new ItemsServiceImp();
