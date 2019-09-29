@@ -90,7 +90,7 @@ public class LoginServlet extends HttpServlet {
 			System.out.println(delivery);
 			if (delivery.startsWith("login")) {
 				String[] details;
-				details = delivery.split("~");
+				details = delivery.split("/");
 				HttpSession session = request.getSession();
 				session.setAttribute("IDD", details[1]);
 				response.sendRedirect("details.jsp");
