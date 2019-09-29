@@ -91,8 +91,9 @@ public class AddItemServlet extends HttpServlet {
 		System.out.println(fileName);
 
 		// part.write(savePath + File.separator + fileName);
-		part2.write("C:\\Users\\my\\eclipse-workspace\\servlet\\NewLankaHardware\\WebContent\\productImages"
-				+ File.separator + fileName);
+		// part2.write("C:\\Users\\my\\eclipse-workspace\\servlet\\NewLankaHardware\\WebContent\\productImages"
+		// + File.separator + fileName);
+		part2.write("C:\\Users\\my\\git\\ITP\\ITP\\WebContent\\productImages" + File.separator + fileName);
 		// }
 		String message = iSImp.addItem(item);
 		request.setAttribute("message", message);

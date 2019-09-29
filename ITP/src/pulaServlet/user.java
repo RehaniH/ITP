@@ -81,7 +81,8 @@ public class user extends HttpServlet {
 					String x[] = r.split("/");
 					HttpSession session = request.getSession();
 					session.setAttribute("IDD", x[1]);
-					response.sendRedirect("/Pula_Register.jsp?me=");
+					// response.sendRedirect("/AdminDashboard.jsp?me=");
+					response.sendRedirect("AdminDashboard.jsp");
 
 				} catch (Exception e) {
 

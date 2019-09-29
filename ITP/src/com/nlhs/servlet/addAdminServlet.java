@@ -75,8 +75,7 @@ public class addAdminServlet extends HttpServlet {
 		System.out.println(fileName);
 
 		// part.write(savePath + File.separator + fileName);
-		part2.write("C:\\Users\\my\\eclipse-workspace\\servlet\\NewLankaHardware\\WebContent\\profilePics"
-				+ File.separator + fileName);
+		part2.write("C:\\Users\\my\\git\\ITP\\ITP\\WebContent\\profilePics" + File.separator + fileName);
 		// }
 		String AdminAddmessage = iSImp.addAdmin(item);
 		request.setAttribute("AAmessage", AdminAddmessage);

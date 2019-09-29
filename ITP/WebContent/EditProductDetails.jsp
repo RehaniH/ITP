@@ -10,22 +10,22 @@
 </head>
 <body>
 
-<div><img src=productImages/<%=request.getParameter("pimage") %>> <h4>Previous Image</h4></div>
 
 <form enctype="multipart/form-data" action="./EditItemServlet" name="frm" onsubmit="return validateForm() " method="POST"  autocomplete="on">
   <div class="container">
     <h1>Edit Product</h1>
     <p>Please fill item details.</p>
     <hr>
+    <div><img src=productImages/<%=request.getParameter("pimage") %>> <h4>Previous Image</h4></div>
     
 	<br>
-    <label for="email"><b>Product ID</b></label>
+    <label for="email"><b>Product ID</b></label><br>
     <input type="hidden" placeholder="Enter Product ID" name="product_id" value="<%=request.getParameter("product_id")  %>" required="required" >
-
-    <label for="email"><b>Product Name</b></label>
+<br>
+    <label for="email"><b>Product Name</b></label><br>
     <input type="text" placeholder="Enter product name" name="product_name" value="<%=request.getParameter("product_name")%>" required="required" >
-
-    <label><b>Product Image</b></label>
+<br>
+    <label><b>Product Image</b></label><br>
     <input type = "file" name = "product_image"  size = "50" required="required" />
      <hr>
      <br>
@@ -37,32 +37,32 @@
    <input type="radio" name="product_category" value="Plumbing"required="required" >Plumbing
     <hr>
 	<br>
-    <label for="email"><b>Supplier Name</b></label>
+    <label for="email"><b>Supplier Name</b></label><br>
     <input type="text" placeholder="Enter Supplier Name" name="supplier_name" value="<%=request.getParameter("supplier_name" ) %>"   required="required">
     
     <br>
-    <label for="email"><b>Supplier Contact</b></label>
+    <label for="email"><b>Supplier Contact</b></label><br>
     <input type="text" placeholder="Enter Supplier Contact" name="supplier_contact" value="<%=request.getParameter("supplier_contact")%>" required="required" >
     <br>
-    <label for="email"><b>Unit size</b></label>
+    <label for="email"><b>Unit size</b></label><br>
     <input type="text" placeholder="Unit Size" name="product_unitSize" value="<%=request.getParameter("product_unitSize") %>" required="required" >
      <br>
-    <label for="email"><b>Cost price</b></label>
+    <label for="email"><b>Cost price</b></label><br>
     <input type="text" placeholder="Enter Cost price" name="cost_price" value="<%=request.getParameter("cost_price") %>" required="required">
     
     <br>
-    <label for="email"><b>Selling price</b></label>
+    <label for="email"><b>Selling price</b></label><br><br><br>
     <input type="text" placeholder="Enter Selling price" name="selling_price" value="<%=request.getParameter("selling_price") %>" required="required" >
      
     <br>
-    <label for="email"><b>Buffer Stock</b></label>
+    <label for="email"><b>Buffer Stock</b></label><br>
     <input type="text" placeholder="Enter Buffer Stock" name="buffer_stock" value="<%=request.getParameter("buffer_stock") %>" required="required" >
     
     <br>
-    <label for="email"><b>Item Description</b></label>
+    <label for="email"><b>Item Description</b></label><br>
     <input type="text" placeholder="Enter Item Description" name="product_desc" value="<%=request.getParameter("product_desc") %>" required="required" >
     
-    
+    <br>
     
    
 	<button type="submit" class="registerbtn">Edit Item</button>
