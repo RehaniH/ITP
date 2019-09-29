@@ -8,7 +8,7 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>NEW LANKA HARDWARE STORE|CART</title>
-
+<%@ include file = "header.jsp" %>
 <style>
 .button {
   background-color: #4CAF50; /* Green */
@@ -26,6 +26,7 @@
 </style>
 </head>
 <body>
+
 
 <%if(session.getAttribute("UserName") == null){
 	  request.getRequestDispatcher("index.jsp").include(request, response);  
@@ -95,6 +96,6 @@
 				
 					
     		
-    
+ <%@ include file = "footer.jsp" %>   
 </body>
 </html>
