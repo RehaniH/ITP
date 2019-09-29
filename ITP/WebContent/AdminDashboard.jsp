@@ -55,6 +55,8 @@
 					<li><a href="ListSuppliers.jsp">Supplier</a></li>
 					<li><a href="#">Sales</a></li>
 					<li><a href="Pula_Register.jsp">Delivery Staff Registration</a></li>
+					<li><a href="returnsupplier.jsp">Delivery Staff Registration</a></li>
+					<li><a href="vousave.jsp">Delivery Staff Registration</a></li>
 					<li><a href="http://localhost:2019/memeChat.html">Chat</a></li>
 					<li><form action="./LogoutServlet" method="post"><input type="submit" value="logout"></form></li>
 				</ul>
