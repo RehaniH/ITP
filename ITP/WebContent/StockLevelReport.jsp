@@ -45,13 +45,13 @@ try
     document.open();
 
     /* new paragraph instance initialized and add function write in pdf file*/
-    document.add(new Paragraph("------------------------------------------------AVAILABLE STOCK LEVEL---------------------------------------------\n\n"));
+    document.add(new Paragraph("############################################AVAILABLE STOCK LEVEL################################################\n\n"));
     document.add(new Paragraph("---------------------------------------------------------------------------------------------------------------------------------"));
     document.addCreationDate();
    
     while(rs.next())
     {
-        // fetch & writing records in pdf files
+        
         document.add(new Paragraph("Product Name::"+rs.getString(2)+"\nAmount Of Stock::"+rs.getString(4)+"\nLast Updated ::"+rs.getString(6)+"\n\n"));
         document.add(new Paragraph("----------------------------------------------------------------------------------------------------------------------------\n\n"));
     
