@@ -110,7 +110,7 @@ ResultSet resultSet = null;
         <th>Address</th>
         <th>Telephone Number</th>
         <th>Order ID</th>
-        <th>Upgrade Status or View Report</th>
+        <th>Upgrade Status</th>
       </tr>
     </thead>
 
@@ -177,7 +177,7 @@ e.printStackTrace();
         <th>Address</th>
         <th>Telephone Number</th>
         <th>Order ID</th>
-        <th>Upgrade Status or View Report</th>
+        <th>Upgrade Status</th>
       </tr>
     </thead>
 

@@ -82,6 +82,11 @@
 					value="<%=o.getProduct()  %>" /></td>
 			</tr>
 			<tr>
+				<td><label for="discount">Discount</label></td>
+				<td><input type="text" name="discount"  style="margin-left: 10px;"
+					value="<%=o.getDiscount()  %>" /></td>
+			</tr>
+			<tr>
 				<td><label for="description">Description</label></td>
 				<td><input type="text" name="description"  style="margin-left: 10px; "
 					value="<%=o.getDescription()  %>" /></td>

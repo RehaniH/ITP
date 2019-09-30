@@ -27,7 +27,7 @@ public class SupProServiceImpl implements SupProService{
 	@Override
 	public void addSupPro(SupPro supPro) {
 		
-		String supProId = GenerateOfferId.generateIDs(getSupProIDs());
+		String supProId = GenerateSupProId.generateIDs(getSupProIDs());
 		supPro.setSupProId(supProId);
 		
 		String sqlInsertQuery = "insert into sup_pro(`supProId`, `sid`, `sname`, `phone`, `company`, `type`, `product`, `quantity`,`totalPri`) values(?,?,?,?,?,?,?,?,?)";

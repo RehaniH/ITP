@@ -31,12 +31,12 @@
   font-weight:bold;
   text-align:center;}
   
-  button{
+button{
   background-color:#6699ff;
   color: black;
   font-size: 16px;
   height:40px;
-  width:100px;
+  width:145px;
   border: none;
   cursor: pointer;
   border-radius: 5px;
