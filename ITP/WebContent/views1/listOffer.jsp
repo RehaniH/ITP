@@ -21,10 +21,21 @@
  	    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>	  -->	
         <meta charset="ISO-8859-1">
         
+ 
+        
         
 <title>New Lanka Hardware store</title>
 </head>
 <body>
+
+						  <form action="SearchOffer.jsp" method="post">
+						  Search  Here <input type="search" name="id"><br>
+						  <input type="submit" name="submit" value="submit">
+						</form>
+  
+ 
+
+
 	<div align="center">
 	<div class="container">
 	 <div class="table-responsive">
@@ -37,6 +48,7 @@
                 <th>Expiration Date</th>
                 <th>Company</th>
                 <th>Product</th>
+                <th>Discount</th>
                 <th>Description</th>
                 
                 </tr>
@@ -55,6 +67,7 @@
 				<td> <%=off.getExpire() %> </td>
 				<td> <%=off.getCompany() %> </td>
 				<td> <%=off.getProduct() %> </td>
+				<td> <%=off.getDiscount() %> </td>
 				<td> <%=off.getDescription() %> </td>	
 				<td>
 				<form method="POST" action="GetOfferServlet">
@@ -71,10 +84,13 @@
 			
 			</tbody>
 			
-              </table>
+              </table>           
+              
+              
 			</div>
 	 </div>
 	</div>
+				 
 
 </body>
 </html>

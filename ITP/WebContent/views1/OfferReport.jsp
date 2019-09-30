@@ -23,7 +23,6 @@
 <%@page import="com.lowagie.text.pdf.*"%>
 <%@page import="com.lowagie.text.html.*"%>
 <%
-
 String str="pdf";
 
 Connection conn=null;
@@ -38,25 +37,22 @@ try
         PdfWriter.getInstance(document,response.getOutputStream());
     }
     conn= DBConnection.getConnection();
-    String query = "select * from supplier";          //Fetching data from table
+    String query = "select * from  offer";          //Fetching data from table
        ps=conn.prepareStatement(query);                // executing query
        rs=ps.executeQuery();
       
     document.open();
 
     /* new paragraph instance initialized and add function write in pdf file*/
-    document.add(new Paragraph("------------------------------------------------UPDATED SUPPLIER----------------------------------------------\n\n"));
+    document.add(new Paragraph("---------------------------------------------------------Current offers---------------------------------------------------\n\n"));
+   
     document.add(new Paragraph("---------------------------------------------------------------------------------------------------------------------------------"));
     document.addCreationDate();
    
-    
     while(rs.next())
     {
-        // fetch & writing records in pdf files
-        document.add(new Paragraph("Supplier ID ::"+rs.getString(1)+"\nFirst Name::"+rs.getString(2)+"\nLast Name ::"+rs.getString(3)+"\nCompany Name ::"+rs.getString(4)+"\nProduct Category ::"+rs.getString(5)+"\nContact Number ::"+rs.getString(6)+"\nEmail Address ::"+rs.getString(7)+"\nAddress ::"+rs.getString(8)+"\n\n"));
-        document.add(new Paragraph("----------------------------------------------------------------------------------------------------------------------------\n\n"));
-    
-    
+          // fetch & writing records in pdf files
+        document.add(new Paragraph("Offer ID ::"+rs.getString(1)+"\nSupplier ID::"+rs.getString(2)+"\nStart Date::"+rs.getString(3)+"\nExpiration Date ::"+rs.getString(4)+"\nCompany ::"+rs.getString(5)+"\nProduct ::"+rs.getString(6)+"\nDiscount ::"+rs.getString(7)+"\nDescription ::"+rs.getString(8)+"\n\n"));
     }
     document.add(new Paragraph("---------------------------------------------------------PAGE NO::"+document.getPageNumber()+"------------------------------------------------------"));
 

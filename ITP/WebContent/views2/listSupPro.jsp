@@ -36,7 +36,14 @@
 </head>
 <body>
 		
-			<h1>SUPPLIER   PROFILE</h1><br><br>
+		 <form action="SearchSupPro.jsp" method="post">
+						  Search  Here <input type="search" name="id"><br>
+						  <input type="submit" name="submit" value="submit">
+						</form>
+  
+		
+		
+		<h1>SUPPLIER   PROFILE</h1><br><br>
 			<div align="center">
 			<div class="container">
 	 		<div class="table-responsive">

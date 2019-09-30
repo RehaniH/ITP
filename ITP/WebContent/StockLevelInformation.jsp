@@ -149,6 +149,9 @@
 			<tr></tr>
 		</table>
 	</form>
+	<form  action="StockLevelReport.jsp">	
+				 <input type="submit" value= "Remaining Stocks" class="select-button" /> 
+		    </form>
 	</div>
 	</div>
 	</div>

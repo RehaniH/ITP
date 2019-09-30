@@ -10,6 +10,7 @@ public class offer {
 	private  String expire;
 	private String company;
 	private String product;
+	private String discount;
 	private String description;
 	
 	
@@ -72,12 +73,25 @@ public class offer {
 	public String getDescription() {
 		return description;
 	}
+	
+	
+	public void setDiscount(String discount) {
+		this.discount = discount;
+	}
+
+	public String getDiscount() {
+		return discount;
+	}
+
+	
 
 	@Override
 	public String toString() {
-		return "offerId=" + offerId +"\n"+ "supId=" + supId +"\n"+ "start=" + start +"\n"+ " expire=" + expire
-				+"\n"+ " company=" + company +"\n"+ "product=" + product +"\n"+ " description=" + description ;
+		return "offer [offerId=" + offerId + ", supId=" + supId + ", start=" + start + ", expire=" + expire
+				+ ", company=" + company + ", product=" + product + ", discount=" + discount + ", description="
+				+ description + "]";
 	}
+
 	
 	
 	

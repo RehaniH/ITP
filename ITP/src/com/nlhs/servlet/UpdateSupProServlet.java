@@ -64,7 +64,7 @@ public class UpdateSupProServlet extends HttpServlet {
 		SupProService supProService = new SupProServiceImpl();
 		supProService.addSupPro(supPro);
 		
-		request.setAttribute("SupPro", supPro);
+		//request.setAttribute("SupPro", supPro);
 		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/views2/listSupPro.jsp");
 		dispatcher.forward(request, response);
 	}

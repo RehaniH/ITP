@@ -40,9 +40,9 @@
 </head>
 <body>
 
-				<!-- 	<%
-					SupPro supPro = (SupPro) request.getAttribute("supPro");
-	%> -->
+					<%
+					//SupPro supPro = (SupPro) request.getAttribute("supPro");
+	%> 
 	
 		<%!
 		 SupPro supPro;
@@ -57,7 +57,8 @@
 		<table>
 			<tr>
 				<td><label for="supProId" >Supplied Product Id</label></td>
-				<td><input type="text" name="supProId" disabled="disabled"  style="margin-left: 10px;" value="<%=supPro.getSupProId() %>" /></td>
+				<td><input type="text" name="supProId" disabled="disabled"  style="margin-left: 10px;" 
+				value="<%=supPro.getSupProId() %>" /></td>
 			</tr>
 			<tr>
 				<td><label for="sid" >Supplier ID</label></td>
@@ -85,7 +86,7 @@
 					value="<%=supPro.getType() %>" /></td>
 			</tr>
 			<tr>
-				<td><label for="product">Description</label></td>
+				<td><label for="product">Product</label></td>
 				<td><input type="text" name="product"  style="margin-left: 10px;"
 					value="<%=supPro.getProduct() %>" /></td>
 			</tr>
@@ -100,8 +101,9 @@
 					value="<%=supPro.getTotalPri() %>" /></td>
 			</tr>
 			<tr>
-				<td colspan="2"><input type="hidden" name="offerId"	value="<%=supPro.getSupProId() %>" />
-				 <input type="submit" value="Update offer" name="update-button" class="btn btn-success" style = "margin-left: 10px; margin-top: 50px;" /></td>
+				<td colspan="2"><input type="hidden" name="supProId"
+					value="<%=supPro.getSupProId() %>" />
+				 <input type="submit" value="Update supplied product" name="update-button" class="btn btn-success" style = "margin-left: 10px; margin-top: 50px;" /></td>
 			</tr>
 		</table>
 	</form>

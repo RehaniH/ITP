@@ -63,6 +63,7 @@ public class AddOfferServlet extends HttpServlet {
 		}
 		offer.setCompany(request.getParameter("company"));
 		offer.setProduct(request.getParameter("product"));
+		offer.setDiscount(request.getParameter("discount"));
 		offer.setDescription(request.getParameter("description"));
 		
 		
