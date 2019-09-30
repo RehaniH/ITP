@@ -3,6 +3,7 @@ package com.nlhs.service;
 import java.sql.Connection;
 
 
+
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -30,7 +31,7 @@ public class OfferServiceImpl implements OfferService {
 		offer.setOfferId(offerId);
 		
 		
-		String sqlInsertQuery = "insert into offer(`offerId`, `supId`, `start`, `expire`, `company`, `product`, `description`) values(?,?,?,?,?,?,?)";
+		String sqlInsertQuery = "insert into offer(`offerId`, `supId`, `start`, `expire`, `company`, `product`,`discount`, `description`) values(?,?,?,?,?,?,?,?)";
 		
 		try {
 			connection = new DBConnection().getConnection();
@@ -41,8 +42,11 @@ public class OfferServiceImpl implements OfferService {
 			preparedStatement.setString(4, offer.getExpire());
 			preparedStatement.setString(5, offer.getCompany());
 			preparedStatement.setString(6, offer.getProduct());
-			preparedStatement.setString(7, offer.getDescription());
+			preparedStatement.setString(7, offer.getDiscount());
+			preparedStatement.setString(8, offer.getDescription());
 			results = preparedStatement.execute();
+			
+			System.out.println("Discount: "+offer.getDiscount());
 		}
 		catch(SQLException |  ClassNotFoundException e)
 		{
@@ -129,7 +133,8 @@ public class OfferServiceImpl implements OfferService {
 			offer.setExpire(resultSet.getString(4));
 			offer.setCompany(resultSet.getString(5));
 			offer.setProduct(resultSet.getString(6));
-			offer.setDescription(resultSet.getString(7));
+			offer.setDiscount(resultSet.getString(7));
+			offer.setDescription(resultSet.getString(8));
 			offerList.add(offer);
 			}
 		}
@@ -172,15 +177,16 @@ public class OfferServiceImpl implements OfferService {
 			try {
 					connection = new DBConnection().getConnection();
 							
-					String updateQuery = "update offer as e set e.supId=?,e.start=?,e.expire=?,e.company=?, e.product=?,e.description=? where e.offerId =?";
+					String updateQuery = "update offer as e set e.supId=?,e.start=?,e.expire=?,e.company=?, e.product=?,e.discount=?,e.description=? where e.offerId =?";
 					preparedStatement = connection.prepareStatement(updateQuery);
 					preparedStatement.setString(1, offer.getSupId());
 					preparedStatement.setString(2, offer.getStart());
 					preparedStatement.setString(3, offer.getExpire());
 					preparedStatement.setString(4, offer.getCompany());
 					preparedStatement.setString(5, offer.getProduct());
-					preparedStatement.setString(6, offer.getDescription());
-					preparedStatement.setString(7, offer.getOfferId());
+					preparedStatement.setString(6, offer.getDiscount());
+					preparedStatement.setString(7, offer.getDescription());
+					preparedStatement.setString(8, offer.getOfferId());
 					preparedStatement.executeUpdate();
 			}
 			catch(SQLException | ClassNotFoundException e) {

@@ -53,6 +53,7 @@ public class UpdateOfferServlet extends HttpServlet {
 		offer.setExpire(request.getParameter("expire"));
 		offer.setCompany(request.getParameter("company"));
 		offer.setProduct(request.getParameter("product"));
+		offer.setDiscount(request.getParameter("discount"));
 		offer.setDescription(request.getParameter("description"));
 		
 		OfferService offerService = new OfferServiceImpl();

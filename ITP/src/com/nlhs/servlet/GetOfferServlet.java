@@ -49,6 +49,7 @@ public class GetOfferServlet extends HttpServlet {
 		OfferService offerService = new OfferServiceImpl();
 		offer offer = offerService.getOfferByID(offerId);
 		System.out.println("Offer Id"+offerId);
+		
 		request.setAttribute("offer", offer);
 		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/views1/updateOffer.jsp");
 		
