@@ -80,6 +80,9 @@
 					<li><a href="vousave.jsp">Voucher</a></li>
 					<li><a href="http://localhost:2019/memeChat.html">Chat</a></li>
 					<li><form action="./LogoutServlet" method="post"><input type="submit" value="logout"></form></li>
+					<form class="form-inline" >
+                    <a href="Purchases.jsp"><button class="btn btn-warning" type="button" >Purchases Report</button></a>&nbsp 
+                    </form>
 				</ul>
 				<br>
 			</div>
