@@ -16,8 +16,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
     <style>
   			* {
-  			box-sizing: content-box; 
-  			
+  			box-sizing: content-box;
   			
 			}
 
@@ -41,7 +40,7 @@ input[type=submit] {
   border: none;
   border-radius: 4px;
   cursor: pointer;
-  float: inherit;
+  float: left;
 }
 
 input[type=submit]:hover {
@@ -146,7 +145,7 @@ input[type=submit]:hover {
   				}
   			}
   			footer{
-  				position: fixed;
+  				position: relative;
    				left: 0;
    				bottom: 0;
    				width: 100%;
@@ -228,11 +227,12 @@ input[type=submit]:hover {
 		}
 			%>	
 	</table>
-	</form>
-	</div><br>
+	</form><br><br>
+	<input type="submit" id="print"value="print"onclick="printpage()" ><br><br><br>
 <a href="profit/pIncome.jsp">Add New Income</a><br><br>
 <a href="profit/pExpense.jsp">Add New Expense</a><br><br>
 <a href="profit/RExpense.jsp">Delete</a><br><br>
+</div>
 
 	<footer>
   		<p>Posted by: Tharik Rizan</p>
@@ -240,6 +240,14 @@ input[type=submit]:hover {
 	</footer>
 
 <script>
+	
+function printpage() {
+	var printbutton=document.getElementById("print");
+	printbutton.style.visibility='hidden';
+	window.print();
+	printbutton.style.visibility='visible';
+	
+}
 		function myFunction() {
 		  var input, filter, table, tr, td, i, txtValue;
 		  input = document.getElementById("myInput");
@@ -247,7 +255,7 @@ input[type=submit]:hover {
 		  table = document.getElementById("myTable");
 		  tr = table.getElementsByTagName("tr");
 		  for (i = 0; i < tr.length; i++) {
-		    td = tr[i].getElementsByTagName("td")[2];
+		    td = tr[i].getElementsByTagName("td")[1];
 		    if (td) {
 		      txtValue = td.textContent || td.innerText;
 		      if (txtValue.toUpperCase().indexOf(filter) > -1) {
