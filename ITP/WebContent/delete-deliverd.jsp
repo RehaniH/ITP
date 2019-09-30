@@ -9,7 +9,7 @@ Connection conn = DriverManager.getConnection("jdbc:mysql://localhost/store", "r
 Statement st=conn.createStatement();
 int j=st.executeUpdate("INSERT INTO deliverd SELECT * FROM details WHERE id="+id);
 int i=st.executeUpdate("DELETE FROM details WHERE id="+id);
-out.println("Data Deleted Successfully!");
+out.println("Order Deliverd Successfully!");
 }
 catch(Exception e)
 {
