@@ -74,7 +74,7 @@ public class PurchaseAddressServlet extends HttpServlet {
 		String dStreet = request.getParameter("street"); 
 		String dCity = request.getParameter("city"); 
 		String dDistrict = request.getParameter("district"); 
-		String email = request.getParameter("tele");
+		String email = request.getParameter("email");
 		try {
 			int dPostalCode = Integer.parseInt(request.getParameter("postal")); 
 			String dtelephone = request.getParameter("tele"); 
@@ -145,8 +145,8 @@ public class PurchaseAddressServlet extends HttpServlet {
 			e.printStackTrace();
 		}
 		
-		request.setAttribute("customer", "redirect");
-		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/DirectServlet");
+		//request.setAttribute("customer", "redirect");
+		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/paymentgateway.jsp");
 		dispatcher.forward(request, response);
 	}
 

@@ -28,28 +28,28 @@
     <body>
 
 	<div class="form-wrap">	
-		<form method="GET">
+		<form action="PurchaseAddressServlet" method="post">
             
                 <h1>YOUR INFORMATION</h1>
 		<h2>PURCHASE DELIVERY ADDRESS</h2>
-		<input type="text" placeholder="Social Status" required>
-                <input type="text" placeholder="First Name" required>
-                <input type="text" placeholder="Last Name" required>
-                <input type="text" placeholder="Address Line 1" required>
-                <input type="text" placeholder="Address Line 2" required>
-                <input type="text" placeholder="City" required>
-                <input type="text" placeholder="District" required>
-                <input type="number" placeholder="Postal Code" required>
-                <input type="number" placeholder="Telephone Number" required>
-                <input type="email"  placeholder="Enter your email">
+		<input type="text" name="social" placeholder="Social Status" required>
+                <input type="text" name="fname" placeholder="First Name" required>
+                <input type="text" name="lname" placeholder="Last Name" required>
+                <input type="text" name="no" placeholder="Address Line 1" required>
+                <input type="text" name="street" placeholder="Address Line 2" required>
+                <input type="text" name="city" placeholder="City" required>
+                <input type="text" name="district" placeholder="District" required>
+                <input type="number" name="postal" placeholder="Postal Code" required>
+                <input type="number" name="tele" placeholder="Telephone Number" required>
+                <input type="email" name="email"  placeholder="Enter your email">
                 
                
              
                 
-           		<button class="btn btn-primary btn-purchase" input type="submit"><a href="paymentgateway.jsp">PROCEED TO PAYMENTS</a></button>
+           		<button class="btn btn-primary btn-purchase" type="submit">PROCEED TO PAYMENTS</button>
           	   </form>
             
-            
+            <!-- <a href="paymentgateway.jsp"></a> -->
         
        
         </div>

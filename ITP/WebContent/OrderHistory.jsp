@@ -40,6 +40,7 @@
         <th>Order Date</th>
         <th>Total</th>
         <th>Order Status</th>
+        <th>Record</th>
        <!--  <th>View Reciept</th> -->
       </tr>
     </thead>
@@ -59,13 +60,24 @@
 	    	
 	    	out.print("<td>" + details.getGrandTotal() + "</td>");
 	    	out.print("<td >" + details.getOrderStatus() + "</td>");
-	    	/* out.print("<td align='right'>" +  "<input type='submit' value='Details' name='View' class='btn btn-secondary'/>"
+	    	 out.print("<form action='OrderHistoryServlet' method='post'>");
+	    	 out.print("<input type='hidden' name='id' value=" + details.getOrderId() + " />");
+	    	 out.print("<td>" +  "<input type='submit' value='Details' name='View' class='btn btn-secondary'/>"
 	    			+ "&nbsp"	+ "<input type='submit' value='Delete' name='delete' class='btn btn-dark'/>"+ "</td>");
-	    	 */
+	    	 out.print("</form");
     
    
+    %>
     
-    		
+    	<a class="tooltips" data-toggle="tooltip" data-placement="top" title="Delete">
+          <button type="submit"  style="border: 0; background: none;">
+            <i class="fa fa-trash-o" aria-hidden="true"></i>
+          </button>
+
+       </a>
+   
+    
+    <%    		
 			
 			
 			out.print("</tr>");

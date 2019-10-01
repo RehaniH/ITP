@@ -38,15 +38,16 @@
 		
 		%>
 		<form action="DeactivateCusServlet" method="post">
-		
-			<div class="form-group">
+		<div class="row">
+			<div class="form-group col-md-8">
+			<div class="form-group col-md-10">
 				<label for="email">User Name</label>
 				<input type="email" class="form-control" name="user" id="email" required/>
 				<div class="valid-feedback"></div>
 				<div class="invalid-feedback">Please enter the correct User Name.</div>
 			</div>		
 		
-			<div class="form-group">
+			<div class="form-group col-md-10">
 				<label for="oldPass">Enter Password</label>
 				<input type="password" class="form-control" name="pass1" id="oldPass" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
 				required/>
@@ -54,13 +55,22 @@
 				<div class="invalid-feedback">Please enter the correct password.</div>
 			</div>
 		
-			<div class="form-group">
+			<div class="form-group col-md-10">
 				<label for="newPass">Re enter Password</label>
 				<input type="password" class="form-control" name="pass2" id="newPass" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
 				required/>
 				<div class="valid-feedback"></div>
 				<div class="invalid-feedback">Please enter the correct password.</div>
 			</div>
+			</div>
+			
+			<div class="form-group col-md-4">
+				<img alt="product displayed" class="mx-auto d-block"
+							src="images/handshake.jpg" >
+			</div>
+			
+			</div><!-- The first row -->
+			
 			<div class="form-group">
 			<label for="">Please state the reason for leaving us before you deactivate the account.</label>
 			<div style="color:#483D8B;">

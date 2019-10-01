@@ -46,12 +46,31 @@
 
 </head>
 <body>
+<script type="text/javascript">
+function toggleSideBar(){
+	document.getElementByClass("sidenav").classList.toggle('active');
+}
+
+function myFunction(){
+	window.print();
+}
+
+</script>
 
 	<div class="sidenav">
-		  <a href="#about">About</a>
-		  <a href="#services">Services</a>
-		  <a href="#clients">Clients</a>
-		  <a href="#contact">Contact</a>
+		<div class="mybutton" onclick="toggleSideBar()">
+			<span></span>
+			<span></span>
+			<span></span>
+		</div>
+		<ul>
+		  	<li><a href="#about">DASHBOARD</a></li>
+		    <li><a href="#services">SEARCH</a></li>
+		    <li><a href="#clients">GENERATE REPORTS</a></li>
+		    <li><a href="#contact">SUPPLIER MANAGEMENT</a></li>
+		    <li><a href="CustomerMDashboard.jsp">GENERATE REPORT</a></li>
+		    </li>
+		  </ul>
 	</div>
 
 	<div class="main">
@@ -70,6 +89,15 @@
 		}
 	%>
 	
+	<form  action="CustomerMDashboard.jsp">
+	
+		<div class="d-flex justify-content-end mb-3">
+			<button type="submit" class="btn btn-success" style="left:700px;" value="Generate Report">Generate Report</button>
+		</div>
+	</form>
+	<div class="d-flex justify-content-end mb-3">
+		<button class="btn btn-success" onclick="myFunction()">Print this page</button>
+	</div>
 	<div class="container" style="margin-bottom:100px;">
 		
 		<div class="form-group">

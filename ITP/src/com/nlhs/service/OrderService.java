@@ -50,6 +50,70 @@ public class OrderService {
 		
 	}
 	
+	/**
+	 * @author IT18176070 Perera P.R.H
+	 */
+	
+	public ArrayList getOrderById(String id) {
+		
+		ArrayList list = new ArrayList();
+		Orders orders = null ;
+		query = "select * from orders where order_id = ?";
+		try {
+			connection = DBConnection.getConnection();
+			pre = connection.prepareStatement(query);
+			pre.setString(1, id);
+			ResultSet results = pre.executeQuery();
+			
+			while(results.next()) {
+				orders = new Orders();
+				orders.setOrderId(id);
+				System.out.println(id);
+				orders.setEmail(results.getString(2));
+				System.out.println(orders.getEmail());
+				orders.setItemId(results.getString(3));
+				orders.setpName(results.getString(4));
+				orders.setUnitPrice(results.getFloat(5));
+				orders.setQuantity(results.getInt(6));
+				orders.setpValue(results.getFloat(7));
+				list.add(orders);
+			}
+			
+			return list;
+			
+		} catch (ClassNotFoundException e) {
+			
+			e.printStackTrace();
+		} catch (SQLException e) {
+			
+			e.printStackTrace();
+		}
+		return list;
+		
+		
+	}//end method 
+	
+	public int deleteOrderReceipt(String orderId) {
+		int status = 0;
+		query = "DELETE FROM orders WHERE order_id = ?";
+		try {
+			connection = DBConnection.getConnection();
+			pre = connection.prepareStatement(query);
+			pre.setString(1, orderId);
+			status = pre.executeUpdate();
+			
+			
+		} catch (ClassNotFoundException e) {
+			
+			e.printStackTrace();
+		} catch (SQLException e) {
+			
+			e.printStackTrace();
+		}
+		return status;
+		
+		
+	}
 	
 	
 

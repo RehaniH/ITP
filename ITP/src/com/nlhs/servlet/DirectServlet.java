@@ -78,7 +78,7 @@ public class DirectServlet extends HttpServlet {
 				list = service.getDetails(userName);
 
 				request.setAttribute("Address", list);
-				RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/ShowCusAddresses.jsp");
+				RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/CustomerAddresses.jsp");
 				dispatcher.forward(request, response);
 				
 				

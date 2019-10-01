@@ -15,10 +15,13 @@
 
 <style type="text/css">
 	
+	
 	.fakeimg {
     height: 200px;
-    background: #FFA500;
-    margin-bottom: 100px;
+    border-radius: 25px;
+    margin-bottom: 80px;
+    
+    
   }
   
   input[type=submit] {
@@ -37,6 +40,14 @@ img{
 
 }
 
+input[type="submit"]{
+text-size: 50px;
+color: white;
+}
+
+
+
+
 
 </style>
 </head>
@@ -50,7 +61,7 @@ img{
 		</div>
 	</div>
 	
-	<div class="container" style="margin-top:80px" class="d-flex justify-content-center">
+	<div class="container" style="margin-top:80px;" class="d-flex justify-content-center">
 	
 	
 	<form action="DirectServlet" method="post">	
@@ -58,10 +69,10 @@ img{
 		
 		<!-- Column 1 of 1st Row -->	
 			<div class="col-md-3">
-				<div class="fakeimg">
+				<div class="fakeimg" style="background: #009688;">
 					<div class="media">
 						<img alt="details of customer" class="mx-auto d-block"
-							src="images/details.jpg" height="60px" width="60px">
+							src="images/details.jpg" height="80px" width="80px">
 						
 					</div>
 					
@@ -73,10 +84,10 @@ img{
 			
 			<!-- Column 2 of 1st Row -->	
 			<div class="col-md-3">
-				<div class="fakeimg">
+				<div class="fakeimg" style="background: #000080;">
 					<div class="media">
 						<img alt="details of customer" class="mx-auto d-block"
-							src="images/address.jpeg" height="60px" width="60px">
+							src="images/address.jpeg" height="80px" width="80px">
 					</div>
 					
 					<div class="d-flex justify-content-center">
@@ -88,10 +99,10 @@ img{
 			
 			<!-- Column 3 of 1st Row -->	
 			<div class="col-md-3">
-				<div class="fakeimg">
+				<div class="fakeimg" style="background: #ff0bc0;">
 					<div class="media">
 						<img alt="details of customer" class="mx-auto d-block"
-							src="images/history.jpeg" height="60px" width="60px">
+							src="images/history.jpeg" height="80px" width="80px">
 					</div>
 					<div class="d-flex justify-content-center">
 						<input type="submit" name="orderHistory" value="Order History">
@@ -100,6 +111,10 @@ img{
 				</div>
 			</div>
 			
+			<div class="col-md-3">
+			<img alt="details of customer" class="mx-auto d-block"
+							src="productImages/brilliantWhite.jpg" >
+			</div>
 			
 		</div>
 		
@@ -110,10 +125,10 @@ img{
 		
 		<!-- Column 1 of 2nd Row -->
 			<div class="col-md-3">
-				<div class="fakeimg">
+				<div class="fakeimg" style="background: #FFA500;">
 					<div class="media">
 						<img alt="details of customer" class="mx-auto d-block"
-							src="images/creditSlips.jpeg" height="60px" width="60px">
+							src="images/creditSlips.jpeg" height="80px" width="80px">
 					</div>
 					
 					<div class="d-flex justify-content-center">
@@ -126,10 +141,10 @@ img{
 			
 			<!-- Column 2 of 2nd Row -->
 			<div class="col-md-3">
-				<div class="fakeimg">
+				<div class="fakeimg" style="background: #00CED1;">
 					<div class="media">
 						<img alt="details of customer" class="mx-auto d-block"
-							src="images/settings.jpeg" height="60px" width="60px">
+							src="images/settings.jpeg" height="80px" width="80px">
 					</div>
 					<div class="d-flex justify-content-center">
 						<input type="submit" name="settings" value="Settings">
@@ -140,13 +155,13 @@ img{
 			</div>
 			
 			<!-- Column 3 of 2nd Row -->
-			<div class="col-md-3">
-				<div class="fakeimg">
+			<div class="col-md-3" >
+				<div class="fakeimg" style="background: #191970;">
 					<div class="media">
 						<img alt="details of customer" class="mx-auto d-block"
-							src="images/orderHistory.jpeg" height="60px" width="60px">
+							src="images/orderHistory.jpeg" height="80px" width="80px">
 					</div>
-					<div class="d-flex justify-content-center">
+					<div class="d-flex justify-content-center" >
 						<input type="submit" name="cTerms" value="Terms and Conditions">
 					</div>
 				
@@ -154,6 +169,12 @@ img{
 				</div>
 			</div>
 			
+			
+			<div class="col-md-3" >
+				<div class="d-flex justify-content-center" >
+					<a href="homePage.jsp" style="align:center; text-size:25px; text-decoration:none;">Continue Shopping</a>
+				</div>
+			</div>
 		
 		
 		</div>
@@ -161,9 +182,11 @@ img{
 		</form>
 		
 		<div class="d-flex justify-content-end mb-3">
-				<input type="button" value="Chat" class="btn btn-success" name=""/>
-			</div>
+			<button  class="btn btn-success"><a href="http://localhost:2019/memeChat.html">Chat</a></button>
+		</div>
 	</div>
+	
+	<jsp:include page="/footer.jsp"></jsp:include>
 
 </body>
 </html>
