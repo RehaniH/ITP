@@ -1,6 +1,7 @@
 package com.nlhs.servlet;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 
 import javax.servlet.RequestDispatcher;
@@ -11,6 +12,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.nlhs.model.Orders;
+import com.nlhs.service.OrderDetailsService;
 import com.nlhs.service.OrderService;
 
 /**
@@ -44,18 +46,44 @@ public class OrderHistoryServlet extends HttpServlet {
 		ArrayList list = new ArrayList();
 		Orders or = new Orders();
 		OrderService  service  = new OrderService();
-		if(request.getParameter("Details") != null) {
+		OrderDetailsService dservice = new OrderDetailsService();
+		if(request.getParameter("View") != null) {
 			
 			if(request.getParameter("id") != null) {
-				list = service.getOrderById(request.getParameter("id"));
+				
+				String orderId = request.getParameter("id");
+				ArrayList dList = dservice.getOrderDetailById(orderId);
+				list = service.getOrderById(orderId);
+				
 				request.setAttribute("Reciept", list);
+				request.setAttribute("Details", dList);
 				RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/HistoryReciept.jsp");
 				dispatcher.forward(request, response);
-				System.out.println("Here I am 3");
+				
 				
 			}
-		}else if(request.getParameter("Delete") != null) {
-			
+		}else if(request.getParameter("delete") != null) {
+				if(request.getParameter("id") != null) {
+				
+					String orderId = request.getParameter("id");
+					int status = dservice.deleteRecord(orderId);
+					if(status == 0) {
+						PrintWriter out = response.getWriter();
+						out.println("<script type=\"text/javascript\">");
+						out.println("alert('Order cannot be deleted since not in delivered state');");
+						 out.println("location='profile.jsp';");
+						 out.println("</script>");
+					}else {
+						service.deleteOrderReceipt(orderId);
+						PrintWriter out = response.getWriter();
+						out.println("<script type=\"text/javascript\">");
+						out.println("alert('Order deleted');");
+						 out.println("location='profile.jsp';");
+						 out.println("</script>");
+						
+					}
+						
+				}
 		}
 		
 		
