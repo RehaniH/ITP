@@ -4,7 +4,7 @@
 <%@page import="com.nlhs.model.Deactivated" %>
 <%@page import="java.util.ArrayList" %>
 <!DOCTYPE html>
-<html>
+<html><!-- IT18176070: Perera P.R.H -->
 <head>
 <meta charset="ISO-8859-1">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -367,6 +367,6 @@ function myFunction(){
 	</table>
 	</div>
 	</div>
-
+<jsp:include page="/footer.jsp"></jsp:include>
 </body>
 </html>

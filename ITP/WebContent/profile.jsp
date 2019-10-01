@@ -2,7 +2,7 @@
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <html>
-<head>
+<head><!-- IT18176070: Perera P.R.H -->
 <meta charset="ISO-8859-1">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Customer Profile</title>
@@ -61,7 +61,7 @@ color: white;
 		</div>
 	</div>
 	
-	<div class="container" style="margin-top:80px;" class="d-flex justify-content-center">
+	<div class="container" style="margin-top:80px; margin-bottom:50px;" class="d-flex justify-content-center">
 	
 	
 	<form action="DirectServlet" method="post">	
@@ -175,6 +175,7 @@ color: white;
 					<a href="homePage.jsp" style="align:center; text-size:25px; text-decoration:none;">Continue Shopping</a>
 				</div>
 			</div>
+			
 		
 		
 		</div>
@@ -182,7 +183,13 @@ color: white;
 		</form>
 		
 		<div class="d-flex justify-content-end mb-3">
-			<button  class="btn btn-success"><a href="http://localhost:2019/memeChat.html">Chat</a></button>
+			<a href="http://localhost:2019/memeChat.html"><button  class="btn btn-success">Chat</button></a>
+		</div>
+		<div class="col-md-3" >
+		<div class="d-flex justify-content-center" >
+					<a href="index.jsp" style="text-size:25px; text-decoration:none;"><button class="btn btn-info">Logout
+			</button></a>
+		</div>	
 		</div>
 	</div>
 	

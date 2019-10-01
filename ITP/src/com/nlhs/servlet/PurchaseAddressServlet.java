@@ -94,10 +94,17 @@ public class PurchaseAddressServlet extends HttpServlet {
 			purchase.setDelivery(dIsDelivery);
 			purchase.setEmail(userName);
 			
-			if(service.getExistance(userName)) 
+			if(service.getExistance(userName, dIsBilling, dIsDelivery)) 
 				service.UpdateAddress(purchase, userName);
-			else
+			else {
 				service.addAddress(purchase, userName);
+				dIsBilling = true;
+				dIsDelivery = false;
+				purchase.setBilling(dIsBilling);
+				purchase.setDelivery(dIsDelivery);
+				service.addAddress(purchase, userName);
+			}
+				
 			
 			float deliveryCharges = 400f;
 				

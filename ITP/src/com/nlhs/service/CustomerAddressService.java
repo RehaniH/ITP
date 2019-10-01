@@ -1,5 +1,7 @@
 package com.nlhs.service;
-
+/**
+ * @author IT18176070 Perera P.R.H
+ */
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -367,7 +369,7 @@ public class CustomerAddressService {
 	 * @param userName
 	 * @return
 	 */
-	public boolean getExistance(String userName) {
+	public boolean getExistance(String userName, boolean isBilling, boolean isDelivery) {
 		
 		int num = 0;
 		
@@ -376,8 +378,8 @@ public class CustomerAddressService {
 		try {
 			conn =DBConnection.getConnection();
 			statement = conn.prepareStatement(query);
-			statement.setBoolean(1, false);
-			statement.setBoolean(2, true);
+			statement.setBoolean(1, isBilling);
+			statement.setBoolean(2, isDelivery);
 			statement.setString(3, userName);
 			ResultSet results = statement.executeQuery();
 			

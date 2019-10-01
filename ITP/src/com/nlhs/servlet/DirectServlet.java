@@ -1,5 +1,9 @@
 package com.nlhs.servlet;
-
+/**
+ * 
+ * @author IT18176070 P.R.H Perera
+ *
+ */
 import java.io.IOException;
 import java.util.ArrayList;
 
@@ -14,7 +18,7 @@ import javax.servlet.http.HttpSession;
 import com.nlhs.model.CustomerAddress;
 import com.nlhs.service.CustomerAddressService;
 import com.nlhs.service.OrderDetailsService;
-//import com.nlhs.service.OrderDetailsService;
+
 
 /**
  * Servlet implementation class DirectServlet
@@ -76,10 +80,15 @@ public class DirectServlet extends HttpServlet {
 			
 			if (service.getDetails(userName) != null) {
 				list = service.getDetails(userName);
-
-				request.setAttribute("Address", list);
-				RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/CustomerAddresses.jsp");
-				dispatcher.forward(request, response);
+				 if(list.isEmpty()) {
+					 RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/CustomerAddresses.jsp");
+					 dispatcher.forward(request, response);
+				 }else {
+					 request.setAttribute("Address", list);
+					 RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/ShowCusAddresses.jsp");
+					 dispatcher.forward(request, response);
+				 }
+				
 				
 				
 			} else {
@@ -124,6 +133,9 @@ public class DirectServlet extends HttpServlet {
 				// website
 		if (request.getParameter("cTerms") != null) {
 			RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/termsAndConditions.jsp");
+			dispatcher.forward(request, response);
+		}else {
+			RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/profile.jsp");
 			dispatcher.forward(request, response);
 		}
 

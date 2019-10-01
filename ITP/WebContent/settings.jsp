@@ -6,7 +6,7 @@
 <meta charset="ISO-8859-1">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Settings</title>
-
+<!-- IT18176070: Perera P.R.H -->
 <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css" >
 <script src="bootstrap/js/bootstrap.min.js" ></script>
 <script src="bootstrap/js/jquery-3.3.1.slim.min.js" ></script>
@@ -103,7 +103,11 @@
 			</div>
 		</form>
 	
-	
+		<form action="DirectServlet" method="post">
+		 	<div >
+				<input type="submit" value="Back" class="btn btn-info" style="left:50px;" />
+			</div>
+		</form>
 	</div>
 
 </body>

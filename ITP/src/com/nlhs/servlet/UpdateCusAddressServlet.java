@@ -1,5 +1,9 @@
 package com.nlhs.servlet;
-
+/**
+ * 
+ * @author IT18176070 P.R.H Perera
+ *
+ */
 import java.io.IOException;
 
 import javax.servlet.RequestDispatcher;
@@ -56,7 +60,7 @@ public class UpdateCusAddressServlet extends HttpServlet {
 		String no ,city;
 		String street, district;
 		
-		System.out.println(fname);
+		
 		no = request.getParameter("no");
 		street = request.getParameter("street");
 		city = request.getParameter("city");

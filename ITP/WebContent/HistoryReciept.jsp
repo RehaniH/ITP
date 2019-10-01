@@ -5,7 +5,7 @@
 <%@ page import="java.util.*" %>
 <!DOCTYPE html>
 <html>
-<head>
+<head><!-- IT18176070: Perera P.R.H -->
 <meta charset="ISO-8859-1">
 <title>Receipt </title>
 <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css" >
@@ -214,6 +214,12 @@
 		
 	}
 %>
-
+<div class="container">
+	<form action="DirectServlet" method="post">
+		 	<div >
+				<input type="submit" value="Back" class="btn btn-info" style="left:50px;" />
+			</div>
+		</form>
+</div>
 </body>
 </html>

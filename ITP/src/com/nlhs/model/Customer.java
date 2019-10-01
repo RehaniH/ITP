@@ -1,5 +1,9 @@
 package com.nlhs.model;
-
+/**
+ * 
+ * @author IT18176070
+ *
+ */
 public class Customer {
 
 	private String email;

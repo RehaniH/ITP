@@ -2,7 +2,7 @@
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <html>
-<head>
+<head><!-- IT18176070: Perera P.R.H -->
 <meta charset="ISO-8859-1">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Insert title here</title>
@@ -137,12 +137,18 @@
 							src="productImages/holder.jpg" >
 				</div>
 		</div><!-- End of the row -->
-		
+		<form action="DirectServlet" method="post">
+		 	<div >
+				<input type="submit" value="Back" class="btn btn-info" name="Passwords" style="left:50px;" />
+			</div>
+		</form>
 		</div><!-- End of the row in second form -->
-	</div>
+		
 	
 	
 	
 	
+	
+		
 </body>
 </html>

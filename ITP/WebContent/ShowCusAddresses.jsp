@@ -4,7 +4,7 @@
 <%@page import="java.util.ArrayList" %>
 <!DOCTYPE html>
 <html>
-<head>
+<head><!-- IT18176070: Perera P.R.H -->
 <meta charset="ISO-8859-1">
 <title>Saved Address</title>
 <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css" >
@@ -13,6 +13,7 @@
 <script src="bootstrap/js/popper.min.js" ></script>
 </head>
 <body>
+
 		<div class="jumbotron" >
 			<div class="container">
 				<h2 class="display-4" >
@@ -153,6 +154,12 @@
 	<% 		}
 		} %>
 	</form>
+	
+	<form action="DirectServlet" method="post">
+		 	<div >
+				<input type="submit" value="Back" class="btn btn-info" style="left:50px;" />
+			</div>
+		</form>
 </div>
 
 </body>

@@ -35,7 +35,7 @@
 <link href="MCSS/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
 <link href="MCSS/url.css" rel="stylesheet" type="text/css">
 </head>
-<body>
+<body><!-- IT18176070: Perera P.R.H -->
 <%
 String str="pdf";
 

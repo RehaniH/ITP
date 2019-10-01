@@ -3,7 +3,7 @@
 <%@page import="com.nlhs.model.CustomerAddress" %>
 <%@page import="java.util.ArrayList" %>
 <!DOCTYPE html>
-<html>
+<html><!-- IT18176070: Perera P.R.H -->
 <head>
 <meta charset="ISO-8859-1">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -371,6 +371,12 @@ function getAddress(){
 		
 	
 </form>
+<form action="DirectServlet" method="post">
+		 	<div >
+				<input type="submit" value="Back" class="btn btn-info"  style="left:50px;" />
+			</div>
+</form>
+
 </div>
 	
 

@@ -39,7 +39,11 @@
 		<div>
 			<h4>Redeem Credit Slips</h4>
 		</div>
-		
+		<form action="DirectServlet" method="post">
+		 	<div >
+				<input type="submit" value="Back" class="btn btn-info" style="left:50px;" />
+			</div>
+		</form>
 		
 	
 	</div>
