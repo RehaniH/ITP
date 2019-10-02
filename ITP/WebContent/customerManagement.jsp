@@ -64,10 +64,10 @@ function myFunction(){
 			<span></span>
 		</div>
 		<ul>
-		  	<li><a href="#about">DASHBOARD</a></li>
-		    <li><a href="#services">SEARCH</a></li>
-		    <li><a href="#clients">GENERATE REPORTS</a></li>
-		    <li><a href="#contact">SUPPLIER MANAGEMENT</a></li>
+		  	<li><a href="AdminDashboard.jsp">DASHBOARD</a></li>
+		    <li><a href="inventoryManagement.jsp">INVENTORY MANAGEMENT</a></li>
+		    <li><a href="returnsupplier.jsp">SUPPLIER RETURNS</a></li>
+		    <li><a href="ListSuppliers.jsp">SUPPLIER MANAGEMENT</a></li>
 		    <li><a href="CustomerMDashboard.jsp">GENERATE REPORT</a></li>
 		    </li>
 		  </ul>
