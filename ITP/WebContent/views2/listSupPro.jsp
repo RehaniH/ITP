@@ -28,6 +28,37 @@
  		 	    font-style: normal;
  		 	    
 					}
+					.sbox{
+					border: 1px solid black;
+					border-radius: 30px;
+					background: transparent;
+					color: black;
+					padding:5px;
+					padding-left: 10px;
+					
+					}
+					.sbox{
+					border: 1px solid black;
+					border-radius: 30px;
+					background: transparent;
+					color: black;
+					padding:5px;
+					padding-left: 10px;
+					
+					}
+					.sbtn{
+					border: 1px solid white;
+					border-radius: 30px;
+					background:#48bd48;
+					color: white;
+					width:100px;
+					padding:5px;
+				
+					}
+					.serch{
+					margin-left: 30%;
+					margin-top: 50px;
+					}
 			</style>
 			
 
@@ -36,11 +67,12 @@
 </head>
 <body>
 		
-		 <form action="SearchSupPro.jsp" method="post">
-						  Search  Here <input type="search" name="id"><br>
-						  <input type="submit" name="submit" value="submit">
+		 <form action="views2/SearchSupPro.jsp"   method="post" class="serch">
+						  Search  Here <input type="search" class="sbox" name="id">
+						  <input type="submit" class="sbtn" name="submit" value="submit">
 						</form>
-  
+  		<br>
+  		<a href="Sup_Pro_Report.jsp" style="margin-left: 40%;"><button>Generate Report</button></a>
 		
 		
 		<h1>SUPPLIER   PROFILE</h1><br><br>

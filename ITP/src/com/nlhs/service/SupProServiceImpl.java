@@ -218,8 +218,7 @@ public class SupProServiceImpl implements SupProService{
 				  }
 			   }	
 			}
-			return getSupProByID(SupProId);
-		
+			return getSupProByID(SupProId);		
 	}
 
 	@Override

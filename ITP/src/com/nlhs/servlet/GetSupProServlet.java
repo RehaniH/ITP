@@ -53,7 +53,8 @@ public class GetSupProServlet extends HttpServlet {
 		SupPro supPro = supProService.getSupProByID(supProId);
 		
 		request.setAttribute("SupPro", supPro );
-		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/views2/UpdateSupPro.jsp");		
+		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/views2/UpdateSupPro.jsp");	
+		
 		dispatcher.forward(request, response);
 	}
 

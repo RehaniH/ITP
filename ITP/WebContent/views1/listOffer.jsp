@@ -22,18 +22,51 @@
         <meta charset="ISO-8859-1">
         
  
+        <style type="text/css">
         
+        .sbox{
+					border: 1px solid black;
+					border-radius: 30px;
+					background: transparent;
+					color: black;
+					padding:5px;
+					padding-left: 10px;
+					
+					}
+					.sbox{
+					border: 1px solid black;
+					border-radius: 30px;
+					background: transparent;
+					color: black;
+					padding:5px;
+					padding-left: 10px;
+					
+					}
+					.sbtn{
+					border: 1px solid white;
+					border-radius: 30px;
+					background:#48bd48;
+					color: white;
+					width:100px;
+					padding:5px;
+				
+					}
+					.serch{
+					margin-left: 30%;
+					margin-top: 50px;
+					}
+        </style>
         
 <title>New Lanka Hardware store</title>
 </head>
 <body>
 
-						  <form action="SearchOffer.jsp" method="post">
-						  Search  Here <input type="search" name="id"><br>
-						  <input type="submit" name="submit" value="submit">
-						</form>
+						  <form action="views1/SearchOffer.jsp" class="serch"  method="post">
+						  Search  Here <input type="search" name="id" class="sbox">
+						  <input type="submit" name="submit"  class="sbtn" value="submit">
+						</form><br>
   
- 
+  						<a href="OfferReport.jsp" style="margin-left: 40%;"><button>Generate Report</button></a>
 
 
 	<div align="center">

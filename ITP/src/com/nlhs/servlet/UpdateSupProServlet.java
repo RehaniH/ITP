@@ -44,8 +44,7 @@ public class UpdateSupProServlet extends HttpServlet {
 		doGet(request, response);
 		
 		System.out.println("Update SupPro servlet...........");
-		response.setContentType("text/html");		
-		
+		response.setContentType("text/html");	
 		SupPro supPro = new SupPro();		
 		
 		String supProId = request.getParameter("supProId");
@@ -62,7 +61,7 @@ public class UpdateSupProServlet extends HttpServlet {
 		
 		
 		SupProService supProService = new SupProServiceImpl();
-		supProService.addSupPro(supPro);
+		supProService.updateSupPro(supProId,supPro);
 		
 		//request.setAttribute("SupPro", supPro);
 		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/views2/listSupPro.jsp");

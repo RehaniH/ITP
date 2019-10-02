@@ -94,10 +94,10 @@
     		<div class="row">
     			<div class="col-md-4">
     				<div class="blog-entry ftco-animate">
-							<a href="InsertingOffer.html" class="img img-2" style="background-image: url(images/offers-image.jpg);"></a>
+							<a href="views1/InsertingOffer.html" class="img img-2" style="background-image: url(images/offers-image.jpg);"></a>
 							<div class="text text-2 pt-2 mt-3">
-								<span class="category mb-3 d-block"><a href="InsertingOffer.html">Adding Offers</a></span>
-	              <h3 class="mb-4"><a href="InsertingOffer.html">Offers I Could Give</a></h3>
+								<span class="category mb-3 d-block"><a href="views1/InsertingOffer.html">Adding Offers</a></span>
+	              <h3 class="mb-4"><a href="views1/InsertingOffer.html">Offers I Could Give</a></h3>
 	              <p class="mb-4">If you need to give offers seasonally or discounts to the products to be supplied. Offers can be add over here.</p>
 	             
 	            </div>
@@ -116,10 +116,10 @@
     			</div>
     			<div class="col-md-4">
     				<div class="blog-entry ftco-animate">
-							<a href="sup_pro.html" class="img img-2" style="background-image: url(images/addproducts-image.jpg);"></a>
+							<a href= "views2/sup_pro.html"    class="img img-2" style="background-image: url(images/addproducts-image.jpg);"></a>
 							<div class="text text-2 pt-2 mt-3">
-								<span class="category mb-3 d-block"><a href="sup_pro.html">Adding Products</a></span>
-	              <h3 class="mb-4"><a href="sup_pro.html">Adding Supplied Products</a></h3>
+								<span class="category mb-3 d-block"><a href="views2/sup_pro.html">Adding Products</a></span>
+	              <h3 class="mb-4"><a href="views2/sup_pro.html">Adding Supplied Products</a></h3>
 	              <p class="mb-4">If you need to add details of the products that you have supplied for the owner to view.You are able to keep records of the supplied products to the company over here.</p>     
 	              </div>
 	            </div>

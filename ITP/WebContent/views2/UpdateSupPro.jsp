@@ -108,9 +108,9 @@
 		</table>
 	</form>
 					
-	<table>
+	<table style="margin-left: 300px;">
 		<tr>
-			<td colspan="2">
+			<td colspan="2" style="margin-left: 100px;">
 				<form method="post" action="DeleteSupProServlet" >
 					<input type="hidden" name="supProId" value="<%=supPro.getSupProId()%>"  style="margin-bottom:-20px;"/>
 					 <input type="submit" value="Delete supplied product" name="delete-button"  class="btn btn-warning" style = "margin-left: 100px; margin-top: -55px;"/>

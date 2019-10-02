@@ -1,5 +1,3 @@
-
-
 <%@page import="java.sql.*"%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -49,7 +47,7 @@
           
 
     <tr>
-    			<th>Offer ID</th>
+    			 <th>Offer ID</th>
                 <th>Supplier ID</th>
                 <th>Start Date</th>
                 <th>Expiration Date</th>
@@ -72,7 +70,7 @@
      
      String query;
                 if (!skey.equals("")) {
-                          query="select * from  offer where offerId like '%"+skey+"%' ";  
+                          query="select * from offer where offerId like '%"+skey+"%' ";  
                     }else{
                     query="";
                 }
