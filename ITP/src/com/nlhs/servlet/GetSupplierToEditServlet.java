@@ -1,5 +1,10 @@
 package com.nlhs.servlet;
-
+/**
+ * 
+ * @author S.A.L.Witharana
+ * IT18068856
+ *
+ */
 import java.io.IOException;
 
 import javax.servlet.ServletException;
@@ -44,11 +49,7 @@ public class GetSupplierToEditServlet extends HttpServlet {
           session.setAttribute("currentSessionUser",supplier); 
           response.sendRedirect("EditSupplierProfile.jsp"); //logged-in page      		
 	
-		} 
-					
-					
-			catch (Throwable theException) 	    
-			{
+		}catch (Throwable theException){
 			     System.out.println(theException); 
 			}
 			       

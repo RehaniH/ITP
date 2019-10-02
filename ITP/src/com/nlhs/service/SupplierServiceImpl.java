@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+import com.nlhs.model.Stocks;
 import com.nlhs.model.Supplier;
 import com.nlhs.util.DBConnection;
 
@@ -451,6 +452,47 @@ public class SupplierServiceImpl implements ISupplierServices{
         
 		return getSupplierbyID(supplierID);
 	
+	}
+	
+	//Stock
+	public  Stocks getStockInformation(Stocks stock)  {
+		 statement = null;
+		 String s_id = stock.getSid();
+
+		 String detailQuery = "select * from stock where s_id='"+ s_id +  "'";
+		
+		 System.out.println("Your sid is " + s_id);   
+		 
+	    
+	    try {
+	    	
+	    	connection = new DBConnection().getConnection();
+	    	st = connection.prepareStatement(detailQuery);	
+		    rs = st.executeQuery();
+		    //st.setString(1,emailAddress);
+		    System.out.println(detailQuery); 
+		    boolean more = rs.next();
+		    
+		    if(more) {
+	
+	        String pname = rs.getString("pname");
+	     	int stocks = Integer.parseInt(rs.getString("stocks"));
+	     	String uDate = rs.getString("uDate");
+	     	
+	        System.out.println("");
+	        stock.setPname(pname);
+	        stock.setStocks(stocks);
+	        stock.setuDate(uDate);
+	        
+		    }
+	      
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	   
+		return stock;
 	}
 
 }

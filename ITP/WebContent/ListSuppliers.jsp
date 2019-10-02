@@ -4,6 +4,8 @@
 <%@page import="com.nlhs.service.ISupplierServices"%>
 <%@page import="com.nlhs.model.Supplier"%>
 <%@page import="java.util.ArrayList"%>
+<!-- S.A.L.Witharana
+     IT18068856   -->
 <!DOCTYPE html>
 <html>
 <head>
@@ -47,7 +49,7 @@
   background-image: url('/css/searchicon.png');
   background-position: 10px 10px;
   background-repeat: no-repeat;
-  width: 50%;
+  width: 40%;
   font-size: 16px;
   padding: 12px 20px 12px 40px;
   border: 1px solid #ddd;
@@ -81,7 +83,9 @@
 
    <h1>List of Suppliers</h1>
       
-  <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for names.." title="Type in a name">
+  <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for names.." title="Type in a name">  
+  <button onclick="myNewFuntion()">Print</button>
+  
        	
   <form class="edit">
        	<table id="myTable">
@@ -157,6 +161,15 @@
 		    }       
 		  }
 		}
+</script>
+<script>
+
+function myNewFuntion(){
+	
+	window.print();
+	
+}
+
 </script>
 </body>
 </html>

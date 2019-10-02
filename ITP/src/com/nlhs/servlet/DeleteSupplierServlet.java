@@ -9,11 +9,13 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import com.nlhs.service.ISupplierServices;
 import com.nlhs.service.SupplierServiceImpl;
-
-
 /**
- * Servlet implementation class DeleteSupplierServlet
+ * 
+ * @author S.A.L.Witharana
+ * IT18068856
+ *
  */
+
 @WebServlet("/DeleteSupplierServlet")
 public class DeleteSupplierServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -40,8 +42,7 @@ public class DeleteSupplierServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 				doGet(request, response);
-		        System.out.println("Delete servlet.........");
-				
+	
 				response.setContentType("text/html");
 
 				String supplierID = request.getParameter("supplierID");			

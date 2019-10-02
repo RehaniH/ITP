@@ -3,6 +3,8 @@
 <%@page import="com.nlhs.model.Supplier"%>
 <%@page import="com.nlhs.model.Stocks"%>
 <%@page import="java.util.ArrayList"%>
+<!-- S.A.L.Witharana
+     IT18068856   -->
 
 <!DOCTYPE html>
 <html lang="en">

@@ -1,5 +1,10 @@
 package com.nlhs.servlet;
-
+/**
+ * 
+ * @author S.A.L.Witharana
+ * IT18068856
+ *
+ */
 import java.io.IOException;
 
 
@@ -15,9 +20,6 @@ import javax.servlet.http.HttpSession;
 import com.nlhs.model.Supplier;
 import com.nlhs.service.SupplierServiceImpl;
 
-/**
- * Servlet implementation class SupplierProfileServlet
- */
 @WebServlet("/SupplierProfileServlet")
 public class SupplierProfileServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -30,18 +32,7 @@ public class SupplierProfileServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 	
 	}
-	    /*
-	    try {
-			supplier = SupplierServiceImpl.login(supplier);
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-	    
-	    HttpSession session = request.getSession();
-		session.setAttribute("emailAddress", "sachi9@gmail.com");
-		response.sendRedirect("SupplierProfile.jsp");
-	    */
+	 
 		
 	    
 	
@@ -64,7 +55,7 @@ public class SupplierProfileServlet extends HttpServlet {
 			     }
 				        
 			     else 
-			          response.sendRedirect("Login.jsp"); //error page 
+			          response.sendRedirect("index.jsp"); //error page 
 			} 
 					
 					

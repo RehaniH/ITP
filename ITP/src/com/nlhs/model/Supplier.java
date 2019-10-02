@@ -1,5 +1,10 @@
 package com.nlhs.model;
-
+/**
+ * 
+ * @author S.A.L.Witharana
+ * IT18068856
+ *
+ */
 public class Supplier {
 
 	private String supplierID;

@@ -43,7 +43,7 @@ public class DeleteSupplierProfileServlet extends HttpServlet {
 		ISupplierServices isupplierService = new SupplierServiceImpl();
 		isupplierService.removeSupplierProfile(emailAddress);
         System.out.println("Deleted through Profile");
-		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/Login.jsp");
+		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/index.jsp");
 		dispatcher.forward(request, response);
 	}
 

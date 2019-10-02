@@ -22,6 +22,8 @@
 <%@page import="com.lowagie.text.*"%>
 <%@page import="com.lowagie.text.pdf.*"%>
 <%@page import="com.lowagie.text.html.*"%>
+<!-- S.A.L.Witharana
+     IT18068856   -->
 <%
 
 String str="pdf";
@@ -45,19 +47,18 @@ try
     document.open();
 
     /* new paragraph instance initialized and add function write in pdf file*/
-    document.add(new Paragraph("############################################AVAILABLE STOCK LEVEL################################################\n\n"));
-    document.add(new Paragraph("---------------------------------------------------------------------------------------------------------------------------------"));
+    document.add(new Paragraph("----------------------------------------AVAILABLE STOCK LEVEL----------------------------------------------------\n\n"));
+    //document.add(new Paragraph("---------------------------------------------------------------------------------------------------------------------------------"));
     document.addCreationDate();
    
     while(rs.next())
     {
-        
-        document.add(new Paragraph("Product Name::"+rs.getString(2)+"\nAmount Of Stock::"+rs.getString(4)+"\nLast Updated ::"+rs.getString(6)+"\n\n"));
+        document.add(new Paragraph("Product ::"+rs.getString(2)+"     Amount Of Stock::"+rs.getString(4)+"      Last Updated Date::"+rs.getString(6)+"\n\n"));
         document.add(new Paragraph("----------------------------------------------------------------------------------------------------------------------------\n\n"));
     
     
     }
-    document.add(new Paragraph("---------------------------------------------------------PAGE NO::"+document.getPageNumber()+"------------------------------------------------------"));
+    document.add(new Paragraph("---------------------------------------------------------End------------------------------------------------------"));
 
     document.close(); //document instance closed
     conn.close();  //db connection close
