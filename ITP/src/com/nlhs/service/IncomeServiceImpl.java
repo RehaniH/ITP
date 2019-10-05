@@ -99,8 +99,8 @@ public class IncomeServiceImpl implements IncomeService {
 
 			while (resultSet.next()) {
 				Income income = new Income();
-				income.setDate(resultSet.getString(1));
-				income.setIncomeID(resultSet.getString(2));
+				income.setDate(resultSet.getString(2));
+				income.setIncomeID(resultSet.getString(1));
 				income.setType(resultSet.getString(3));
 				income.setValue(resultSet.getString(4));
 				

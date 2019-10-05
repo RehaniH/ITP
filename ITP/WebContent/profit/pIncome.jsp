@@ -153,11 +153,12 @@ input[type=submit]:hover {
 <body>
 	<header>
 		<div class="header">
-  				<a href="#default" class="logo">NEW LANKA HARDWARE</a>
+  				<a href="../AdminDashboard.jsp" class="logo">NEW LANKA HARDWARE</a>
   			<div class="header-right">
-    			<a class="active" href="#home">PROFIT MANAGMENT</a>
-    			<a href="#contact">INCOME</a>
-    			<a href="#about">EXPENSE</a>
+    			<a class="active" href="../ProfitMain.html">PROFIT MANAGMENT</a>
+    			<a href="../ProfitInsert.html">INSERT</a>
+    			<a href="../ProfitView.html">VIEW</a>
+    			<a href="../profitRemove.html">REMOVE</a>
   			</div>
 		</div>
 	</header>

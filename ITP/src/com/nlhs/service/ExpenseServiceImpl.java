@@ -100,8 +100,8 @@ private ArrayList<Expense> actionOnExpense(String expenseID) {
 
 		while (resultSet.next()) {
 			Expense expense = new Expense();
-			expense.setDate(resultSet.getString(1));
-			expense.setExpenseID(resultSet.getString(2));
+			expense.setDate(resultSet.getString(2));
+			expense.setExpenseID(resultSet.getString(1));
 			expense.setType(resultSet.getString(3));
 			expense.setValue(resultSet.getString(4));
 			
